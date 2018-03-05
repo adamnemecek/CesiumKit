@@ -258,7 +258,7 @@ final class FontAtlas: JSONEncodable {
         for glyph in 0..<UInt16(fontGlyphCount) {
 
             var boundingRect = CGRect()
-            CTFontGetBoundingRectsForGlyphs(parentFont, CTFontOrientation.horizontal, [glyph], &boundingRect, 1)
+            CTFontGetBoundingRectsForGlyphs(parentFont, .horizontal, [glyph], &boundingRect, 1)
 
             if (origin.x + boundingRect.maxX + glyphMargin > fWidth) {
                 origin.x = 0
@@ -285,8 +285,8 @@ final class FontAtlas: JSONEncodable {
 
             // The null rect (i.e., the bounding rect of an empty path) is problematic
             // because it has its origin at (+inf, +inf); we fix that up here
-            if glyphPathBoundingRect.equalTo(CGRect.null) {
-                glyphPathBoundingRect = CGRect.zero
+            if glyphPathBoundingRect.equalTo(.null) {
+                glyphPathBoundingRect = .zero
             }
 
             let texCoordLeft = glyphPathBoundingRect.origin.x / fWidth
@@ -573,7 +573,7 @@ final class FontAtlas: JSONEncodable {
 
             try JSON
                 .encodeAsString(JSON.object(atlasJSON))
-                .write(to: jsonURL, atomically: true, encoding: String.Encoding.utf8)
+                .write(to: jsonURL, atomically: true, encoding: .utf8)
             try Data(bytes: atlas._textureData)
                 .write(to: textureDataURL, options: [])
         } catch let error as NSError {
