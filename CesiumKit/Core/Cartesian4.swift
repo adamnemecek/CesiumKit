@@ -28,7 +28,7 @@ public struct Cartesian4 {
     fileprivate (set) internal var simdType: double4
 
     var floatRepresentation: float4 {
-        return vector_float(simdType)
+        return float4(simdType)
     }
 
     public var x: Double {
@@ -125,7 +125,7 @@ public struct Cartesian4 {
     * @returns {Number} The value of the maximum component.
     */
     public func maximumComponent() -> Double {
-        return vector_reduce_max(simdType)
+        return reduce_max(simdType)
     }
 
     /**
@@ -135,7 +135,7 @@ public struct Cartesian4 {
     * @returns {Number} The value of the minimum component.
     */
     public func minimumComponent() -> Double {
-        return vector_reduce_min(simdType)
+        return reduce_min(simdType)
     }
 
     /**
@@ -147,7 +147,7 @@ public struct Cartesian4 {
     * @returns {Cartesian4} A cartesian with the minimum components.
     */
     public func minimumByComponent(_ other: Cartesian4) -> Cartesian4 {
-        return Cartesian4(simd: vector_min(simdType, other.simdType))
+        return Cartesian4(simd: min(simdType, other.simdType))
     }
 
     /**
@@ -159,7 +159,7 @@ public struct Cartesian4 {
     * @returns {Cartesian4} A cartesian with the maximum components.
     */
     public func maximumByComponent(_ other: Cartesian4) -> Cartesian4 {
-        return Cartesian4(simd: vector_max(simdType, other.simdType))
+        return Cartesian4(simd: max(simdType, other.simdType))
     }
 
     /**
@@ -318,7 +318,7 @@ public struct Cartesian4 {
      * @returns {Cartesian4} The modified result parameter.
      */
     func absolute() -> Cartesian4 {
-        return Cartesian4(simd: vector_abs(simdType))
+        return Cartesian4(simd: abs(simdType))
     }
 
     /**

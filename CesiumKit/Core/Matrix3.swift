@@ -33,15 +33,22 @@ import simd
 * @see Matrix2
 * @see Matrix4
 */
+
+extension float3 {
+    init(_ vector: double3) {
+        self.init(Float(vector.x), Float(vector.y), Float(vector.z))
+    }
+}
+
 public struct Matrix3 {
 
     fileprivate (set) internal var simdType: double3x3
 
     var floatRepresentation: float3x3 {
         return float3x3([
-            vector_float(simdType[0]),
-            vector_float(simdType[1]),
-            vector_float(simdType[2])
+            float3(simdType[0]),
+            float3(simdType[1]),
+            float3(simdType[2])
         ])
     }
 
@@ -119,13 +126,13 @@ public struct Matrix3 {
     }
 
     public subscript (column: Int) -> Cartesian3 {
-        assert(column >= 0 && column <= 3, "column index out of range")
+        assert((0...3) ~= column, "column index out of range")
         return Cartesian3(simd: simdType[column])
     }
     /// Access to individual elements.
     public subscript (column: Int, row: Int) -> Double {
-        assert(column >= 0 && column <= 3, "column index out of range")
-        assert(row >= 0 && row <= 3, "row index out of range")
+        assert((0...3) ~= column, "column index out of range")
+        assert((0...3) ~= row, "row index out of range")
         return simdType[column][row]
     }
 

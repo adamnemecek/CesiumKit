@@ -49,16 +49,23 @@ import simd
 * @see Matrix3
 * @see Packable
 */
+
+extension float4 {
+    init(_ vector: double4) {
+        self.init(Float(vector.x), Float(vector.y), Float(vector.z), Float(vector.w))
+    }
+}
+
 public struct Matrix4 {
 
     fileprivate (set) internal var simdType: double4x4
 
     var floatRepresentation: float4x4 {
         return float4x4([
-            vector_float(simdType[0]),
-            vector_float(simdType[1]),
-            vector_float(simdType[2]),
-            vector_float(simdType[3])
+            float4(simdType[0]),
+            float4(simdType[1]),
+            float4(simdType[2]),
+            float4(simdType[3])
         ])
     }
 

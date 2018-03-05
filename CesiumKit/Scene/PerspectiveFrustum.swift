@@ -35,8 +35,8 @@ class PerspectiveFrustum: Frustum {
     * @type {Number}
     * @default undefined
     */
-    var fov = Double.nan
-    fileprivate var _fov: Double = Double.nan
+    var fov: Double = .nan
+    fileprivate var _fov: Double = .nan
 
     /**
     * Gets the angle of the vertical field of view, in radians.
@@ -53,22 +53,22 @@ class PerspectiveFrustum: Frustum {
             _fovy = newFovy
         }
     }
-    fileprivate var _fovy: Double = Double.nan
+    fileprivate var _fovy: Double = .nan
 
-    fileprivate var _sseDenominator: Double = Double.nan
+    fileprivate var _sseDenominator: Double = .nan
 
     /**
     * The aspect ratio of the frustum's width to it's height.
     * @type {Number}
     * @default undefined
     */
-    var aspectRatio = Double.nan
-    fileprivate var _aspectRatio = Double.nan
+    var aspectRatio: Double = .nan
+    fileprivate var _aspectRatio: Double = .nan
 
-    var left = Double.nan
-    var right = Double.nan
-    var top = Double.nan
-    var bottom = Double.nan
+    var left: Double = .nan
+    var right: Double = .nan
+    var top: Double = .nan
+    var bottom: Double = .nan
 
     /**
     * The distance of the near plane.
@@ -77,7 +77,7 @@ class PerspectiveFrustum: Frustum {
     */
     var near = 1.0
 
-    fileprivate var _near = Double.nan
+    fileprivate var _near: Double = .nan
 
     /**
     * The distance of the far plane.
@@ -85,28 +85,28 @@ class PerspectiveFrustum: Frustum {
     * @default 500000000.0
     */
     var far = 500000000.0
-    fileprivate var _far = Double.nan
+    fileprivate var _far: Double = .nan
 
     /**
      * Offsets the frustum in the x direction.
      * @type {Number}
      * @default 0.0
      */
-    var xOffset = 0.0;
-    fileprivate var _xOffset = Double.nan
+    var xOffset = 0.0
+    fileprivate var _xOffset: Double = .nan
 
     /**
      * Offsets the frustum in the y direction.
      * @type {Number}
      * @default 0.0
      */
-    var yOffset = 0.0;
-    fileprivate var _yOffset = Double.nan
+    var yOffset = 0.0
+    fileprivate var _yOffset: Double = .nan
 
     var _offCenterFrustum = PerspectiveOffCenterFrustum()
 
     func update() {
-        assert(fov != Double.nan && aspectRatio != Double.nan && near != Double.nan && far != Double.nan, "fov, aspectRatio, near, or far parameters are not set")
+        assert(fov != .nan && aspectRatio != .nan && near != .nan && far != .nan, "fov, aspectRatio, near, or far parameters are not set")
         if (fov != _fov ||
             aspectRatio != _aspectRatio ||
             near != _near ||

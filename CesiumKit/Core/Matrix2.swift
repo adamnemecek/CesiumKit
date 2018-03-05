@@ -27,14 +27,21 @@ import simd
  * @see Matrix3
  * @see Matrix4
  */
+
+extension float2 {
+    init(_ vector: double2) {
+        self.init(Float(vector.x), Float(vector.y))
+    }
+}
+
 public struct Matrix2 {
 
     fileprivate (set) internal var simdType: double2x2
 
     var floatRepresentation: float2x2 {
         return float2x2([
-            vector_float(simdType[0]),
-            vector_float(simdType[1]),
+            float2(simdType[0]),
+            float2(simdType[1]),
         ])
     }
 

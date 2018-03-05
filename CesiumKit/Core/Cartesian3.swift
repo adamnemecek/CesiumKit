@@ -28,7 +28,7 @@ public struct Cartesian3 {
     fileprivate (set) var simdType: double3
 
     var floatRepresentation: float3 {
-        return vector_float(simdType)
+        return float3(simdType)
     }
 
     public var x: Double {
@@ -109,7 +109,7 @@ public struct Cartesian3 {
     * @returns {Number} The value of the maximum component.
     */
     func maximumComponent() -> Double {
-        return vector_reduce_max(simdType)
+        return reduce_max(simdType)
     }
 
     /**
@@ -119,7 +119,7 @@ public struct Cartesian3 {
     * @returns {Number} The value of the minimum component.
     */
     func minimumComponent() -> Double {
-        return vector_reduce_min(simdType)
+        return reduce_min(simdType)
     }
 
     /**
@@ -131,7 +131,7 @@ public struct Cartesian3 {
     * @returns {Cartesian3} A cartesian with the minimum components.
     */
     func minimumByComponent(_ other: Cartesian3) -> Cartesian3 {
-        return Cartesian3(simd: vector_min(simdType, other.simdType))
+        return Cartesian3(simd: min(simdType, other.simdType))
     }
 
     /**
@@ -143,7 +143,7 @@ public struct Cartesian3 {
     * @returns {Cartesian3} A cartesian with the maximum components.
     */
     func maximumByComponent(_ other: Cartesian3) -> Cartesian3 {
-        return Cartesian3(simd: vector_max(simdType, other.simdType))
+        return Cartesian3(simd: max(simdType, other.simdType))
     }
 
     /**
@@ -290,7 +290,7 @@ public struct Cartesian3 {
     * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
     */
     func absolute() -> Cartesian3 {
-        return Cartesian3(simd: vector_abs(simdType))
+        return Cartesian3(simd: abs(simdType))
     }
 
     /**

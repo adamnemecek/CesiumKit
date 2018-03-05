@@ -39,9 +39,7 @@ class GlobeSurfaceTileProvider/*: QuadtreeTileProvider*/ {
     */
 
     var ready: Bool {
-        get {
             return terrainProvider.ready && (imageryLayers.count == 0 || imageryLayers[0]!.imageryProvider.ready)
-        }
     }
 
     let imageryLayers: ImageryLayerCollection

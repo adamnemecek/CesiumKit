@@ -18,7 +18,7 @@ class ImageryLayerUniformMap: NativeUniformMap {
 
     var textureDimensions: Cartesian2 {
         get {
-            return Cartesian2(simd: vector_double(_uniformStruct.textureDimensions))
+            return Cartesian2(simd: float2(_uniformStruct.textureDimensions))
         }
         set {
             _uniformStruct.textureDimensions = newValue.floatRepresentation

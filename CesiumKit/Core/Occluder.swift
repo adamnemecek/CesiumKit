@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -218,10 +219,10 @@ class Occluder {
         let occludeeRadius = occludeeBS.radius
 
         if (occludeeRadius > occluderRadius) {
-            return Visibility.full
+            return .full
         }
 
-        if (self.horizonDistance < Double.infinity) {
+        if self.horizonDistance < .infinity {
             // The camera is outside the occluder
             var tempVec = occludeePosition.subtract(occluderPosition)
             var temp = occluderRadius - occludeeRadius
@@ -234,7 +235,7 @@ class Occluder {
                 tempVec = occludeePosition.subtract(cameraPosition)
                 let cameraToOccludeeDistSqrd = tempVec.magnitudeSquared
                 if (((temp * temp) + (occludeeRadius * occludeeRadius)) < cameraToOccludeeDistSqrd) {
-                    return Visibility.none
+                    return .none
                 }
 
                 // Check to see whether the occluder is fully or partially visible
@@ -244,16 +245,16 @@ class Occluder {
                 if (temp > 0.0) {
                     // The occludee does not intersect the occluder.
                     temp = sqrt(temp) + horizonDistance
-                    return (cameraToOccludeeDistSqrd < ((temp * temp)) + (occludeeRadius * occludeeRadius)) ? Visibility.full : Visibility.partial
+                    return (cameraToOccludeeDistSqrd < ((temp * temp)) + (occludeeRadius * occludeeRadius)) ? .full : .partial
                 }
 
                 //Check to see if the occluder is fully or partially visible when the occludee DOES
                 //intersect the occluder
                 tempVec = occludeePosition.subtract(horizonPlanePosition)
-                return (tempVec.dot(horizonPlaneNormal) > -occludeeRadius) ? Visibility.partial : Visibility.full
+                return (tempVec.dot(horizonPlaneNormal) > -occludeeRadius) ? .partial : .full
             }
         }
-        return Visibility.none
+        return .none
     };
 
     /**
@@ -374,17 +375,17 @@ class Occluder {
             tempVec0.x = occluderPosition.x
             tempVec0.y = occluderPosition.y + 1.0
             tempVec0.z = occluderPosition.z + 1.0
-            tempVec1 = Cartesian3.unitX
+            tempVec1 = .unitX
         } else if majorAxis == 1 {
             tempVec0.x = occluderPosition.x + 1.0
             tempVec0.y = occluderPosition.y
             tempVec0.z = occluderPosition.z + 1.0
-            tempVec1 = Cartesian3.unitY
+            tempVec1 = .unitY
         } else {
             tempVec0.x = occluderPosition.x + 1.0
             tempVec0.y = occluderPosition.y + 1.0
             tempVec0.z = occluderPosition.z
-            tempVec1 = Cartesian3.unitZ
+            tempVec1 = .unitZ
         }
         let u = (occluderPlaneNormal.dot(tempVec0) + occluderPlaneD) / -occluderPlaneNormal.dot(tempVec1)
         return tempVec0
@@ -407,7 +408,6 @@ class Occluder {
         //vector in the occluder plane as the rotation vector
         return anyRotationVector
     }
-
 
     fileprivate func horizonToPlaneNormalDotProduct (_ occluderBS: BoundingSphere, occluderPlaneNormal: Cartesian3, occluderPlaneD: Double, anyRotationVector: Cartesian3, position: Cartesian3) -> Double? {
 

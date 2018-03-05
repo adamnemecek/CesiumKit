@@ -9,6 +9,12 @@
 import Foundation
 import MetalKit
 
+extension double2 {
+    init(_ vector: float2) {
+        self.init(Double(vector.x), Double(vector.y))
+    }
+}
+
 class FXAA {
     /**
     * @private
@@ -114,7 +120,7 @@ class FXAAUniformMap: NativeUniformMap {
 
     var step: Cartesian2 {
         get {
-            return Cartesian2(simd: vector_double(_uniformStruct.step))
+            return Cartesian2(simd: double2(_uniformStruct.step))
         }
         set {
             _uniformStruct.step = newValue.floatRepresentation

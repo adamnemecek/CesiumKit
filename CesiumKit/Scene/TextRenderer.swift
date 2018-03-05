@@ -9,6 +9,12 @@
 import Foundation
 import simd
 
+extension double4 {
+    init(_ vector: float4) {
+        self.init(Double(vector.x), Double(vector.y), Double(vector.z), Double(vector.w))
+    }
+}
+
 private struct TextUniformStruct: UniformStruct {
     var modelMatrix: float4x4 = Matrix4.identity.floatRepresentation
     var viewProjectionMatrix: float4x4 = Matrix4.identity.floatRepresentation
@@ -21,10 +27,10 @@ class TextUniformMap: NativeUniformMap {
     var modelMatrix: Matrix4 {
         get {
             return Matrix4(simd: double4x4([
-                vector_double(_uniformStruct.modelMatrix[0]),
-                vector_double(_uniformStruct.modelMatrix[1]),
-                vector_double(_uniformStruct.modelMatrix[2]),
-                vector_double(_uniformStruct.modelMatrix[3])
+                double4(_uniformStruct.modelMatrix[0]),
+                double4(_uniformStruct.modelMatrix[1]),
+                double4(_uniformStruct.modelMatrix[2]),
+                double4(_uniformStruct.modelMatrix[3])
                 ]))
         }
         set {
@@ -35,10 +41,10 @@ class TextUniformMap: NativeUniformMap {
     var viewProjectionMatrix: Matrix4 {
         get {
             return Matrix4(simd: double4x4([
-                vector_double(_uniformStruct.viewProjectionMatrix[0]),
-                vector_double(_uniformStruct.viewProjectionMatrix[1]),
-                vector_double(_uniformStruct.viewProjectionMatrix[2]),
-                vector_double(_uniformStruct.viewProjectionMatrix[3])
+                double4(_uniformStruct.viewProjectionMatrix[0]),
+                double4(_uniformStruct.viewProjectionMatrix[1]),
+                double4(_uniformStruct.viewProjectionMatrix[2]),
+                double4(_uniformStruct.viewProjectionMatrix[3])
                 ]))
         }
         set {
@@ -48,7 +54,7 @@ class TextUniformMap: NativeUniformMap {
 
     var foregroundColor: Color {
         get {
-            return Color(simd: vector_double(_uniformStruct.foregroundColor))
+            return Color(simd: double4(_uniformStruct.foregroundColor))
         }
         set {
             _uniformStruct.foregroundColor = newValue.floatRepresentation
