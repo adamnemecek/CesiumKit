@@ -21,7 +21,7 @@ class PipelineCache {
 
     fileprivate var _optimizer: GLSLOptimizer
 
-    fileprivate var _pipelines = [String: RenderPipeline]()
+    fileprivate var _pipelines: [String: RenderPipeline] = [:]
 
     var nextRenderPipelineId = 0
 
@@ -79,7 +79,7 @@ class PipelineCache {
 
         let combinedShaders = ShaderProgram.combineShaders(vertexShaderSource: vss, fragmentShaderSource: fss)
 
-        let keyword = (combinedShaders.keyword + (colorMask != nil ? colorMask!.description() : "xxxx") + (depthStencil ? "depth" : "nodepth") + (blendingState != nil ? blendingState!.description : "noblend")).md5
+        let keyword = (combinedShaders.keyword + (colorMask?.description() ?? "xxxx") + (depthStencil ? "depth" : "nodepth") + (blendingState?.description ?? "noblend")).md5
 
         if let pipeline = _pipelines[keyword] {
             //pipeline.count++
@@ -103,7 +103,7 @@ class PipelineCache {
         pipelineDescriptor.fragmentFunction = shader.metalFragmentFunction
 
         color?.pixelFormat = context.view.colorPixelFormat
-        let colorWriteMask: MTLColorWriteMask = colorMask != nil ? colorMask!.toMetal() : MTLColorWriteMask.all
+        let colorWriteMask: MTLColorWriteMask = colorMask?.toMetal() ?? .all
         color?.writeMask = colorWriteMask
         pipelineDescriptor.depthAttachmentPixelFormat = depthStencil ? .depth32Float_stencil8 : .invalid
         pipelineDescriptor.stencilAttachmentPixelFormat = depthStencil ? .depth32Float_stencil8 : .invalid
@@ -134,7 +134,7 @@ class PipelineCache {
 
     func getRenderPipeline (shaderSourceName: String, compiledMetalVertexName vertex: String, compiledMetalFragmentName fragment: String, uniformStructSize: Int, vertexDescriptor descriptor: VertexDescriptor?, colorMask: ColorMask?, depthStencil: Bool, blendingState: BlendingState? = nil) -> RenderPipeline? {
 
-        let keyword = "metal:v:" + vertex + ":f:" + fragment + (colorMask != nil ? colorMask!.description() : "xxxx") + (depthStencil ? "depth" : "nodepth") + (blendingState != nil ? blendingState!.description : "noblend")
+        let keyword = "metal:v:" + vertex + ":f:" + fragment + (colorMask?.description() ?? "xxxx") + (depthStencil ? "depth" : "nodepth") + (blendingState?.description ?? "noblend")
 
         if let pipeline = _pipelines[keyword] {
             pipeline.count += 1
@@ -157,7 +157,7 @@ class PipelineCache {
         pipelineDescriptor.fragmentFunction = shader.metalFragmentFunction
 
         color?.pixelFormat = context.view.colorPixelFormat
-        let colorWriteMask: MTLColorWriteMask = colorMask != nil ? colorMask!.toMetal() : MTLColorWriteMask.all
+        let colorWriteMask: MTLColorWriteMask = colorMask?.toMetal() ?? .all
         color?.writeMask = colorWriteMask
 
         pipelineDescriptor.depthAttachmentPixelFormat = depthStencil ? .depth32Float_stencil8 : .invalid

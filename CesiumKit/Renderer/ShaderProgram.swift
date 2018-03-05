@@ -340,13 +340,13 @@ class ShaderProgram {
             return setLegacyUniforms(map, uniformState: uniformState)
         }
 
-        return (0, false, [Texture]())
+        return (0, false, [])
     }
 
     fileprivate func setNativeUniforms (_ map: NativeUniformMap, uniformState: UniformState) -> (fragmentOffset: Int, texturesValid: Bool, textures: [Texture])
     {
         guard let buffer = map.uniformBufferProvider?.currentBuffer(uniformState.frameState.context.bufferSyncState) else {
-            return (0, false, [Texture]())
+            return (0, false, [])
         }
 
         let textures = map.uniformUpdateBlock(buffer)
@@ -357,7 +357,7 @@ class ShaderProgram {
     func setLegacyUniforms (_ map: LegacyUniformMap, uniformState: UniformState) -> (fragmentOffset: Int, texturesValid: Bool, textures: [Texture]) {
 
         guard let buffer = map.uniformBufferProvider?.currentBuffer(uniformState.frameState.context.bufferSyncState) else {
-            return (0, false, [Texture]())
+            return (0, false, [])
         }
 
         for uniform in _vertexUniforms {
