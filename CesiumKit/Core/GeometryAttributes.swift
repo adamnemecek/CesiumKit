@@ -36,9 +36,9 @@ class GeometryAttributes {
         get {
             return _attributes["position"]
         }
-        set (position) {
-            position?.name = "position"
-            _attributes["position"] = position
+        set {
+            newValue?.name = "position"
+            _attributes["position"] = newValue
         }
     }
 
@@ -56,9 +56,9 @@ class GeometryAttributes {
         get {
             return _attributes["normal"]
         }
-        set (normal) {
+        set {
             normal?.name = "normal"
-            _attributes["normal"] = normal
+            _attributes["normal"] = newValue
         }
     }
 
@@ -76,9 +76,9 @@ class GeometryAttributes {
         get {
             return _attributes["st"]
         }
-        set (st) {
-            st?.name = "st"
-            _attributes["st"] = st
+        set {
+            newValue?.name = "st"
+            _attributes["st"] = newValue
         }
     }
 
@@ -96,9 +96,9 @@ class GeometryAttributes {
         get {
             return _attributes["binormal"]
         }
-        set (binormal) {
-            binormal?.name = "binormal"
-            _attributes["binormal"] = binormal
+        set {
+            newValue?.name = "binormal"
+            _attributes["binormal"] = newValue
         }
     }
 
@@ -116,9 +116,9 @@ class GeometryAttributes {
         get {
             return _attributes["tangent"]
         }
-        set (tangent) {
-            tangent?.name = "tangent"
-            _attributes["tangent"] = tangent
+        set {
+            newValue?.name = "tangent"
+            _attributes["tangent"] = newValue
         }
     }
 
@@ -136,9 +136,9 @@ class GeometryAttributes {
         get {
             return _attributes["color"]
         }
-        set (color) {
-            color?.name = "color"
-            _attributes["color"] = color
+        set {
+            newValue?.name = "color"
+            _attributes["color"] = newValue
         }
     }
 
