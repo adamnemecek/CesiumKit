@@ -60,6 +60,10 @@ public struct Cartesian2 {
         simdType = simd
     }
 
+    init(simd: float2) {
+        simdType = .init(simd)
+    }
+    
     /**
     * Creates a Cartesian2 instance from an existing Cartesian3.  This simply takes the
     * x and y properties of the Cartesian3 and drops z.

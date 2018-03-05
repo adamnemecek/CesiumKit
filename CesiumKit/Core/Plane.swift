@@ -6,8 +6,6 @@
 //  Copyright © 2015 Test Toast. All rights reserved.
 //
 
-import Foundation
-
 /**
 * A plane in Hessian Normal Form defined by
 * <pre>
@@ -70,7 +68,6 @@ struct Plane {
     * var tangentPlane = Cesium.Plane.fromPointNormal(point, normal);
     */
     init (fromPoint point: Cartesian3, normal: Cartesian3) {
-
         let distance = -normal.dot(point)
         self = Plane(normal: normal, distance: distance)
     }
