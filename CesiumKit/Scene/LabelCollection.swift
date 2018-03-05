@@ -430,14 +430,14 @@ open class LabelCollection: Primitive {
      */
     open func add (
         _ show: Bool = true,
-        position: Cartesian3 = Cartesian3.zero,
+        position: Cartesian3 = .zero,
         text: String = "",
         font: String = "HelveticaNeue",
-        fillColor: Color = Color.White,
-        outlineColor: Color = Color.Black,
+        fillColor: Color = .White,
+        outlineColor: Color = .Black,
         style: LabelStyle = .fill,
-        pixelOffset: Cartesian2 = Cartesian2.zero,
-        eyeOffset: Cartesian3 = Cartesian3.zero,
+        pixelOffset: Cartesian2 = .zero,
+        eyeOffset: Cartesian3 = .zero,
         horizontalOrigin: HorizontalOrigin = .left,
         verticalOrigin : VerticalOrigin = .bottom,
         scale: Double = 1.0) -> Label

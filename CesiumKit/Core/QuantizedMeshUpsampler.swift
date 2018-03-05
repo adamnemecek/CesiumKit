@@ -240,7 +240,7 @@ class QuantizedMeshUpsampler {
             cartesianVertices.append(contentsOf: (0..<3).map { cartesian.floatRepresentation[$0] })
         }
 
-        let boundingSphere = BoundingSphere.fromVertices(cartesianVertices, center: Cartesian3.zero, stride: 3)
+        let boundingSphere = BoundingSphere.fromVertices(cartesianVertices, center: .zero, stride: 3)
         let orientedBoundingBox = OrientedBoundingBox(fromRectangle: childRectangle, minimumHeight: minimumHeight, maximumHeight: maximumHeight, ellipsoid: ellipsoid)
 
         let occluder = EllipsoidalOccluder(ellipsoid: ellipsoid)

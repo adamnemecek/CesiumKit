@@ -114,7 +114,7 @@ class DepthPlane {
             )
             _command = DrawCommand(
                 boundingVolume: BoundingSphere(
-                    center: Cartesian3.zero,
+                    center: .zero,
                     radius: ellipsoid.maximumRadius),
                 renderState: _rs,
                 renderPipeline: _pipeline,

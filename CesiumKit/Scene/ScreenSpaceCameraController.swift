@@ -348,7 +348,7 @@ open class ScreenSpaceCameraController {
                     movementState.startPosition = movementState.endPosition
                     movementState.endPosition = movementState.startPosition.add(movementState.motion.multiplyBy(scalar: d))
 
-                    movementState.motion = Cartesian2.zero
+                    movementState.motion = .zero
                 }
 
                 // If value from the decreasing exponential function is close to zero,
@@ -1199,7 +1199,7 @@ open class ScreenSpaceCameraController {
             let dot = p0.dot(p1)
             let axis = p0.cross(p1)
 
-            if dot < 1.0 && !axis.equalsEpsilon(Cartesian3.zero, relativeEpsilon: Math.Epsilon14) { // dot is in [0, 1]
+            if dot < 1.0 && !axis.equalsEpsilon(.zero, relativeEpsilon: Math.Epsilon14) { // dot is in [0, 1]
                 let angle = acos(dot)
                 camera.rotate(axis, angle: angle)
             }

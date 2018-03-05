@@ -177,7 +177,7 @@ class CameraEventAggregator {
             if !self._update[key]! {
                 movement.endPosition.y = movement.endPosition.y + arcLength
             } else {
-                movement.startPosition = Cartesian2.zero
+                movement.startPosition = .zero
                 movement.endPosition.x = 0.0
                 movement.endPosition.y = arcLength
                 self._update[key] = false

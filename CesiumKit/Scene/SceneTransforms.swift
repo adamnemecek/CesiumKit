@@ -67,7 +67,7 @@ struct SceneTransforms {
     * }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
     */
     static func wgs84ToWindowCoordinates (_ scene: Scene, position: Cartesian3) -> Cartesian2? {
-        return SceneTransforms.wgs84WithEyeOffsetToWindowCoordinates(scene, position: position, eyeOffset: Cartesian3.zero)
+        return SceneTransforms.wgs84WithEyeOffsetToWindowCoordinates(scene, position: position, eyeOffset: .zero)
     }
 
 

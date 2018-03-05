@@ -26,7 +26,7 @@ struct BoundingSphere: BoundingVolume {
     * @type {Cartesian3}
     * @default {@link Cartesian3.ZERO}
     */
-    var center: Cartesian3 = Cartesian3.zero
+    var center: Cartesian3 = .zero
 
     /**
     * The radius of the sphere.
@@ -35,7 +35,7 @@ struct BoundingSphere: BoundingVolume {
     */
     var radius: Double = 0.0
 
-    init (center: Cartesian3 = Cartesian3.zero, radius: Double = 0.0) {
+    init (center: Cartesian3 = .zero, radius: Double = 0.0) {
         self.center = center
         self.radius = radius
     }
@@ -284,7 +284,7 @@ struct BoundingSphere: BoundingVolume {
     var fromPointsMaxBoxPt = new Cartesian3();
     var fromPointsNaiveCenterScratch = new Cartesian3();*/
 
-    static func fromVertices(_ positions: [Float], center: Cartesian3 = Cartesian3.zero, stride increment: Int = 3) -> BoundingSphere {
+    static func fromVertices(_ positions: [Float], center: Cartesian3 = .zero, stride increment: Int = 3) -> BoundingSphere {
 
         var result = BoundingSphere()
         if (positions.count == 0) {
@@ -465,7 +465,7 @@ BoundingSphere.fromCornerPoints = function(corner, oppositeCorner, result) {
     * var boundingSphere = Cesium.BoundingSphere.fromEllipsoid(ellipsoid);
     */
     init (ellipsoid: Ellipsoid) {
-        self.init(center: Cartesian3.zero, radius: ellipsoid.maximumRadius)
+        self.init(center: .zero, radius: ellipsoid.maximumRadius)
     }
     /*
     /**

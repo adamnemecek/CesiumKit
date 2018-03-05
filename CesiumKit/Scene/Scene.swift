@@ -234,7 +234,7 @@ open class Scene {
     fileprivate let _fxaa = FXAA()
 
 
-    var _clearColorCommand = ClearCommand(color: Cartesian4.zero/*, owner: self*/)
+    var _clearColorCommand = ClearCommand(color: .zero/*, owner: self*/)
 
     let _clearDepthCommand = ClearCommand(depth: 1.0/*, owner: self*/)
 

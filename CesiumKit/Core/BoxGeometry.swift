@@ -371,7 +371,7 @@ struct BoxGeometry {
             attributes: attributes,
             indices: indices,
             primitiveType: .triangle,
-            boundingSphere: BoundingSphere(center: Cartesian3.zero, radius: radius)
+            boundingSphere: BoundingSphere(center: .zero, radius: radius)
         )
     }
 

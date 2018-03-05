@@ -80,12 +80,12 @@ class Occluder {
         self.occluderPosition = occluderBoundingSphere.center
         self.occluderRadius = occluderBoundingSphere.radius
 
-        self.horizonDistance = Double.infinity
+        self.horizonDistance = .infinity
 
         // cameraPosition fills in the above values
         self.cameraPosition = cameraPosition
-        self.horizonPlaneNormal = Cartesian3.zero
-        self.horizonPlanePosition = Cartesian3.zero
+        self.horizonPlaneNormal = .zero
+        self.horizonPlanePosition = .zero
         updateCameraPosition()
     }
 
@@ -103,7 +103,7 @@ class Occluder {
             horizonPlanePosition = cameraPosition.add(horizonPlaneNormal.multiplyBy(scalar: nearPlaneDistance))
         }
         else {
-            horizonDistance = Double.infinity
+            horizonDistance = .infinity
         }
     }
 

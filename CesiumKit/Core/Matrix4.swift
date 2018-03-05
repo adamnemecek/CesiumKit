@@ -170,7 +170,7 @@ Matrix4.fromColumnMajorArray = function(values, result) {
 * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
 * @returns The modified result parameter, or a new Matrix4 instance if one was not provided.
 */
-    init (rotation: Matrix3, translation: Cartesian3 = Cartesian3.zero) {
+    init (rotation: Matrix3, translation: Cartesian3 = .zero) {
         self.init(
             rotation[0,0], rotation[1,0], rotation[2,0], translation.x,
             rotation[0,1], rotation[1,1], rotation[2,1], translation.y,

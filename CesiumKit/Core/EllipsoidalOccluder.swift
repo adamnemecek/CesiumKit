@@ -160,7 +160,7 @@ class EllipsoidalOccluder {
         directionToPoint: Cartesian3,
         vertices: [Float],
         stride increment: Int,
-        center: Cartesian3 = Cartesian3.zero
+        center: Cartesian3 = .zero
         ) -> Cartesian3? {
 
         let scaledSpaceDirectionToPoint = computeScaledSpaceDirectionToPoint(ellipsoid, directionToPoint: directionToPoint)

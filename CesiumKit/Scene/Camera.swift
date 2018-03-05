@@ -796,7 +796,7 @@ open class Camera: DRU {
         let localTransform = Transforms.eastNorthUpToFixedFrame(position, ellipsoid: _projection.ellipsoid)
         _setTransform(localTransform)
 
-        self.position = Cartesian3.zero
+        self.position = .zero
 
         let rotQuat = Quaternion(heading: heading - .pi / 2, pitch: pitch, roll: roll)
         let rotMat = Matrix3(quaternion: rotQuat)
@@ -815,7 +815,7 @@ open class Camera: DRU {
         let localTransform = Transforms.eastNorthUpToFixedFrame(position, ellipsoid: _projection.ellipsoid)
         _setTransform(localTransform)
 
-        self.position = Cartesian3.zero
+        self.position = .zero
 
         direction = rotation.column(0)
         up = rotation.column(2)
@@ -827,7 +827,7 @@ open class Camera: DRU {
     fileprivate func setViewCV(_ position: Cartesian3, heading: Double, pitch: Double, roll: Double, convert: Bool) {
 
         let currentTransform = transform
-        _setTransform(Matrix4.identity)
+        _setTransform(.identity)
 
         if position != positionWC {
             if (convert) {

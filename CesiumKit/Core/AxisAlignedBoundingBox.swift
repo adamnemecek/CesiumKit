@@ -42,7 +42,7 @@ struct AxisAlignedBoundingBox: Equatable {
      */
     let center: Cartesian3
 
-    init (minimum: Cartesian3 = Cartesian3.zero, maximum: Cartesian3 = Cartesian3.zero, center: Cartesian3? = nil) {
+    init (minimum: Cartesian3 = .zero, maximum: Cartesian3 = .zero, center: Cartesian3? = nil) {
 
         self.minimum = minimum
         self.maximum = maximum
