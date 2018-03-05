@@ -70,7 +70,7 @@ class UniformState {
     */
     var frameState: FrameState! = nil
 
-    fileprivate var _temeToPseudoFixed = Matrix3(fromMatrix4: Matrix4.identity)
+    fileprivate var _temeToPseudoFixed = Matrix3(fromMatrix4: .identity)
 
     // Derived members
     fileprivate var _view3DDirty = true

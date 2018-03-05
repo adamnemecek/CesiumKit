@@ -111,29 +111,13 @@ public enum UniformDataType: UInt {
 
     var elementCount: Int {
         switch self {
-        case .floatVec1:
+        case .floatVec1, .intVec1, .boolVec1:
             return 1
-        case .floatVec2:
+        case .floatVec2, .intVec2, .boolVec2:
             return 2
-        case .floatVec3:
+        case .floatVec3, .intVec3, .boolVec3:
             return 3
-        case .floatVec4:
-            return 4
-        case .intVec1:
-            return 1
-        case .intVec2:
-            return 2
-        case .intVec3:
-            return 3
-        case .intVec4:
-            return 4
-        case .boolVec1:
-            return 1
-        case .boolVec2:
-            return 2
-        case .boolVec3:
-            return 3
-        case .boolVec4:
+        case .floatVec4, .intVec4, .boolVec4:
             return 4
         case .floatMatrix2:
             return 4
