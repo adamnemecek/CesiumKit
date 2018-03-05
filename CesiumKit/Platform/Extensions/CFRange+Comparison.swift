@@ -8,8 +8,9 @@
 
 import Foundation
 
-extension CFRange: Equatable {}
-
-public func == (lhs: CFRange, rhs: CFRange) -> Bool {
-    return lhs.location == rhs.location && lhs.length == rhs.length
+extension CFRange: Equatable {
+    public static func == (lhs: CFRange, rhs: CFRange) -> Bool {
+        return lhs.location == rhs.location && lhs.length == rhs.length
+    }
 }
+
