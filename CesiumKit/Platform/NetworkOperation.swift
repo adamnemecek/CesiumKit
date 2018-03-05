@@ -52,7 +52,7 @@ class NetworkOperation: Operation {
 
     fileprivate var _privateReady: Bool = false
     override var isReady: Bool {
-    get {
+        get {
             return _privateReady
         }
         set (newAnswer) {
@@ -99,7 +99,7 @@ class NetworkOperation: Operation {
 
     var data: Data {
         if let data = _incomingData {
-           return (NSData(data: data as Data) as Data)
+            return (NSData(data: data as Data) as Data)
         }
         return Data()
     }
