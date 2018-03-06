@@ -334,7 +334,7 @@ open class TextRenderer: Primitive {
 
         let lines = (CTFrameGetLines(frame) as NSArray) as! [CTLine]
 
-        var lineOriginBuffer = [CGPoint](repeating: CGPoint(), count: lines.count)
+        var lineOriginBuffer = [CGPoint](repeating: .zero, count: lines.count)
         CTFrameGetLineOrigins(frame, entire, &lineOriginBuffer)
 
         var glyphIndexInFrame: CFIndex = 0
@@ -351,7 +351,7 @@ open class TextRenderer: Primitive {
                 var glyphBuffer = [CGGlyph](repeating: 0, count: glyphCount)
                 CTRunGetGlyphs(run, entire, &glyphBuffer);
 
-                var positionBuffer = [CGPoint](repeating: CGPoint(), count: glyphCount)
+                var positionBuffer = [CGPoint](repeating: .zero, count: glyphCount)
                 CTRunGetPositions(run, entire, &positionBuffer);
 
                 for glyphIndex in 0..<glyphCount {

@@ -256,10 +256,10 @@ open class Camera: DRU {
         return _transform
     }
 
-    fileprivate var _transform = Matrix4.identity
-    fileprivate var _invTransform = Matrix4.identity
-    fileprivate var _actualTransform = Matrix4.identity
-    fileprivate var _actualInvTransform = Matrix4.identity
+    fileprivate var _transform: Matrix4 = .identity
+    fileprivate var _invTransform: Matrix4 = .identity
+    fileprivate var _actualTransform: Matrix4 = .identity
+    fileprivate var _actualInvTransform: Matrix4 = .identity
     fileprivate var _transformChanged = false
 
 
@@ -273,10 +273,8 @@ open class Camera: DRU {
      * @default {@link Matrix4.IDENTITY}
      */
     var inverseTransform: Matrix4 {
-        get {
-            updateMembers()
-            return _invTransform
-        }
+        updateMembers()
+        return _invTransform
     }
 
     /**
@@ -310,10 +308,8 @@ open class Camera: DRU {
      * @see Camera#viewMatrix
      */
     var inverseViewMatrix: Matrix4 {
-        get {
-            updateMembers()
-            return _invViewMatrix
-        }
+        updateMembers()
+        return _invViewMatrix
     }
 
     fileprivate var _invViewMatrix = Matrix4()
@@ -442,12 +438,11 @@ open class Camera: DRU {
     }
 
     // Testing only
-    init(fakeScene: (
-        canvas: (width: Int, height: Int),
-        width: Int,
-        height: Int,
-        mapProjection: MapProjection//,
-        /* tweens = new TweenCollection();*/)) {
+    init(fakeScene: (canvas: (width: Int, height: Int),
+         width: Int,
+         height: Int,
+         mapProjection: MapProjection//,
+         /* tweens = new TweenCollection();*/)) {
 
             _projection = fakeScene.mapProjection
             _maxCoord = _projection.project(Cartographic(longitude: .pi, latitude: .pi / 2))

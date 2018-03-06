@@ -50,14 +50,14 @@ class UniformState {
     */
     fileprivate var _viewport = Cartesian4()
     fileprivate var _viewportDirty = false
-    fileprivate var _viewportOrthographicMatrix = Matrix4.identity
-    fileprivate var _viewportTransformation = Matrix4.identity
+    fileprivate var _viewportOrthographicMatrix: Matrix4 = .identity
+    fileprivate var _viewportTransformation: Matrix4 = .identity
 
-    fileprivate var _model = Matrix4.identity
-    fileprivate var _view = Matrix4.identity
-    fileprivate var _inverseView = Matrix4.identity
-    fileprivate var _projection = Matrix4.identity
-    fileprivate var _infiniteProjection = Matrix4.identity
+    fileprivate var _model: Matrix4 = .identity
+    fileprivate var _view: Matrix4 = .identity
+    fileprivate var _inverseView: Matrix4 = .identity
+    fileprivate var _projection: Matrix4 = .identity
+    fileprivate var _infiniteProjection: Matrix4 = .identity
 
     fileprivate var _entireFrustum = Cartesian2()
     fileprivate var _currentFrustum = Cartesian2()

@@ -181,12 +181,12 @@ class GeographicTilingScheme: TilingScheme {
         }
 
         var xTileCoordinate = Int(round((longitude - rectangle.west) / xTileWidth))
-        if (xTileCoordinate >= xTiles) {
+        if xTileCoordinate >= xTiles {
             xTileCoordinate = xTiles - 1
         }
 
         var yTileCoordinate = Int(round((rectangle.north - position.latitude) / yTileHeight))
-        if (yTileCoordinate >= yTiles) {
+        if yTileCoordinate >= yTiles {
             yTileCoordinate = yTiles - 1
         }
         return (x: xTileCoordinate, y: yTileCoordinate)
