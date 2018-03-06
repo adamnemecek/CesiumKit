@@ -300,7 +300,7 @@ public struct Cartesian2 {
     * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
     */
     func lerp(_ end: Cartesian2, t: Double) -> Cartesian2 {
-        return  Cartesian2(simd: mix(simdType, end.simdType, t: t))
+        return Cartesian2(simd: mix(simdType, end.simdType, t: t))
     }
 
     /**
@@ -322,16 +322,13 @@ public struct Cartesian2 {
     * @returns {Cartesian2} The most orthogonal axis.
     */
     func mostOrthogonalAxis() -> Cartesian2 {
-
         let f = normalize().absolute()
-        var result: Cartesian2
 
-        if (f.x <= f.y) {
-            result = Cartesian2.unitX
+        if f.x <= f.y {
+            return .unitX
         } else {
-            result = Cartesian2.unitY
+            return .unitY
         }
-        return result
     }
 
     func equalsArray (_ array: [Float], offset: Int) -> Bool {
