@@ -35,8 +35,8 @@ public struct Cartesian3 {
         get {
             return simdType.x
         }
-        set (new) {
-            simdType.x = new
+        set {
+            simdType.x = newValue
         }
     }
 
@@ -44,8 +44,8 @@ public struct Cartesian3 {
         get {
             return simdType.y
         }
-        set (new) {
-            simdType.y = new
+        set {
+            simdType.y = newValue
         }
     }
 
@@ -53,8 +53,8 @@ public struct Cartesian3 {
         get {
             return simdType.z
         }
-        set (new) {
-            simdType.z = new
+        set {
+            simdType.z = newValue
         }
     }
 
@@ -327,25 +327,21 @@ public struct Cartesian3 {
     * @returns {Cartesian3} The most orthogonal axis.
     */
     func mostOrthogonalAxis() -> Cartesian3 {
-
-        let f = normalize().absolute();
-        var result: Cartesian3
+        let f = normalize().absolute()
 
         if (f.x <= f.y) {
             if (f.x <= f.z) {
-                result = Cartesian3.unitX
+                return .unitX
             } else {
-                result = Cartesian3.unitZ
+                return .unitZ
             }
         } else {
             if (f.y <= f.z) {
-                result = Cartesian3.unitY
+                return .unitY
             } else {
-                result = Cartesian3.unitZ
+                return .unitZ
             }
         }
-
-        return result;
     }
 
     func equals (array: [Float], offset: Int) -> Bool {
@@ -398,7 +394,7 @@ public struct Cartesian3 {
     * @example
     * var position = Cartesian3.fromDegrees(-115.0, 37.0);
     */
-    public static func fromDegrees(longitude: Double, latitude: Double, height: Double = 0.0, ellipsoid: Ellipsoid = Ellipsoid.wgs84()) -> Cartesian3 {
+    public static func fromDegrees(longitude: Double, latitude: Double, height: Double = 0.0, ellipsoid: Ellipsoid = .wgs84) -> Cartesian3 {
 
         let lon = Math.toRadians(longitude)
         let lat = Math.toRadians(latitude)
@@ -418,7 +414,7 @@ public struct Cartesian3 {
     * @example
     * var position = Cartesian3.fromRadians(-2.007, 0.645);
     */
-    static func fromRadians(longitude: Double, latitude: Double, height: Double = 0.0, ellipsoid: Ellipsoid = Ellipsoid.wgs84()) -> Cartesian3 {
+    static func fromRadians(longitude: Double, latitude: Double, height: Double = 0.0, ellipsoid: Ellipsoid = .wgs84) -> Cartesian3 {
 
         let cosLatitude = cos(latitude);
         let n = Cartesian3(x: cosLatitude * cos(longitude), y: cosLatitude * sin(longitude), z: sin(latitude)).normalize()
@@ -464,11 +460,12 @@ public struct Cartesian3 {
 
         assert(coordinates.count <= 2 && coordinates.count % 2 == 0, "must have even number of positions")
 
-        var cartesians = [Cartesian3]()
-        for i in stride(from: 0, to: coordinates.count, by: 2) {
-            cartesians.append(Cartesian3.fromRadians(longitude: coordinates[i], latitude: coordinates[i+1], height: 0, ellipsoid: ellipsoid))
+        return stride(from: 0, to: coordinates.count, by: 2).map {
+            Cartesian3.fromRadians(longitude: coordinates[$0],
+                                   latitude: coordinates[$0+1],
+                                   height: 0,
+                                   ellipsoid: ellipsoid)
         }
-        return cartesians
     }
 
     /**
@@ -582,25 +579,23 @@ extension Cartesian3: CustomStringConvertible {
     }
 }
 
-extension Cartesian3: Equatable {}
-
-/**
-* Compares the provided Cartesians componentwise and returns
-* <code>true</code> if they are equal, <code>false</code> otherwise.
-*
-* @param {Cartesian3} [left] The first Cartesian.
-* @param {Cartesian3} [right] The second Cartesian.
-* @returns {Boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
-*/
-public func == (left: Cartesian3, right: Cartesian3) -> Bool {
-    return (left.x == right.x) && (left.y == right.y) && (left.z == right.z)
+extension Cartesian3: Equatable {
+    /**
+    * Compares the provided Cartesians componentwise and returns
+    * <code>true</code> if they are equal, <code>false</code> otherwise.
+    *
+    * @param {Cartesian3} [left] The first Cartesian.
+    * @param {Cartesian3} [right] The second Cartesian.
+    * @returns {Boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+    */
+    public static func == (left: Cartesian3, right: Cartesian3) -> Bool {
+        return (left.x == right.x) && (left.y == right.y) && (left.z == right.z)
+    }
 }
 
 extension Cartesian3: Offset {
-
     public var offset: Cartesian3 {
         return self
     }
-
 }
 

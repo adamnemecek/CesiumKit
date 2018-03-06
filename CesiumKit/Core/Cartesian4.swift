@@ -10,19 +10,19 @@ import Foundation
 import simd
 
 /**
-* A 4D Cartesian point.
-* @alias Cartesian4
-* @constructor
-*
-* @param {Number} [x=0.0] The X component.
-* @param {Number} [y=0.0] The Y component.
-* @param {Number} [z=0.0] The Z component.
-* @param {Number} [w=0.0] The W component.
-*
-* @see Cartesian2
-* @see Cartesian3
-* @see Packable
-*/
+ * A 4D Cartesian point.
+ * @alias Cartesian4
+ * @constructor
+ *
+ * @param {Number} [x=0.0] The X component.
+ * @param {Number} [y=0.0] The Y component.
+ * @param {Number} [z=0.0] The Z component.
+ * @param {Number} [w=0.0] The W component.
+ *
+ * @see Cartesian2
+ * @see Cartesian3
+ * @see Packable
+ */
 public struct Cartesian4 {
 
     fileprivate (set) internal var simdType: double4
@@ -35,8 +35,8 @@ public struct Cartesian4 {
         get {
             return simdType.x
         }
-        set (new) {
-        simdType.x = new
+        set {
+            simdType.x = newValue
         }
     }
 
@@ -44,8 +44,8 @@ public struct Cartesian4 {
         get {
             return simdType.y
         }
-        set (new) {
-            simdType.y = new
+        set {
+            simdType.y = newValue
         }
     }
 
@@ -53,8 +53,8 @@ public struct Cartesian4 {
         get {
             return simdType.z
         }
-        set (new) {
-            simdType.z = new
+        set {
+            simdType.z = newValue
         }
     }
 
@@ -62,8 +62,8 @@ public struct Cartesian4 {
         get {
             return simdType.w
         }
-        set (new) {
-            simdType.w = new
+        set {
+            simdType.w = newValue
         }
     }
 
@@ -103,13 +103,13 @@ public struct Cartesian4 {
     }
 
     /**
-    * Creates a Cartesian4 instance from a {@link Color}. <code>red</code>, <code>green</code>, <code>blue</code>,
-    * and <code>alpha</code> map to <code>x</code>, <code>y</code>, <code>z</code>, and <code>w</code>, respectively.
-    *
-    * @param {Color} color The source color.
-    * @param {Cartesian4} [result] The object onto which to store the result.
-    * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided.
-    */
+     * Creates a Cartesian4 instance from a {@link Color}. <code>red</code>, <code>green</code>, <code>blue</code>,
+     * and <code>alpha</code> map to <code>x</code>, <code>y</code>, <code>z</code>, and <code>w</code>, respectively.
+     *
+     * @param {Color} color The source color.
+     * @param {Cartesian4} [result] The object onto which to store the result.
+     * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided.
+     */
     public init (red: Double, green: Double, blue: Double, alpha: Double) {
         self.init(x: red, y: green, z: blue, w: alpha)
     }
@@ -119,122 +119,122 @@ public struct Cartesian4 {
     }
 
     /**
-    * Computes the value of the maximum component for the supplied Cartesian.
-    *
-    * @param {Cartesian4} cartesian The cartesian to use.
-    * @returns {Number} The value of the maximum component.
-    */
+     * Computes the value of the maximum component for the supplied Cartesian.
+     *
+     * @param {Cartesian4} cartesian The cartesian to use.
+     * @returns {Number} The value of the maximum component.
+     */
     public func maximumComponent() -> Double {
         return reduce_max(simdType)
     }
 
     /**
-    * Computes the value of the minimum component for the supplied Cartesian.
-    *
-    * @param {Cartesian4} cartesian The cartesian to use.
-    * @returns {Number} The value of the minimum component.
-    */
+     * Computes the value of the minimum component for the supplied Cartesian.
+     *
+     * @param {Cartesian4} cartesian The cartesian to use.
+     * @returns {Number} The value of the minimum component.
+     */
     public func minimumComponent() -> Double {
         return reduce_min(simdType)
     }
 
     /**
-    * Compares two Cartesians and computes a Cartesian which contains the minimum components of the supplied Cartesians.
-    *
-    * @param {Cartesian4} first A cartesian to compare.
-    * @param {Cartesian4} second A cartesian to compare.
-    * @param {Cartesian4} result The object into which to store the result.
-    * @returns {Cartesian4} A cartesian with the minimum components.
-    */
+     * Compares two Cartesians and computes a Cartesian which contains the minimum components of the supplied Cartesians.
+     *
+     * @param {Cartesian4} first A cartesian to compare.
+     * @param {Cartesian4} second A cartesian to compare.
+     * @param {Cartesian4} result The object into which to store the result.
+     * @returns {Cartesian4} A cartesian with the minimum components.
+     */
     public func minimumByComponent(_ other: Cartesian4) -> Cartesian4 {
         return Cartesian4(simd: min(simdType, other.simdType))
     }
 
     /**
-    * Compares two Cartesians and computes a Cartesian which contains the maximum components of the supplied Cartesians.
-    *
-    * @param {Cartesian4} first A cartesian to compare.
-    * @param {Cartesian4} second A cartesian to compare.
-    * @param {Cartesian4} result The object into which to store the result.
-    * @returns {Cartesian4} A cartesian with the maximum components.
-    */
+     * Compares two Cartesians and computes a Cartesian which contains the maximum components of the supplied Cartesians.
+     *
+     * @param {Cartesian4} first A cartesian to compare.
+     * @param {Cartesian4} second A cartesian to compare.
+     * @param {Cartesian4} result The object into which to store the result.
+     * @returns {Cartesian4} A cartesian with the maximum components.
+     */
     public func maximumByComponent(_ other: Cartesian4) -> Cartesian4 {
         return Cartesian4(simd: max(simdType, other.simdType))
     }
 
     /**
-    * Computes the provided Cartesian's squared magnitude.
-    *
-    * @param {Cartesian4} cartesian The Cartesian instance whose squared magnitude is to be computed.
-    * @returns {Number} The squared magnitude.
-    */
+     * Computes the provided Cartesian's squared magnitude.
+     *
+     * @param {Cartesian4} cartesian The Cartesian instance whose squared magnitude is to be computed.
+     * @returns {Number} The squared magnitude.
+     */
     public func magnitudeSquared() -> Double {
         return length_squared(simdType)//x * x + y * y + z * z + w * w
     }
 
     /**
-    * Computes the Cartesian's magnitude (length).
-    *
-    * @param {Cartesian4} cartesian The Cartesian instance whose magnitude is to be computed.
-    * @returns {Number} The magnitude.
-    */
+     * Computes the Cartesian's magnitude (length).
+     *
+     * @param {Cartesian4} cartesian The Cartesian instance whose magnitude is to be computed.
+     * @returns {Number} The magnitude.
+     */
     public func magnitude() -> Double {
         return length(simdType)
     }
 
     /**
-    * Computes the 4-space distance between two points.
-    *
-    * @param {Cartesian4} left The first point to compute the distance from.
-    * @param {Cartesian4} right The second point to compute the distance to.
-    * @returns {Number} The distance between two points.
-    *
-    * @example
-    * // Returns 1.0
-    * var d = Cesium.Cartesian4.distance(
-    * new Cesium.Cartesian4(1.0, 0.0, 0.0, 0.0),
-    * new Cesium.Cartesian4(2.0, 0.0, 0.0, 0.0));
-    */
+     * Computes the 4-space distance between two points.
+     *
+     * @param {Cartesian4} left The first point to compute the distance from.
+     * @param {Cartesian4} right The second point to compute the distance to.
+     * @returns {Number} The distance between two points.
+     *
+     * @example
+     * // Returns 1.0
+     * var d = Cesium.Cartesian4.distance(
+     * new Cesium.Cartesian4(1.0, 0.0, 0.0, 0.0),
+     * new Cesium.Cartesian4(2.0, 0.0, 0.0, 0.0));
+     */
     public func distance(_ other: Cartesian4) -> Double {
         return simd.distance(simdType, other.simdType)
     }
 
     /**
-    * Computes the squared distance between two points.  Comparing squared distances
-    * using this function is more efficient than comparing distances using {@link Cartesian4#distance}.
-    *
-    * @param {Cartesian4} left The first point to compute the distance from.
-    * @param {Cartesian4} right The second point to compute the distance to.
-    * @returns {Number} The distance between two points.
-    *
-    * @example
-    * // Returns 4.0, not 2.0
-    * var d = Cesium.Cartesian4.distance(
-    *   new Cesium.Cartesian4(1.0, 0.0, 0.0, 0.0),
-    *   new Cesium.Cartesian4(3.0, 0.0, 0.0, 0.0));
-    */
+     * Computes the squared distance between two points.  Comparing squared distances
+     * using this function is more efficient than comparing distances using {@link Cartesian4#distance}.
+     *
+     * @param {Cartesian4} left The first point to compute the distance from.
+     * @param {Cartesian4} right The second point to compute the distance to.
+     * @returns {Number} The distance between two points.
+     *
+     * @example
+     * // Returns 4.0, not 2.0
+     * var d = Cesium.Cartesian4.distance(
+     *   new Cesium.Cartesian4(1.0, 0.0, 0.0, 0.0),
+     *   new Cesium.Cartesian4(3.0, 0.0, 0.0, 0.0));
+     */
     public func distanceSquared (_ other: Cartesian4) -> Double {
         return distance_squared(simdType, other.simdType)
     }
 
     /**
-    * Computes the normalized form of the supplied Cartesian.
-    *
-    * @param {Cartesian4} cartesian The Cartesian to be normalized.
-    * @param {Cartesian4} result The object onto which to store the result.
-    * @returns {Cartesian4} The modified result parameter.
-    */
+     * Computes the normalized form of the supplied Cartesian.
+     *
+     * @param {Cartesian4} cartesian The Cartesian to be normalized.
+     * @param {Cartesian4} result The object onto which to store the result.
+     * @returns {Cartesian4} The modified result parameter.
+     */
     public func normalize() -> Cartesian4 {
         return Cartesian4(simd: simd.normalize(simdType))
     }
 
     /**
-    * Computes the dot (scalar) product of two Cartesians.
-    *
-    * @param {Cartesian4} left The first Cartesian.
-    * @param {Cartesian4} right The second Cartesian.
-    * @returns {Number} The dot product.
-    */
+     * Computes the dot (scalar) product of two Cartesians.
+     *
+     * @param {Cartesian4} left The first Cartesian.
+     * @param {Cartesian4} right The second Cartesian.
+     * @returns {Number} The dot product.
+     */
     public func dot(_ other: Cartesian4) -> Double {
         return simd.dot(simdType, other.simdType)
     }
@@ -322,25 +322,25 @@ public struct Cartesian4 {
     }
 
     /**
-    * Computes the linear interpolation or extrapolation at t using the provided cartesians.
-    *
-    * @param {Cartesian4} start The value corresponding to t at 0.0.
-    * @param {Cartesian4}end The value corresponding to t at 1.0.
-    * @param {Number} t The point along t at which to interpolate.
-    * @param {Cartesian4} result The object onto which to store the result.
-    * @returns {Cartesian4} The modified result parameter.
-    */
+     * Computes the linear interpolation or extrapolation at t using the provided cartesians.
+     *
+     * @param {Cartesian4} start The value corresponding to t at 0.0.
+     * @param {Cartesian4}end The value corresponding to t at 1.0.
+     * @param {Number} t The point along t at which to interpolate.
+     * @param {Cartesian4} result The object onto which to store the result.
+     * @returns {Cartesian4} The modified result parameter.
+     */
     func lerp(_ end: Cartesian4, t: Double) -> Cartesian4 {
         return Cartesian4(simd: mix(simdType, end.simdType, t: t))
     }
 
     /**
-    * Returns the axis that is most orthogonal to the provided Cartesian.
-    *
-    * @param {Cartesian4} cartesian The Cartesian on which to find the most orthogonal axis.
-    * @param {Cartesian4} result The object onto which to store the result.
-    * @returns {Cartesian4} The most orthogonal axis.
-    */
+     * Returns the axis that is most orthogonal to the provided Cartesian.
+     *
+     * @param {Cartesian4} cartesian The Cartesian on which to find the most orthogonal axis.
+     * @param {Cartesian4} result The object onto which to store the result.
+     * @returns {Cartesian4} The most orthogonal axis.
+     */
     func mostOrthogonalAxis() -> Cartesian4 {
 
         let f = normalize().absolute()
@@ -380,62 +380,62 @@ public struct Cartesian4 {
     }
 
     /**
-    * Compares the provided Cartesians componentwise and returns
-    * <code>true</code> if they pass an absolute or relative tolerance test,
-    * <code>false</code> otherwise.
-    *
-    * @param {Cartesian4} [left] The first Cartesian.
-    * @param {Cartesian4} [right] The second Cartesian.
-    * @param {Number} relativeEpsilon The relative epsilon tolerance to use for equality testing.
-    * @param {Number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
-    * @returns {Boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
-    */
+     * Compares the provided Cartesians componentwise and returns
+     * <code>true</code> if they pass an absolute or relative tolerance test,
+     * <code>false</code> otherwise.
+     *
+     * @param {Cartesian4} [left] The first Cartesian.
+     * @param {Cartesian4} [right] The second Cartesian.
+     * @param {Number} relativeEpsilon The relative epsilon tolerance to use for equality testing.
+     * @param {Number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
+     * @returns {Boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+     */
     func equalsEpsilon(_ other: Cartesian4, relativeEpsilon: Double, absoluteEpsilon: Double) -> Bool {
         return self == other ||
             (Math.equalsEpsilon(self.x, other.x, relativeEpsilon: relativeEpsilon, absoluteEpsilon: absoluteEpsilon) &&
-            Math.equalsEpsilon(self.y, other.y, relativeEpsilon: relativeEpsilon, absoluteEpsilon: absoluteEpsilon) &&
-            Math.equalsEpsilon(self.z, other.z, relativeEpsilon: relativeEpsilon, absoluteEpsilon: absoluteEpsilon) &&
-            Math.equalsEpsilon(self.w, other.w, relativeEpsilon: relativeEpsilon, absoluteEpsilon: absoluteEpsilon))
+                Math.equalsEpsilon(self.y, other.y, relativeEpsilon: relativeEpsilon, absoluteEpsilon: absoluteEpsilon) &&
+                Math.equalsEpsilon(self.z, other.z, relativeEpsilon: relativeEpsilon, absoluteEpsilon: absoluteEpsilon) &&
+                Math.equalsEpsilon(self.w, other.w, relativeEpsilon: relativeEpsilon, absoluteEpsilon: absoluteEpsilon))
     }
 
     /**
-    * An immutable Cartesian4 instance initialized to (0.0, 0.0, 0.0, 0.0).
-    *
-    * @type {Cartesian4}
-    * @constant
-    */
+     * An immutable Cartesian4 instance initialized to (0.0, 0.0, 0.0, 0.0).
+     *
+     * @type {Cartesian4}
+     * @constant
+     */
     static let zero = Cartesian4()
 
     /**
-    * An immutable Cartesian4 instance initialized to (1.0, 0.0, 0.0, 0.0).
-    *
-    * @type {Cartesian4}
-    * @constant
-    */
+     * An immutable Cartesian4 instance initialized to (1.0, 0.0, 0.0, 0.0).
+     *
+     * @type {Cartesian4}
+     * @constant
+     */
     static let unitX = Cartesian4(x: 1.0, y: 0.0, z: 0.0, w: 0.0)
 
     /**
-    * An immutable Cartesian4 instance initialized to (0.0, 1.0, 0.0, 0.0).
-    *
-    * @type {Cartesian4}
-    * @constant
-    */
+     * An immutable Cartesian4 instance initialized to (0.0, 1.0, 0.0, 0.0).
+     *
+     * @type {Cartesian4}
+     * @constant
+     */
     static let unitY = Cartesian4(x: 0.0, y: 1.0, z: 0.0, w: 0.0)
 
     /**
-    * An immutable Cartesian4 instance initialized to (0.0, 0.0, 1.0, 0.0).
-    *
-    * @type {Cartesian4}
-    * @constant
-    */
+     * An immutable Cartesian4 instance initialized to (0.0, 0.0, 1.0, 0.0).
+     *
+     * @type {Cartesian4}
+     * @constant
+     */
     static let unitZ = Cartesian4(x: 0.0, y: 0.0, z: 1.0, w: 0.0)
 
     /**
-    * An immutable Cartesian4 instance initialized to (0.0, 0.0, 0.0, 1.0).
-    *
-    * @type {Cartesian4}
-    * @constant
-    */
+     * An immutable Cartesian4 instance initialized to (0.0, 0.0, 0.0, 1.0).
+     *
+     * @type {Cartesian4}
+     * @constant
+     */
     static let unitW = Cartesian4(x: 0.0, y: 0.0, z: 0.0, w: 1.0)
 }
 
@@ -453,8 +453,8 @@ extension Cartesian4: Packable {
         self.z = array[startingIndex+2]
         self.w = array[startingIndex+3]
         /*array.withUnsafeBufferPointer { (pointer: UnsafeBufferPointer<Double>) in
-            memcpy(&self, pointer.baseAddress, Cartesian4.packedLength() * strideof(Double))
-        }*/
+         memcpy(&self, pointer.baseAddress, Cartesian4.packedLength() * strideof(Double))
+         }*/
     }
 }
 
