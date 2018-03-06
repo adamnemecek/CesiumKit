@@ -233,7 +233,7 @@ class Context {
         // Allow the renderer to preflight 3 frames on the CPU (using a semaphore as a guard) and commit them to the GPU.
         // This semaphore will get signaled once the GPU completes a frame's work via addCompletedHandler callback below,
         // signifying the CPU can go ahead and prepare another frame.
-        _ = _inflight_semaphore.wait(timeout: DispatchTime.distantFuture)
+        _ = _inflight_semaphore.wait(timeout: .distantFuture)
         assert(_drawable == nil, "drawable != nil")
         _drawable = view.currentDrawable
         if _drawable == nil {
@@ -338,7 +338,6 @@ class Context {
         } else {
             stencilAttachment?.loadAction = .dontCare
             stencilAttachment?.storeAction = .dontCare
-
         }
     }
 
@@ -374,7 +373,7 @@ class Context {
         assert(offset >= 0, "drawCommand.offset must be omitted or greater than or equal to zero")
         assert(count == nil || count! >= 0, "drawCommand.count must be omitted or greater than or equal to zero")
 
-        uniformState.model = command.modelMatrix ?? Matrix4.identity
+        uniformState.model = command.modelMatrix ?? .identity
 
         guard let renderPipeline = command.pipeline else {
             assertionFailure("no render pipeline set")

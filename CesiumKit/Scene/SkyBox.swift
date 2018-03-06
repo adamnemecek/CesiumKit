@@ -67,7 +67,7 @@ class SkyBox {
         self.sources = sources
         _cubemap = nil
         _command = DrawCommand(
-            modelMatrix: Matrix4.identity
+            modelMatrix: .identity
         )
         _command.owner = self
     }

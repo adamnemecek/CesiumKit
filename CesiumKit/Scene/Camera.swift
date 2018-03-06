@@ -50,7 +50,7 @@ open class Camera: DRU {
 
     weak var scene: Scene!
 
-    let maxRadii: Double = Ellipsoid.wgs84().maximumRadius
+    let maxRadii: Double = Ellipsoid.wgs84.maximumRadius
 
     /**
      * The position of the camera.
@@ -645,7 +645,7 @@ open class Camera: DRU {
             _invTransform = _transform.inverse
 
             if _mode == .columbusView || _mode == .scene2D {
-                if _transform.equals(Matrix4.identity) {
+                if _transform.equals(.identity) {
                     _actualTransform = transform2D
                 } else if _mode == .columbusView {
                     assert(false, "unimplemented")
@@ -850,7 +850,7 @@ open class Camera: DRU {
 
     fileprivate func setView2D(_ position: Cartesian3, convert: Bool) {
         let currentTransform = transform
-        _setTransform(Matrix4.identity)
+        _setTransform(.identity)
 
         if position != positionWC {
             if (convert) {
@@ -1714,12 +1714,12 @@ open class Camera: DRU {
             up.z = 0.0
 
             if up.magnitudeSquared < Math.Epsilon10 {
-                up = Cartesian3.unitY
+                up = .unitY
             }
 
             up = up.normalize()
 
-            _setTransform(Matrix4.identity)
+            _setTransform(.identity)
             direction = Cartesian3.unitZ.negate()
             right = direction.cross(self.up).normalize()
 
@@ -1736,7 +1736,7 @@ open class Camera: DRU {
         direction = position.negate().normalize()
         right = direction.cross(Cartesian3.unitZ).normalize()
         if right.magnitudeSquared < Math.Epsilon10 {
-            right = Cartesian3.unitX
+            right = .unitX
         }
         up = right.cross(direction).normalize()
     }

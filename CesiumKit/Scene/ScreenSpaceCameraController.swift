@@ -1056,7 +1056,7 @@ open class ScreenSpaceCameraController {
 
         let camera = _scene.camera
 
-        if camera.transform != Matrix4.identity {
+        if camera.transform != .identity {
             rotate3D(startPosition, movement: movement)
             return
         }
@@ -1309,7 +1309,7 @@ open class ScreenSpaceCameraController {
 
         let camera = _scene.camera
 
-        if camera.transform != Matrix4.identity {
+        if camera.transform != .identity {
             return
         }
 
@@ -1641,10 +1641,10 @@ open class ScreenSpaceCameraController {
 
         var transform: Matrix4? = nil
         var mag: Double = 0.0
-        if (camera.transform != Matrix4.identity) {
+        if camera.transform != .identity {
             transform = camera.transform
             mag = camera.position.magnitude
-            camera._setTransform(Matrix4.identity)
+            camera._setTransform(.identity)
         }
 
         var cartographic: Cartographic
@@ -1694,7 +1694,7 @@ open class ScreenSpaceCameraController {
             _ellipsoid = Ellipsoid.unitSphere()
         } else {
             _globe = _scene.globe
-            _ellipsoid = (_globe != nil ? _globe!.ellipsoid : _scene.mapProjection.ellipsoid)
+            _ellipsoid = _globe?.ellipsoid ?? _scene.mapProjection.ellipsoid
         }
 
         let radius = _ellipsoid.maximumRadius
@@ -1705,7 +1705,7 @@ open class ScreenSpaceCameraController {
         if mode == .scene2D {
             update2D()
         } else if mode == .columbusView {
-            _horizontalRotationAxis = Cartesian3.unitZ
+            _horizontalRotationAxis = .unitZ
             updateCV()
         } else if mode == .scene3D {
             _horizontalRotationAxis = nil

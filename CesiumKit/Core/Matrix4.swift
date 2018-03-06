@@ -279,7 +279,7 @@ Matrix4.fromTranslationQuaternionRotationScale = function(translation, rotation,
 * @see Matrix4.multiplyByTranslation
 */
     init(translation: Cartesian3) {
-        self.init(rotation: Matrix3.identity, translation: translation)
+        self.init(rotation: .identity, translation: translation)
     }
 
     /**
