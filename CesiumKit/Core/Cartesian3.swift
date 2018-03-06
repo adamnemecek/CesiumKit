@@ -329,14 +329,14 @@ public struct Cartesian3 {
     func mostOrthogonalAxis() -> Cartesian3 {
         let f = normalize().absolute()
 
-        if (f.x <= f.y) {
-            if (f.x <= f.z) {
+        if f.x <= f.y {
+            if f.x <= f.z {
                 return .unitX
             } else {
                 return .unitZ
             }
         } else {
-            if (f.y <= f.z) {
+            if f.y <= f.z {
                 return .unitY
             } else {
                 return .unitZ

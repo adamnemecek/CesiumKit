@@ -819,7 +819,7 @@ camera.viewRectangle();
             east: Math.toRadians(21.51),
             north: Math.toRadians(41.38)
         )
-        camera.viewRectangle(rectangle, ellipsoid: Ellipsoid.wgs84())
+        camera.viewRectangle(rectangle, ellipsoid: .wgs84)
         XCTAssertTrue(camera.position.equalsEpsilon(Cartesian3(x: 4481581.054168208, y: 1754494.5938935655, z: 4200573.072090136), epsilon: Math.Epsilon6), "position equality")
         XCTAssertTrue(camera.direction.equalsEpsilon(Cartesian3(x: -0.7015530983057745, y: -0.2746510892984876, z: -0.6575637074875123), epsilon: Math.Epsilon10), "direction equality")
         XCTAssertTrue(camera.up.equalsEpsilon(Cartesian3(x: -0.6123128513437499, y: -0.23971441651266895, z: 0.7533989451779698), epsilon: Math.Epsilon10), "up equality")
@@ -832,7 +832,7 @@ camera.viewRectangle();
             south: Math.toRadians(-50.0),
             east: Math.toRadians(157.0),
             north: Math.toRadians(0.0))
-        camera.viewRectangle(rectangle, ellipsoid: Ellipsoid.wgs84())
+        camera.viewRectangle(rectangle, ellipsoid: .wgs84)
         XCTAssertTrue(camera.position.equalsEpsilon(Cartesian3(x: -7210721.873278953, y: 8105929.1576369405, z: -5972336.199381728), epsilon: Math.Epsilon6), "position equality")
         XCTAssertTrue(camera.direction.equalsEpsilon(Cartesian3(x: 0.5822498554483325, y: -0.6545358652367963, z: 0.48225294913469874), epsilon: Math.Epsilon10), "direction equality")
         XCTAssertTrue(camera.up.equalsEpsilon(Cartesian3(x: -0.32052676705406324, y: 0.3603199946588929, z: 0.8760320159964963), epsilon: Math.Epsilon10), "up equality")

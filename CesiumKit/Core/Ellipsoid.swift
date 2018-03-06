@@ -85,9 +85,9 @@ public struct Ellipsoid: Equatable {
     * @type {Ellipsoid}
     * @constant
     */
-    static func wgs84() -> Ellipsoid {
-        return Ellipsoid(x: EarthEquatorialRadius, y: EarthEquatorialRadius, z: EarthPolarRadius)
-    }
+    static let wgs84 = Ellipsoid(x: EarthEquatorialRadius,
+                                 y: EarthEquatorialRadius,
+                                 z: EarthPolarRadius)
 
     /**
     * An Ellipsoid instance initialized to radii of (1.0, 1.0, 1.0).

@@ -33,7 +33,7 @@ open class TileCoordinateImageryProvider: ImageryProvider {
 
         let tilingScheme: TilingScheme = GeographicTilingScheme()
 
-        let ellipsoid: Ellipsoid = Ellipsoid.wgs84()
+        let ellipsoid: Ellipsoid = .wgs84
 
         let color = Cartesian4(red: 1.0, green: 1.0, blue: 0.0, alpha: 1.0)
 

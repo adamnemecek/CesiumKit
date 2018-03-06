@@ -140,7 +140,7 @@ open class CesiumGlobe {
     */
     open let scene: Scene
 
-    open let ellipsoid: Ellipsoid = Ellipsoid.wgs84()
+    open let ellipsoid: Ellipsoid = .wgs84
 
     var globe: Globe
 

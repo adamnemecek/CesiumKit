@@ -414,7 +414,7 @@ public struct Rectangle {
     * @param {Cartesian3[]} [result] The array of Cartesians onto which to store the result.
     * @returns {Cartesian3[]} The modified result parameter or a new Array of Cartesians instances if none was provided.
     */
-    func subsample(_ ellipsoid: Ellipsoid = Ellipsoid.wgs84(), surfaceHeight: Double = 0.0) -> [Cartesian3] {
+    func subsample(_ ellipsoid: Ellipsoid = .wgs84, surfaceHeight: Double = 0.0) -> [Cartesian3] {
 
         var result = [Cartesian3]()
 

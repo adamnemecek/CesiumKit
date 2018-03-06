@@ -45,7 +45,7 @@ class AttributeCompression {
 
         result.x = vector.x / (abs(vector.x) + abs(vector.y) + abs(vector.z))
         result.y = vector.y / (abs(vector.x) + abs(vector.y) + abs(vector.z))
-        if (vector.z < 0) {
+        if vector.z < 0 {
             let x = result.x
             let y = result.y
             result.x = (1.0 - abs(y)) * Double(Math.signNotZero(x))

@@ -43,7 +43,7 @@ struct WebMercatorProjection: MapProjection {
     */
     static let maximumLatitude: Double = WebMercatorProjection.mercatorAngleToGeodeticLatitude(.pi)
 
-    init (ellipsoid: Ellipsoid = Ellipsoid.wgs84()) {
+    init(ellipsoid: Ellipsoid = .wgs84) {
         self.ellipsoid = ellipsoid
         semimajorAxis = ellipsoid.maximumRadius
         oneOverSemimajorAxis = 1.0 / semimajorAxis
@@ -69,9 +69,9 @@ struct WebMercatorProjection: MapProjection {
     static func geodeticLatitudeToMercatorAngle(_ latitude: Double) -> Double {
         // Clamp the latitude coordinate to the valid Mercator bounds.
         var clampedLat = latitude
-        if (clampedLat > WebMercatorProjection.maximumLatitude) {
+        if clampedLat > WebMercatorProjection.maximumLatitude {
             clampedLat = WebMercatorProjection.maximumLatitude
-        } else if (clampedLat < -WebMercatorProjection.maximumLatitude) {
+        } else if clampedLat < -WebMercatorProjection.maximumLatitude {
             clampedLat = -WebMercatorProjection.maximumLatitude
         }
         let sinLatitude = sin(clampedLat);
