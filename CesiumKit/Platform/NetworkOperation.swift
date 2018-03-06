@@ -55,12 +55,12 @@ class NetworkOperation: Operation {
         get {
             return _privateReady
         }
-        set (newAnswer) {
-            if newAnswer == _privateReady {
+        set {
+            if newValue == _privateReady {
                 return
             }
             willChangeValue(forKey: "isReady")
-            _privateReady = newAnswer
+            _privateReady = newValue
             didChangeValue(forKey: "isReady")
         }
     }
@@ -70,12 +70,12 @@ class NetworkOperation: Operation {
         get {
             return _privateExecuting
         }
-        set (newAnswer) {
-            if newAnswer == _privateExecuting {
+        set {
+            if newValue == _privateExecuting {
                 return
             }
             willChangeValue(forKey: "isExecuting")
-            _privateExecuting = newAnswer
+            _privateExecuting = newValue
             didChangeValue(forKey: "isExecuting")
         }
     }
@@ -85,12 +85,12 @@ class NetworkOperation: Operation {
         get {
             return _privateFinished
         }
-        set (newAnswer) {
-            if newAnswer == _privateFinished {
+        set {
+            if newValue == _privateFinished {
                 return
             }
             willChangeValue(forKey: "isFinished")
-            _privateFinished = newAnswer
+            _privateFinished = newValue
             didChangeValue(forKey: "isFinished")
         }
     }

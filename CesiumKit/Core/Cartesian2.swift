@@ -34,8 +34,8 @@ public struct Cartesian2 {
         get {
             return simdType.x
         }
-        set (new) {
-            simdType.x = new
+        set {
+            simdType.x = newValue
         }
     }
 
@@ -43,8 +43,8 @@ public struct Cartesian2 {
         get {
             return simdType.y
         }
-        set (new) {
-            simdType.y = new
+        set {
+            simdType.y = newValue
         }
     }
 

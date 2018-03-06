@@ -172,8 +172,8 @@ class UniformState {
         get {
             return _viewport
         }
-        set (value) {
-            _viewport = value
+        set {
+            _viewport = newValue
             _viewportDirty = true
         }
     }
@@ -196,12 +196,12 @@ class UniformState {
         get {
             return _model
         }
-        set (value) {
+        set {
 
-            if _model == value {
+            if _model == newValue {
                 return
             }
-            _model = value
+            _model = newValue
 
             _modelView3DDirty = true
             _inverseModelView3DDirty = true
@@ -350,8 +350,8 @@ class UniformState {
         get {
             return _projection
         }
-        set (value) {
-            _projection = value
+        set {
+            _projection = newValue
             _inverseProjectionDirty = true
             _inverseProjectionOITDirty = true
             _viewProjectionDirty = true
@@ -365,10 +365,8 @@ class UniformState {
     * @type {Matrix4}
     */
     var inverseProjection: Matrix4 {
-        get {
-            cleanInverseProjection()
-            return _inverseProjection
-        }
+        cleanInverseProjection()
+        return _inverseProjection
     }
     /*
     /**
@@ -390,8 +388,8 @@ class UniformState {
         get {
             return _infiniteProjection
         }
-        set (value) {
-            _infiniteProjection = value
+        set {
+            _infiniteProjection = newValue
             _modelViewInfiniteProjectionDirty = true
         }
     }
@@ -401,10 +399,8 @@ class UniformState {
     * @type {Matrix4}
     */
     var modelView: Matrix4 {
-        get {
-            cleanModelView()
-            return _modelView
-        }
+        cleanModelView()
+        return _modelView
     }
 
     /**
@@ -414,10 +410,8 @@ class UniformState {
     * @type {Matrix4}
     */
     var modelView3D: Matrix4 {
-        get {
-            cleanModelView3D()
-            return _modelView3D
-        }
+        cleanModelView3D()
+        return _modelView3D
     }
     /*
     /**
@@ -438,10 +432,9 @@ class UniformState {
     * @type {Matrix4}
     */
     var inverseModelView: Matrix4 {
-        get {
-            cleanInverseModelView()
-            return _inverseModelView
-        }
+        cleanInverseModelView()
+        return _inverseModelView
+
     }
 
     /**
@@ -451,10 +444,8 @@ class UniformState {
     * @type {Matrix4}
     */
     var inverseModelView3D: Matrix4 {
-        get {
             cleanInverseModelView3D()
             return _inverseModelView3D
-        }
     }
 
     /**
@@ -849,7 +840,7 @@ class UniformState {
         setInverseView(camera.inverseViewMatrix)
         setCamera(camera)
 
-        if self.frameState.mode == SceneMode.scene2D {
+        if self.frameState.mode == .scene2D {
             _frustum2DWidth = camera.frustum.right - camera.frustum.left
             _eyeHeight2D.x = _frustum2DWidth * 0.5
             _eyeHeight2D.y = _eyeHeight2D.x * _eyeHeight2D.x
