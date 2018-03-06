@@ -375,11 +375,9 @@ open class LabelCollection: Primitive {
      this._resolutionScale = undefined;
  */
 
-    public init (
-        modelMatrix: Matrix4 = Matrix4.identity,
-        debugShowBoundingVolume: Bool = false,
-        scene: Scene
-    ) {
+    public init(modelMatrix: Matrix4 = .identity,
+                debugShowBoundingVolume: Bool = false,
+                scene: Scene) {
         self.modelMatrix = modelMatrix
         self.debugShowBoundingVolume = debugShowBoundingVolume
         self.scene = scene

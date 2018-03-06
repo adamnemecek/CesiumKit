@@ -9,23 +9,23 @@
 import Foundation
 import Metal
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
 }
 
 fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l > r
+    default:
+        return rhs < lhs
+    }
 }
 
 
@@ -123,14 +123,14 @@ open class ImageryLayer {
     let contrast: (() -> Float)
 
     /*
-    * @param {Number|Function} [options.hue=0.0] The hue of this layer.  0.0 uses the unmodified imagery color.
-    *                          This can either be a simple number or a function with the signature
-    *                          <code>function(frameState, layer, x, y, level)</code>.  The function is passed the
-    *                          current frame state, this layer, and the x, y, and level coordinates
-    *                          of the imagery tile for which the hue is required, and it is expected to return
-    *                          the contrast value to use for the tile.  The function is executed for every
-    *                          frame and for every tile, so it must be fast.
-    */
+     * @param {Number|Function} [options.hue=0.0] The hue of this layer.  0.0 uses the unmodified imagery color.
+     *                          This can either be a simple number or a function with the signature
+     *                          <code>function(frameState, layer, x, y, level)</code>.  The function is passed the
+     *                          current frame state, this layer, and the x, y, and level coordinates
+     *                          of the imagery tile for which the hue is required, and it is expected to return
+     *                          the contrast value to use for the tile.  The function is executed for every
+     *                          frame and for every tile, so it must be fast.
+     */
     let hue: (() -> Float)
 
     /**
@@ -165,17 +165,17 @@ open class ImageryLayer {
     var _show: Bool = true
 
     /*
-    * @param {Number} [options.maximumAnisotropy=maximum supported] The maximum anisotropy level to use
-    *        for texture filtering.  If this parameter is not specified, the maximum anisotropy supported
-    *        by the WebGL stack will be used.  Larger values make the imagery look better in horizon
-    *        views.
-    */
+     * @param {Number} [options.maximumAnisotropy=maximum supported] The maximum anisotropy level to use
+     *        for texture filtering.  If this parameter is not specified, the maximum anisotropy supported
+     *        by the WebGL stack will be used.  Larger values make the imagery look better in horizon
+     *        views.
+     */
     let maximumAnisotropy: Int?
 
     /*
-    * @param {Number} [options.minimumTerrainLevel] The minimum terrain level-of-detail at which to show this imagery layer,
-    *                 or undefined to show it at all levels.  Level zero is the least-detailed level.
-    */
+     * @param {Number} [options.minimumTerrainLevel] The minimum terrain level-of-detail at which to show this imagery layer,
+     *                 or undefined to show it at all levels.  Level zero is the least-detailed level.
+     */
     fileprivate let _minimumTerrainLevel: Int?
 
     /**
@@ -196,42 +196,40 @@ open class ImageryLayer {
     fileprivate var _reprojectComputeCommands = [Command]()
 
     /**
-    * Gets a value indicating whether this layer is the base layer in the
-    * {@link ImageryLayerCollection}.  The base layer is the one that underlies all
-    * others.  It is special in that it is treated as if it has global rectangle, even if
-    * it actually does not, by stretching the texels at the edges over the entire
-    * globe.
-    *
-    * @returns {Boolean} true if this is the base layer; otherwise, false.
-    */
+     * Gets a value indicating whether this layer is the base layer in the
+     * {@link ImageryLayerCollection}.  The base layer is the one that underlies all
+     * others.  It is special in that it is treated as if it has global rectangle, even if
+     * it actually does not, by stretching the texels at the edges over the entire
+     * globe.
+     *
+     * @returns {Boolean} true if this is the base layer; otherwise, false.
+     */
     var isBaseLayer = false
 
-    init (
-        imageryProvider: ImageryProvider,
-        rectangle: Rectangle = Rectangle.maxValue(),
-        alpha: @escaping (() -> Float) = { return 1.0 },
-        brightness: @escaping (() -> Float) = { return 1.0 },
-        contrast: @escaping (() -> Float) = { return 1.0 },
-        hue: @escaping (() -> Float) = { return 0.0 },
-        saturation: @escaping (() -> Float) = { return 1.0 },
-        gamma: @escaping (() -> Float) = { return 1.0 },
-        show: Bool = true,
-        minimumTerrainLevel: Int? = nil,
-        maximumTerrainLevel: Int? = nil,
-        maximumAnisotropy: Int? = nil
-        ) {
-            self.imageryProvider = imageryProvider
-            self._rectangle = rectangle
-            self.alpha = alpha
-            self.brightness = brightness
-            self.contrast = contrast
-            self.hue = hue
-            self.saturation = saturation
-            self.gamma = gamma
-            self.show = show
-            self._minimumTerrainLevel = minimumTerrainLevel
-            self._maximumTerrainLevel = maximumTerrainLevel
-            self.maximumAnisotropy = maximumAnisotropy
+    init(imageryProvider: ImageryProvider,
+         rectangle: Rectangle = Rectangle.maxValue(),
+         alpha: @escaping (() -> Float) = { return 1.0 },
+         brightness: @escaping (() -> Float) = { return 1.0 },
+         contrast: @escaping (() -> Float) = { return 1.0 },
+         hue: @escaping (() -> Float) = { return 0.0 },
+         saturation: @escaping (() -> Float) = { return 1.0 },
+         gamma: @escaping (() -> Float) = { return 1.0 },
+         show: Bool = true,
+         minimumTerrainLevel: Int? = nil,
+         maximumTerrainLevel: Int? = nil,
+         maximumAnisotropy: Int? = nil) {
+        self.imageryProvider = imageryProvider
+        self._rectangle = rectangle
+        self.alpha = alpha
+        self.brightness = brightness
+        self.contrast = contrast
+        self.hue = hue
+        self.saturation = saturation
+        self.gamma = gamma
+        self.show = show
+        self._minimumTerrainLevel = minimumTerrainLevel
+        self._maximumTerrainLevel = maximumTerrainLevel
+        self.maximumAnisotropy = maximumAnisotropy
     }
 
     /**
@@ -277,7 +275,7 @@ open class ImageryLayer {
             insertionPoint = surfaceTile.imagery.count
         }
 
-        if (!imageryProvider.ready) {
+        if !imageryProvider.ready {
             // The imagery provider is not ready, so we can't create skeletons, yet.
             // Instead, add a placeholder so that we'll know to create
             // the skeletons once the provider is ready.
@@ -375,18 +373,18 @@ open class ImageryLayer {
         let veryCloseY = tile.rectangle.width / 512.0
 
         let northwestTileRectangle = imageryTilingScheme.tileXYToRectangle(x: northwestTileCoordinates.x, y: northwestTileCoordinates.y, level: imageryLevel)
-        if (abs(northwestTileRectangle.south - tile.rectangle.north) < veryCloseY && northwestTileCoordinates.y < southeastTileCoordinates.y) {
+        if abs(northwestTileRectangle.south - tile.rectangle.north) < veryCloseY && northwestTileCoordinates.y < southeastTileCoordinates.y {
             northwestTileCoordinates.y += 1
         }
-        if (abs(northwestTileRectangle.east - tile.rectangle.west) < veryCloseX && northwestTileCoordinates.x < southeastTileCoordinates.x) {
+        if abs(northwestTileRectangle.east - tile.rectangle.west) < veryCloseX && northwestTileCoordinates.x < southeastTileCoordinates.x {
             northwestTileCoordinates.x += 1
         }
 
         let southeastTileRectangle = imageryTilingScheme.tileXYToRectangle(x: southeastTileCoordinates.x, y: southeastTileCoordinates.y, level: imageryLevel)
-        if (abs(southeastTileRectangle.north - tile.rectangle.south) < veryCloseY && southeastTileCoordinates.y > northwestTileCoordinates.y) {
+        if abs(southeastTileRectangle.north - tile.rectangle.south) < veryCloseY && southeastTileCoordinates.y > northwestTileCoordinates.y {
             southeastTileCoordinates.y -= 1
         }
-        if (abs(southeastTileRectangle.west - tile.rectangle.east) < veryCloseX && southeastTileCoordinates.x > northwestTileCoordinates.x) {
+        if abs(southeastTileRectangle.west - tile.rectangle.east) < veryCloseX && southeastTileCoordinates.x > northwestTileCoordinates.x {
             southeastTileCoordinates.x -= 1
         }
 
@@ -409,7 +407,7 @@ open class ImageryLayer {
             maxU = min(1.0, (clippedImageryRectangle.west - terrainRectangle.west) / terrainRectangle.width)
         }
 
-        if (!isBaseLayer && abs(clippedImageryRectangle.north - tile.rectangle.north) >= veryCloseY) {
+        if !isBaseLayer && abs(clippedImageryRectangle.north - tile.rectangle.north) >= veryCloseY {
             minV = max(0.0, (imageryRectangle.north - terrainRectangle.south) / terrainRectangle.height)
         }
 
@@ -548,7 +546,7 @@ open class ImageryLayer {
                 }
 
                 // Mark discarded imagery tiles invalid.  Parent imagery will be used instead.
-                if (discardPolicy.shouldDiscardImage(imagery.image!)) {
+                if discardPolicy.shouldDiscardImage(imagery.image!) {
                     DispatchQueue.main.async(execute: {
                         imagery.state = .invalid
                     })
@@ -601,11 +599,11 @@ open class ImageryLayer {
                 // This allows different ImageryLayers to share the same vao and buffers.
                 preExecute: { command in
                     self.reprojectToGeographic(command, context: context!, texture: texture, rectangle: rectangle)
-                },
+            },
                 postExecute: { outputTexture in
                     imagery.texture = outputTexture
                     self.finalizeReprojectTexture(context: context!, imagery: imagery, texture: outputTexture)
-                },
+            },
                 persists: true,
                 owner : self
             )
@@ -617,35 +615,35 @@ open class ImageryLayer {
     }
     func finalizeReprojectTexture(context: Context, imagery: Imagery, texture: Texture) {
         /*
-        // Use mipmaps if this texture has power-of-two dimensions.
-        if (CesiumMath.isPowerOfTwo(texture.width) && CesiumMath.isPowerOfTwo(texture.height)) {
-        var mipmapSampler = context.cache.imageryLayer_mipmapSampler;
-        if (!defined(mipmapSampler)) {
-        var maximumSupportedAnisotropy = ContextLimits.maximumTextureFilterAnisotropy;
-        mipmapSampler = context.cache.imageryLayer_mipmapSampler = new Sampler({
-        wrapS : TextureWrap.CLAMP_TO_EDGE,
-        wrapT : TextureWrap.CLAMP_TO_EDGE,
-        minificationFilter : TextureMinificationFilter.LINEAR_MIPMAP_LINEAR,
-        magnificationFilter : TextureMagnificationFilter.LINEAR,
-        maximumAnisotropy : Math.min(maximumSupportedAnisotropy, defaultValue(imageryLayer._maximumAnisotropy, maximumSupportedAnisotropy))
-        });
-        }
-        texture.generateMipmap(MipmapHint.NICEST);
-        texture.sampler = mipmapSampler;
-        } else {
-        var nonMipmapSampler = context.cache.imageryLayer_nonMipmapSampler;
-        if (!defined(nonMipmapSampler)) {
-        nonMipmapSampler = context.cache.imageryLayer_nonMipmapSampler = new Sampler({
-        wrapS : TextureWrap.CLAMP_TO_EDGE,
-        wrapT : TextureWrap.CLAMP_TO_EDGE,
-        minificationFilter : TextureMinificationFilter.LINEAR,
-        magnificationFilter : TextureMagnificationFilter.LINEAR
-        });
-        }
-        texture.sampler = nonMipmapSampler;
-        }
+         // Use mipmaps if this texture has power-of-two dimensions.
+         if (CesiumMath.isPowerOfTwo(texture.width) && CesiumMath.isPowerOfTwo(texture.height)) {
+         var mipmapSampler = context.cache.imageryLayer_mipmapSampler;
+         if (!defined(mipmapSampler)) {
+         var maximumSupportedAnisotropy = ContextLimits.maximumTextureFilterAnisotropy;
+         mipmapSampler = context.cache.imageryLayer_mipmapSampler = new Sampler({
+         wrapS : TextureWrap.CLAMP_TO_EDGE,
+         wrapT : TextureWrap.CLAMP_TO_EDGE,
+         minificationFilter : TextureMinificationFilter.LINEAR_MIPMAP_LINEAR,
+         magnificationFilter : TextureMagnificationFilter.LINEAR,
+         maximumAnisotropy : Math.min(maximumSupportedAnisotropy, defaultValue(imageryLayer._maximumAnisotropy, maximumSupportedAnisotropy))
+         });
+         }
+         texture.generateMipmap(MipmapHint.NICEST);
+         texture.sampler = mipmapSampler;
+         } else {
+         var nonMipmapSampler = context.cache.imageryLayer_nonMipmapSampler;
+         if (!defined(nonMipmapSampler)) {
+         nonMipmapSampler = context.cache.imageryLayer_nonMipmapSampler = new Sampler({
+         wrapS : TextureWrap.CLAMP_TO_EDGE,
+         wrapT : TextureWrap.CLAMP_TO_EDGE,
+         minificationFilter : TextureMinificationFilter.LINEAR,
+         magnificationFilter : TextureMagnificationFilter.LINEAR
+         });
+         }
+         texture.sampler = nonMipmapSampler;
+         }
 
-        imagery.state = ImageryState.READY;*/
+         imagery.state = ImageryState.READY;*/
         if false { //Math.isPowerOfTwo(texture.width) && Math.isPowerOfTwo(texture.height) {
             var mipmapSampler = context.cache["imageryLayer_mipmapSampler"] as! Sampler?
             if mipmapSampler == nil {

@@ -46,18 +46,17 @@ class Framebuffer {
         return depthTexture != nil
     }
 
-    init (
-        maximumColorAttachments: Int,
-        colorTextures: [Texture]? = nil,
-        depthTexture: Texture? = nil,
-        stencilTexture: Texture? = nil) {
-            self.maximumColorAttachments = maximumColorAttachments
-            self.colorTextures = colorTextures
-            self.depthTexture = depthTexture
-            self.stencilTexture = stencilTexture
+    init(maximumColorAttachments: Int,
+         colorTextures: [Texture]? = nil,
+         depthTexture: Texture? = nil,
+         stencilTexture: Texture? = nil) {
+        self.maximumColorAttachments = maximumColorAttachments
+        self.colorTextures = colorTextures
+        self.depthTexture = depthTexture
+        self.stencilTexture = stencilTexture
 
-            assert(colorTextures == nil || colorTextures!.count <= Int(maximumColorAttachments), "The number of color attachments exceeds the number supported.")
-            updateRenderPassDescriptor()
+        assert(colorTextures == nil || colorTextures!.count <= Int(maximumColorAttachments), "The number of color attachments exceeds the number supported.")
+        updateRenderPassDescriptor()
     }
 
     func updateFromDrawable (context: Context, drawable: CAMetalDrawable, depthStencil: MTLTexture?) {

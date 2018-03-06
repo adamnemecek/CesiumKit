@@ -35,7 +35,7 @@ struct BoundingSphere: BoundingVolume {
     */
     var radius: Double = 0.0
 
-    init (center: Cartesian3 = .zero, radius: Double = 0.0) {
+    init(center: Cartesian3 = .zero, radius: Double = 0.0) {
         self.center = center
         self.radius = radius
     }
@@ -179,7 +179,7 @@ struct BoundingSphere: BoundingVolume {
     * @param {BoundingSphere} [result] The object onto which to store the result.
     * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
     */
-    init (fromRectangle2D rectangle: Rectangle?, projection: MapProjection = GeographicProjection()) {
+    init(fromRectangle2D rectangle: Rectangle?, projection: MapProjection = GeographicProjection()) {
         self.init(fromRectangleWithHeights2D: rectangle, projection: projection, minimumHeight: 0.0, maximumHeight: 0.0)
     }
 
@@ -231,9 +231,8 @@ struct BoundingSphere: BoundingVolume {
     * @param {BoundingSphere} [result] The object onto which to store the result.
     * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
     */
-    init (fromRectangle3D rectangle: Rectangle, ellipsoid: Ellipsoid = .wgs84, surfaceHeight: Double = 0) {
-        let positions: [Cartesian3]
-        positions = rectangle.subsample(ellipsoid, surfaceHeight: surfaceHeight)
+    init(fromRectangle3D rectangle: Rectangle, ellipsoid: Ellipsoid = .wgs84, surfaceHeight: Double = 0) {
+        let positions = rectangle.subsample(ellipsoid, surfaceHeight: surfaceHeight)
         self.init(fromPoints: positions)
     }
 
@@ -462,7 +461,7 @@ BoundingSphere.fromCornerPoints = function(corner, oppositeCorner, result) {
     * @example
     * var boundingSphere = Cesium.BoundingSphere.fromEllipsoid(ellipsoid);
     */
-    init (ellipsoid: Ellipsoid) {
+    init(ellipsoid: Ellipsoid) {
         self.init(center: .zero, radius: ellipsoid.maximumRadius)
     }
     /*

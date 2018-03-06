@@ -20,25 +20,23 @@ private class DependencyNode: Equatable {
 
     var evaluated: Bool = false
 
-    init (
-        name: String,
-        glslSource: String,
-        dependsOn: [DependencyNode] = [DependencyNode](),
-        requiredBy: [DependencyNode] = [DependencyNode](),
-        evaluated: Bool = false)
-    {
+    init(name: String,
+         glslSource: String,
+         dependsOn: [DependencyNode] = [],
+         requiredBy: [DependencyNode] = [],
+         evaluated: Bool = false) {
         self.name = name
         self.glslSource = glslSource
         self.dependsOn = dependsOn
         self.requiredBy = requiredBy
         self.evaluated = evaluated
     }
+
+    private static func == (left: DependencyNode, right: DependencyNode) -> Bool {
+        return left.name == right.name && left.glslSource == right.glslSource
+    }
 }
 
-private func == (left: DependencyNode, right: DependencyNode) -> Bool {
-    return left.name == right.name &&
-        left.glslSource == right.glslSource
-}
 
 /**
 * An object containing various inputs that will be combined to form a final GLSL shader string.

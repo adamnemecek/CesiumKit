@@ -31,11 +31,10 @@ class GlobeSurfaceShaderSet {
     fileprivate var _pipelinesByTexturesFlags = [Int: [Int: GlobeSurfacePipeline]]()
     fileprivate var _pickPipelines = [Int: RenderPipeline]()
 
-    init (
-        baseVertexShaderSource: ShaderSource,
-        baseFragmentShaderSource: ShaderSource) {
-            self.baseVertexShaderSource = baseVertexShaderSource
-            self.baseFragmentShaderSource = baseFragmentShaderSource
+    init(baseVertexShaderSource: ShaderSource,
+         baseFragmentShaderSource: ShaderSource) {
+        self.baseVertexShaderSource = baseVertexShaderSource
+        self.baseFragmentShaderSource = baseFragmentShaderSource
     }
 
     fileprivate func getPositionMode(_ sceneMode: SceneMode) -> String {

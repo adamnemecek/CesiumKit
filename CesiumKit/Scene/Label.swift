@@ -44,21 +44,19 @@ import Foundation
 
 open class Label {
 
-    init (
-        show: Bool = true,
-        position: Cartesian3 = .zero,
-        text: String = "",
-        font: String = "HelveticaNeue",
-        fillColor: Color = .White,
-        outlineColor: Color = .Black,
-        style: LabelStyle = .fill,
-        pixelOffset: Cartesian2 = .zero,
-        eyeOffset: Cartesian3 = .zero,
-        horizontalOrigin: HorizontalOrigin = .left,
-        verticalOrigin : VerticalOrigin = .bottom,
-        scale: Double = 1.0,
-        collection: LabelCollection
-    ) {
+    init(show: Bool = true,
+         position: Cartesian3 = .zero,
+         text: String = "",
+         font: String = "HelveticaNeue",
+         fillColor: Color = .White,
+         outlineColor: Color = .Black,
+         style: LabelStyle = .fill,
+         pixelOffset: Cartesian2 = .zero,
+         eyeOffset: Cartesian3 = .zero,
+         horizontalOrigin: HorizontalOrigin = .left,
+         verticalOrigin : VerticalOrigin = .bottom,
+         scale: Double = 1.0,
+         collection: LabelCollection) {
 
     }
     /*
