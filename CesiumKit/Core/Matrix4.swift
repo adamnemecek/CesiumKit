@@ -715,7 +715,7 @@ Matrix4.getElementIndex = function(column, row) {
     * // a.x = 12.0; a.y = 16.0; a.z = 20.0; a.w = 24.0;
     */
     func getColumn (_ index: Int) -> Cartesian4 {
-        assert(index >= 0 && index <= 3, "index must be 0, 1, 2, or 3.")
+        assert((0...3) ~= index, "index must be 0, 1, 2, or 3.")
         return Cartesian4(simd: simdType[index])
 
     }
@@ -747,7 +747,7 @@ Matrix4.getElementIndex = function(column, row) {
      */
     func setColumn (_ index: Int, cartesian: Cartesian4) -> Matrix4 {
 
-        assert(index >= 0 && index <= 3, "index must be 0, 1, 2, or 3.")
+        assert((0...3) ~= index, "index must be 0, 1, 2, or 3.")
         var result = simdType
         result[index] = double4(cartesian.x, cartesian.y, cartesian.z, cartesian.w)
         return Matrix4(simd: result)
@@ -846,7 +846,8 @@ Matrix4.getElementIndex = function(column, row) {
      * @returns {Boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
      */
     func equalsEpsilon(_ other: Matrix4, epsilon: Double) -> Bool {
-        return matrix_almost_equal_elements(self.simdType.cmatrix, other.simdType.cmatrix, epsilon)
+        fatalError()
+        //return almost_equal_elements(self.simdType.cmatrix, other.simdType.cmatrix, epsilon)
     }
 
 /*

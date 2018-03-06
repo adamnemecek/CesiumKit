@@ -9,60 +9,59 @@
 import Foundation
 
 /**
-     * A tiling scheme for geometry referenced to a simple {@link GeographicProjection} where
-     * longitude and latitude are directly mapped to X and Y.  This projection is commonly
-     * known as geographic, equirectangular, equidistant cylindrical, or plate carrée.
-     *
-     * @alias GeographicTilingScheme
-     * @constructor
-     *
-     * @param {Object} [options] Object with the following properties:
-     * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.WGS84] The ellipsoid whose surface is being tiled. Defaults to
-     * the WGS84 ellipsoid.
-     * @param {Rectangle} [options.rectangle=Rectangle.MAX_VALUE] The rectangle, in radians, covered by the tiling scheme.
-     * @param {Number} [options.numberOfLevelZeroTilesX=2] The number of tiles in the X direction at level zero of
-     * the tile tree.
-     * @param {Number} [options.numberOfLevelZeroTilesY=1] The number of tiles in the Y direction at level zero of
-     * the tile tree.
-     */
+ * A tiling scheme for geometry referenced to a simple {@link GeographicProjection} where
+ * longitude and latitude are directly mapped to X and Y.  This projection is commonly
+ * known as geographic, equirectangular, equidistant cylindrical, or plate carrée.
+ *
+ * @alias GeographicTilingScheme
+ * @constructor
+ *
+ * @param {Object} [options] Object with the following properties:
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.WGS84] The ellipsoid whose surface is being tiled. Defaults to
+ * the WGS84 ellipsoid.
+ * @param {Rectangle} [options.rectangle=Rectangle.MAX_VALUE] The rectangle, in radians, covered by the tiling scheme.
+ * @param {Number} [options.numberOfLevelZeroTilesX=2] The number of tiles in the X direction at level zero of
+ * the tile tree.
+ * @param {Number} [options.numberOfLevelZeroTilesY=1] The number of tiles in the Y direction at level zero of
+ * the tile tree.
+ */
 class GeographicTilingScheme: TilingScheme {
 
     /**
-    * Gets the ellipsoid that is tiled by this tiling scheme.
-    * @memberof GeographicTilingScheme.prototype
-    * @type {Ellipsoid}
-    */
+     * Gets the ellipsoid that is tiled by this tiling scheme.
+     * @memberof GeographicTilingScheme.prototype
+     * @type {Ellipsoid}
+     */
     let ellipsoid: Ellipsoid
 
     /**
-    * Gets the rectangle, in radians, covered by this tiling scheme.
-    * @memberof TilingScheme.prototype
-    * @type {Rectangle}
-    */
+     * Gets the rectangle, in radians, covered by this tiling scheme.
+     * @memberof TilingScheme.prototype
+     * @type {Rectangle}
+     */
     let rectangle: Rectangle
 
     /**
-    * Gets the map projection used by the tiling scheme.
-    * @memberof TilingScheme.prototype
-    * @type {Projection}
-    */
+     * Gets the map projection used by the tiling scheme.
+     * @memberof TilingScheme.prototype
+     * @type {Projection}
+     */
     let projection: MapProjection
 
     var numberOfLevelZeroTilesX: Int
     var numberOfLevelZeroTilesY: Int
 
-    init(
-        ellipsoid: Ellipsoid = Ellipsoid.wgs84(),
-        rectangle: Rectangle = Rectangle.maxValue(),
-        numberOfLevelZeroTilesX: Int = 2,
-        numberOfLevelZeroTilesY: Int = 1) {
+    init(ellipsoid: Ellipsoid = .wgs84,
+         rectangle: Rectangle = Rectangle.maxValue(),
+         numberOfLevelZeroTilesX: Int = 2,
+         numberOfLevelZeroTilesY: Int = 1) {
 
-            self.ellipsoid = ellipsoid
-            self.rectangle = rectangle
-            self.projection = GeographicProjection(ellipsoid: ellipsoid)
+        self.ellipsoid = ellipsoid
+        self.rectangle = rectangle
+        self.projection = GeographicProjection(ellipsoid: ellipsoid)
 
-            self.numberOfLevelZeroTilesX = numberOfLevelZeroTilesX
-            self.numberOfLevelZeroTilesY = numberOfLevelZeroTilesY
+        self.numberOfLevelZeroTilesX = numberOfLevelZeroTilesX
+        self.numberOfLevelZeroTilesY = numberOfLevelZeroTilesY
     }
 
     /**

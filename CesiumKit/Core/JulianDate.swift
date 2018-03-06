@@ -33,7 +33,7 @@ public struct JulianDate {
      * Gets or sets the number of seconds into the current day.
      * @type {Number}
      */
-    public fileprivate (set) var secondsOfDay: Double = Double.nan
+    public fileprivate (set) var secondsOfDay: Double = .nan
 
     public init (julianDayNumber: Double = 0.0, secondsOfDay: Double = 0.0, timeStandard: TimeStandard = .utc) {
 

@@ -370,7 +370,7 @@ class IntersectionTests {
     func quadraticVectorExpression(_ A: Matrix3, b: Cartesian3, c: Double, x: Double, w: Double) -> [Double] {
         //let xSquared = x * x
         //let wSquared = w * w
-        return [Double]()
+        return []
         /*
         let l2 = (A[1,1] - A[2,2] * wSquared
         let l1: Double = w * (x * addWithCancellationCheck(A[1,0], A[0,1], tolerance: Math.Epsilon15) + b.y)

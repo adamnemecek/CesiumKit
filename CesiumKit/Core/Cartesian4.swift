@@ -479,18 +479,17 @@ extension Cartesian4 {
 
 }
 
-extension Cartesian4: Equatable {}
-
-/**
-* Compares the provided Cartesians componentwise and returns
-* <code>true</code> if they are equal, <code>false</code> otherwise.
-*
-* @param {Cartesian4} [left] The first Cartesian.
-* @param {Cartesian4} [right] The second Cartesian.
-* @returns {Boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
-*/
-public func == (left: Cartesian4, right: Cartesian4) -> Bool {
-    return (left.x == right.x) && (left.y == right.y) && (left.z == right.z) && (left.w == right.w)
+extension Cartesian4: Equatable {
+    /**
+     * Compares the provided Cartesians componentwise and returns
+     * <code>true</code> if they are equal, <code>false</code> otherwise.
+     *
+     * @param {Cartesian4} [left] The first Cartesian.
+     * @param {Cartesian4} [right] The second Cartesian.
+     * @returns {Boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+     */
+    public static func ==(lhs: Cartesian4, rhs: Cartesian4) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.w == rhs.w
+    }
 }
-
 

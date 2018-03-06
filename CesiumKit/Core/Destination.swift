@@ -6,8 +6,6 @@
 //  Copyright © 2016 Test Toast. All rights reserved.
 //
 
-import Foundation
-
 public enum Destination {
     case cartesian(Cartesian3)
 

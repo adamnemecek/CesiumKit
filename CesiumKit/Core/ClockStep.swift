@@ -6,8 +6,6 @@
 //  Copyright © 2015 Test Toast. All rights reserved.
 //
 
-import Foundation
-
 /**
  * Constants to determine how much time advances with each call
  * to {@link Clock#tick}.
