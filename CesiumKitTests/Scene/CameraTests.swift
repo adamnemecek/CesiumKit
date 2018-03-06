@@ -38,9 +38,9 @@ class CameraTests: XCTestCase {
         super.setUp()
 
         camera = Camera(fakeScene: scene)
-        position = Cartesian3.unitZ()
-        up = Cartesian3.unitY()
-        dir = Cartesian3.unitZ().negate()
+        position = .unitZ
+        up = .unitY
+        dir = Cartesian3.unitZ.negate()
         right = dir.cross(up)
 
         camera.position = position
@@ -843,8 +843,8 @@ camera.viewRectangle();
         let rectangle = Rectangle(west: 0.1, south: -.pi / 2, east: -0.1, north: .pi / 2)
         camera.viewRectangle(rectangle)
         XCTAssertTrue(camera.position.equalsEpsilon(Cartesian3(x: -14680290.639204923, y: 0.0, z: 0.0), epsilon: Math.Epsilon6), "position equality")
-        XCTAssertTrue(camera.direction.equalsEpsilon(Cartesian3.unitX(), epsilon: Math.Epsilon10), "direction equality")
-        XCTAssertTrue(camera.up.equalsEpsilon(Cartesian3.unitZ(), epsilon: Math.Epsilon10), "up equality")
+        XCTAssertTrue(camera.direction.equalsEpsilon(.unitX, epsilon: Math.Epsilon10), "direction equality")
+        XCTAssertTrue(camera.up.equalsEpsilon(.unitZ, epsilon: Math.Epsilon10), "up equality")
         XCTAssertTrue(camera.right.equalsEpsilon(Cartesian3.unitY().negate(), epsilon: Math.Epsilon10), "right equality")
     }
 /*

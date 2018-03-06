@@ -46,7 +46,7 @@ class CesiumKitController: NSObject, MTKViewDelegate {
         _globe.scene.imageryLayers.addImageryProvider(BingMapsImageryProvider())
         //_globe.scene.imageryLayers.addImageryProvider(TileCoordinateImageryProvider())
 
-        _globe.scene.camera.constrainedAxis = Cartesian3.unitZ
+        _globe.scene.camera.constrainedAxis = .unitZ
 
         //Flat ocean view
         /*_globe.scene.camera.setView(

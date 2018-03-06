@@ -40,18 +40,16 @@ public struct CesiumOptions {
 
     /*/// :param: Element|String [options.creditContainer] The DOM element or ID that will contain the {@link CreditDisplay.  If not specified the credits are added to the bottom of the widget itself.*/
 
-    public init(
-        clock: Clock = Clock(isUTC: false),
-        imageryProvider: ImageryProvider? = nil,
-        terrain: Bool = false,
-        lighting: Bool = false,
-        skyBox: Bool = true,
-        fog: Bool = true,
-        sceneMode: SceneMode = .scene3D,
-        scene3DOnly: Bool = false,
-        mapProjection: MapProjection = GeographicProjection(),
-        showRenderLoopErrors: Bool = true)
-    {
+    public init(clock: Clock = Clock(isUTC: false),
+                imageryProvider: ImageryProvider? = nil,
+                terrain: Bool = false,
+                lighting: Bool = false,
+                skyBox: Bool = true,
+                fog: Bool = true,
+                sceneMode: SceneMode = .scene3D,
+                scene3DOnly: Bool = false,
+                mapProjection: MapProjection = GeographicProjection(),
+                showRenderLoopErrors: Bool = true) {
         self.clock = clock
         self.imageryProvider = imageryProvider
         self.terrain = terrain
@@ -253,7 +251,7 @@ open class CesiumGlobe {
             scene3DOnly: options.scene3DOnly
         )
         scene.globe = globe
-        scene.camera.constrainedAxis = Cartesian3.unitZ
+        scene.camera.constrainedAxis = .unitZ
         scene.backgroundColor = Cartesian4(red: 0.0, green: 0.6, blue: 1.0, alpha: 1.0)
 
         /*var creditDisplay = scene.frameState.creditDisplay;

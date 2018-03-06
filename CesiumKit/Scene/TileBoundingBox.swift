@@ -106,7 +106,7 @@ struct TileBoundingBox {
         )
         // Compute the normal of the plane on the western edge of the tile.
         westNormal = westernMidpointCartesian
-            .cross(Cartesian3.unitZ)
+            .cross(.unitZ)
             .normalize()
 
         // The middle latitude on the eastern edge.

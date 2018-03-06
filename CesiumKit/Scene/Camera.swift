@@ -1734,7 +1734,7 @@ open class Camera: DRU {
         }
         position = actualOffset
         direction = position.negate().normalize()
-        right = direction.cross(Cartesian3.unitZ).normalize()
+        right = direction.cross(.unitZ).normalize()
         if right.magnitudeSquared < Math.Epsilon10 {
             right = .unitX
         }
@@ -1825,7 +1825,7 @@ open class Camera: DRU {
 
         let direction = ellipsoid.geodeticSurfaceNormal(center).negate()
         camera.direction = direction
-        let right = direction.cross(Cartesian3.unitZ).normalize()
+        let right = direction.cross(.unitZ).normalize()
         camera.right = right
         let up = right.cross(direction)
         camera.up = up

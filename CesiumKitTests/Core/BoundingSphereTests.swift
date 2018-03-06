@@ -438,7 +438,7 @@ expect(BoundingSphere.transformWithoutScale(bs, transform)).toEqual(expected);
     func testFindsDistances () {
         let bs = BoundingSphere(center: .zero(), radius: 1.0)
         let position = Cartesian3(x: -2.0, y: 1.0, z: 0.0)
-        let direction = Cartesian3.unitX()
+        let direction = Cartesian3.unitX
         let expected = Interval(start: 1.0, stop: 3.0)
         XCTAssertTrue(bs.computePlaneDistances(position, direction: direction) == expected, "finds distances")
     }
