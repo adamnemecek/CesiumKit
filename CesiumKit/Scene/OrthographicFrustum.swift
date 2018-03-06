@@ -37,10 +37,9 @@ struct OrthographicFrustum: Frustum {
     let infiniteProjectionMatrix: Matrix4? = nil
 
     var projectionMatrix: Matrix4 {
-        get {
-            return _orthographicMatrix
-        }
+        return _orthographicMatrix
     }
+
     fileprivate var _orthographicMatrix = Matrix4()
 
     /**
@@ -162,7 +161,7 @@ struct OrthographicFrustum: Frustum {
     * var cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);
     * var intersect = cullingVolume.computeVisibility(boundingVolume);
     */
-    func computeCullingVolume (position: Cartesian3, direction: Cartesian3, up: Cartesian3) -> CullingVolume  {
+    func computeCullingVolume(position: Cartesian3, direction: Cartesian3, up: Cartesian3) -> CullingVolume  {
         /*if (!defined(position)) {
     throw new DeveloperError('position is required.');
     }
@@ -284,7 +283,7 @@ struct OrthographicFrustum: Frustum {
     * // Get the width and height of a pixel.
     * var pixelSize = camera.frustum.getPixelSize(new Cesium.Cartesian2(canvas.clientWidth, canvas.clientHeight));
     */
-    func pixelDimensions (drawingBufferWidth width: Int, drawingBufferHeight height: Int, distance: Double) -> Cartesian2 {
+    func pixelDimensions(drawingBufferWidth width: Int, drawingBufferHeight height: Int, distance: Double) -> Cartesian2 {
 /*    update(this);
 
 
@@ -308,8 +307,7 @@ struct OrthographicFrustum: Frustum {
     * @param {OrthographicFrustum} [result] The object onto which to store the result.
     * @returns {OrthographicFrustum} The modified result parameter or a new PerspectiveFrustum instance if one was not provided.
     */
-    func clone (_ target: Frustum?) -> Frustum {
-
+    func clone(_ target: Frustum?) -> Frustum {
         var result = target ?? OrthographicFrustum()
 
         result.left = left

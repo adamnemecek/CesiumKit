@@ -1204,7 +1204,7 @@ var scratchOrthographicFrustum = new OrthographicFrustum();
 
         // Create a working frustum from the original camera frustum
         var frustum: Frustum
-        if camera.frustum.fovy != Double.nan {
+        if camera.frustum.fovy != .nan {
             frustum = camera.frustum.clone(PerspectiveFrustum())
         } else if camera.frustum.infiniteProjectionMatrix != nil {
             frustum = camera.frustum.clone(PerspectiveOffCenterFrustum())

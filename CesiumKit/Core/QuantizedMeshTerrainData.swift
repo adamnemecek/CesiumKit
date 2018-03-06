@@ -386,11 +386,11 @@ class QuantizedMeshTerrainData: TerrainData {
         return interpolateHeight(u, v: v)
     }
 
-    fileprivate func interpolateMeshHeight (_ u: Double, v: Double) -> Double? {
+    fileprivate func interpolateMeshHeight(_ u: Double, v: Double) -> Double? {
 
         guard let mesh = _mesh else {
             assertionFailure("mesh should exist")
-            return Double.nan
+            return .nan
         }
         let vertices = mesh.vertices
         let encoding = mesh.encoding
@@ -417,7 +417,7 @@ class QuantizedMeshTerrainData: TerrainData {
         return nil
     }
 
-    fileprivate func interpolateHeight (_ u: Double, v: Double) -> Double? {
+    fileprivate func interpolateHeight(_ u: Double, v: Double) -> Double? {
 
         for i in stride(from: 0, to: _indices.count, by: 3) {
             let i0 = _indices[i]

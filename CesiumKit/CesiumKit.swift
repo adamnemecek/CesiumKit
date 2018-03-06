@@ -340,7 +340,7 @@ open class CesiumGlobe {
         let width = scene.drawableWidth
         let height = scene.drawableHeight
         if width != 0 && height != 0 {
-            if scene.camera.frustum.aspectRatio != Double.nan {
+            if scene.camera.frustum.aspectRatio != .nan {
                 scene.camera.frustum.aspectRatio = Double(width) / Double(height)
             } else {
                 scene.camera.frustum.top = scene.camera.frustum.right * (Double(height) / Double(width))
