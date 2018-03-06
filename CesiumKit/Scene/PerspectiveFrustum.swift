@@ -45,12 +45,12 @@ class PerspectiveFrustum: Frustum {
     * @default undefined
     */
     var fovy: Double {
-        get  {
+        get {
             update()
             return _fovy
         }
-        set (newFovy) {
-            _fovy = newFovy
+        set {
+            _fovy = newValue
         }
     }
     fileprivate var _fovy: Double = .nan

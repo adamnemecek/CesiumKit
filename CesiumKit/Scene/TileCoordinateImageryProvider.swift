@@ -46,8 +46,8 @@ open class TileCoordinateImageryProvider: ImageryProvider {
         get {
             return Cartesian4.unpack(_colorArray.map { Float($0) })
         }
-        set (newColor) {
-            _colorArray = newColor
+        set {
+            _colorArray = newValue
                 .toArray()
                 .map { CGFloat($0) }
         }

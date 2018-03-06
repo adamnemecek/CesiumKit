@@ -193,8 +193,8 @@ open class CesiumGlobe {
         get {
             return scene.terrainProvider
         }
-        set (terrainProvider) {
-            scene.terrainProvider = terrainProvider
+        set {
+            scene.terrainProvider = newValue
         }
     }
 
@@ -206,9 +206,7 @@ open class CesiumGlobe {
     * @readonly
     */
     var camera: Camera {
-        get {
-            return scene.camera
-        }
+        return scene.camera
     }
 
     /**
@@ -228,7 +226,7 @@ open class CesiumGlobe {
         }
     }
 
-    public init (view: MTKView, options: CesiumOptions) {
+    public init(view: MTKView, options: CesiumOptions) {
 
         /*
         var creditContainer = document.createElement('div');

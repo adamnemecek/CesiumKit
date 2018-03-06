@@ -293,8 +293,8 @@ open class Camera: DRU {
             updateMembers()
             return _viewMatrix
         }
-        set (value) {
-            _viewMatrix = value
+        set {
+            _viewMatrix = newValue
         }
     }
 

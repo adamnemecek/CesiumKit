@@ -131,9 +131,9 @@ class GlobeSurfaceTileProvider/*: QuadtreeTileProvider*/ {
         get {
             return _baseColor
         }
-        set (value) {
-            _baseColor = value
-            _firstPassInitialColor = value
+        set {
+            _baseColor = newValue
+            _firstPassInitialColor = newValue
         }
     }
 

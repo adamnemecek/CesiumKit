@@ -127,9 +127,9 @@ class Globe {
         get {
             return _surface.tileProvider.baseColor
         }
-        set (value) {
+        set {
             let tileProvider = _surface.tileProvider
-            tileProvider.baseColor = value
+            tileProvider.baseColor = newValue
         }
     }
 
