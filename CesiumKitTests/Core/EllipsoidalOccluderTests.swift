@@ -36,7 +36,7 @@ class EllipsoidalOccluderTests: XCTestCase {
     }
 
     func testReportsNotVisibleWhenPointDirectlyBehind () {
-        var ellipsoid = Ellipsoid.wgs84()
+        var ellipsoid = Ellipsoid.wgs84
         var occluder = EllipsoidalOccluder(ellipsoid: ellipsoid)
         occluder.cameraPosition = Cartesian3(x: 7000000.0, y: 0.0, z: 0.0)
 
@@ -45,7 +45,7 @@ class EllipsoidalOccluderTests: XCTestCase {
     }
 
     func testReportsVisibleWhenPointDirectlyInFront () {
-        var ellipsoid = Ellipsoid.wgs84()
+        var ellipsoid = Ellipsoid.wgs84
         var occluder = EllipsoidalOccluder(ellipsoid: ellipsoid)
         occluder.cameraPosition = Cartesian3(x: 7000000.0, y: 0.0, z: 0.0)
 
@@ -54,7 +54,7 @@ class EllipsoidalOccluderTests: XCTestCase {
     }
 
     func testReportsVisibleWhenPointOppositeDirection () {
-        var ellipsoid = Ellipsoid.wgs84()
+        var ellipsoid = Ellipsoid.wgs84
         var occluder = EllipsoidalOccluder(ellipsoid: ellipsoid)
         occluder.cameraPosition = Cartesian3(x: 7000000.0, y: 0.0, z: 0.0)
 
@@ -63,7 +63,7 @@ class EllipsoidalOccluderTests: XCTestCase {
     }
 
     func testReportsNotVisibleWhenPointOverHorizon () {
-        var ellipsoid = Ellipsoid.wgs84()
+        var ellipsoid = Ellipsoid.wgs84
         var occluder = EllipsoidalOccluder(ellipsoid: ellipsoid)
         occluder.cameraPosition = Cartesian3(x: 7000000.0, y: 0.0, z: 0.0)
 

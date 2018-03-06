@@ -125,7 +125,7 @@ expect(returnedResult).toEqualEpsilon(spaceCartesianGeodeticSurfaceNormal, Cesiu
 });
 */
     func testCartographicToCartesianWithoutResultParameter () {
-        let ellipsoid = Ellipsoid.wgs84()
+        let ellipsoid = Ellipsoid.wgs84
         let returnedResult = ellipsoid.cartographicToCartesian(spaceCartographic)
         XCTAssertTrue(returnedResult.equalsEpsilon(spaceCartesian, epsilon: Math.Epsilon7), "cartographicToCartesian works without a result parameter")
     }
