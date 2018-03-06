@@ -700,7 +700,7 @@ open class BingMapsImageryProvider: ImageryProvider {
 
                 if level >= area.zoomMin && level <= area.zoomMax {
                     let intersection = rectangle.intersection(area.bbox)
-                    if (intersection != nil) {
+                    if intersection != nil {
                         included = true
                         break
                     }
@@ -713,6 +713,3 @@ open class BingMapsImageryProvider: ImageryProvider {
         return result
     }
  }
-
-
-

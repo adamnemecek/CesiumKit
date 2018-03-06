@@ -69,7 +69,7 @@ public struct BoundingRectangle: Equatable {
     */
     init(fromPoints points: [Cartesian2]) {
 
-        if (points.count == 0) {
+        if points.count == 0 {
             x = 0
             y = 0
             width = 0

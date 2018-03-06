@@ -175,7 +175,7 @@ class HeightmapTerrainData: TerrainData, Equatable {
 
         let orientedBoundingBox: OrientedBoundingBox?
 
-        if (rectangle.width < .pi/2 + Math.Epsilon5) {
+        if rectangle.width < .pi/2 + Math.Epsilon5 {
             // Here, rectangle.width < pi/2, and rectangle.height < pi
             // (though it would still work with rectangle.width up to pi)
             orientedBoundingBox = OrientedBoundingBox(fromRectangle: rectangle, minimumHeight: result.minimumHeight, maximumHeight: result.maximumHeight, ellipsoid: ellipsoid)
@@ -301,7 +301,7 @@ class HeightmapTerrainData: TerrainData, Equatable {
 
         var westInteger = Int(floor(fromWest))
         var eastInteger = westInteger + 1
-        if (eastInteger >= width) {
+        if eastInteger >= width {
             eastInteger = width - 1
             westInteger = width - 2
         }
@@ -376,7 +376,7 @@ class HeightmapTerrainData: TerrainData, Equatable {
 
     fileprivate func triangleInterpolateHeight(_ dX: Double, dY: Double, southwestHeight: Double, southeastHeight: Double, northwestHeight: Double, northeastHeight: Double) -> Double {
         // The HeightmapTessellator bisects the quad from southwest to northeast.
-        if (dY < dX) {
+        if dY < dX {
             // Lower right triangle
             return southwestHeight + (dX * (southeastHeight - southwestHeight)) + (dY * (northeastHeight - southeastHeight))
         }

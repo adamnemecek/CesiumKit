@@ -662,8 +662,6 @@
 		94EFB0581C84D7CD0095A86F /* JSONError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EFB0461C84D7CD0095A86F /* JSONError.swift */; };
 		94EFB0591C84D7CD0095A86F /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EFB0471C84D7CD0095A86F /* JSONObject.swift */; };
 		94EFB05A1C84D7CD0095A86F /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EFB0471C84D7CD0095A86F /* JSONObject.swift */; };
-		94EFB05B1C84D7CD0095A86F /* ObjectiveC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EFB0481C84D7CD0095A86F /* ObjectiveC.swift */; };
-		94EFB05C1C84D7CD0095A86F /* ObjectiveC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EFB0481C84D7CD0095A86F /* ObjectiveC.swift */; };
 		94EFB05D1C84D7CD0095A86F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EFB0491C84D7CD0095A86F /* Parser.swift */; };
 		94EFB05E1C84D7CD0095A86F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EFB0491C84D7CD0095A86F /* Parser.swift */; };
 		94EFB05F1C84D7CD0095A86F /* PMJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 94EFB04A1C84D7CD0095A86F /* PMJSON.h */; };
@@ -1100,7 +1098,6 @@
 		94EFB0451C84D7CD0095A86F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		94EFB0461C84D7CD0095A86F /* JSONError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONError.swift; sourceTree = "<group>"; };
 		94EFB0471C84D7CD0095A86F /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
-		94EFB0481C84D7CD0095A86F /* ObjectiveC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectiveC.swift; sourceTree = "<group>"; };
 		94EFB0491C84D7CD0095A86F /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		94EFB04A1C84D7CD0095A86F /* PMJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMJSON.h; sourceTree = "<group>"; };
 		94EFB0671C85C9690095A86F /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStorage.swift; path = Platform/LocalStorage.swift; sourceTree = "<group>"; };
@@ -1836,7 +1833,6 @@
 				94EFB0451C84D7CD0095A86F /* JSON.swift */,
 				94EFB0461C84D7CD0095A86F /* JSONError.swift */,
 				94EFB0471C84D7CD0095A86F /* JSONObject.swift */,
-				94EFB0481C84D7CD0095A86F /* ObjectiveC.swift */,
 				94EFB0491C84D7CD0095A86F /* Parser.swift */,
 				94EFB04A1C84D7CD0095A86F /* PMJSON.h */,
 			);
@@ -2019,7 +2015,7 @@
 				TargetAttributes = {
 					940A5AE91B6D54400095A86F = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 7AS9FJBK47;
+						DevelopmentTeam = JL8K7LH7KS;
 						DevelopmentTeamName = "Ryan Walklin";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
@@ -2031,7 +2027,7 @@
 					};
 					947820DA1B5A2C0E0095A86F = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 7AS9FJBK47;
+						DevelopmentTeam = JL8K7LH7KS;
 						DevelopmentTeamName = "Ryan Walklin";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
@@ -2284,7 +2280,6 @@
 				9413B7B51A37B93100FFAD81 /* HeightmapTerrainData.swift in Sources */,
 				9413B7FF1A37B94500FFAD81 /* GlobeSurfaceShaderSet.swift in Sources */,
 				9469077C1C2DFD970095A86F /* HeightmapStructure.swift in Sources */,
-				94EFB05B1C84D7CD0095A86F /* ObjectiveC.swift in Sources */,
 				940240261C1DA0230095A86F /* EllipsoidGeometry.swift in Sources */,
 				9455EB7F1A7CECAE00FFAD81 /* BingMapsStyle.swift in Sources */,
 				9413B7F51A37B94500FFAD81 /* BingMapsImageryProvider.swift in Sources */,
@@ -2705,7 +2700,6 @@
 				9478218B1B5A2D7C0095A86F /* TileUniformMap.swift in Sources */,
 				9478218D1B5A2D7C0095A86F /* Shaders.swift in Sources */,
 				941A28181BF40B54001A40C8 /* GroundPrimitive.swift in Sources */,
-				94EFB05C1C84D7CD0095A86F /* ObjectiveC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2946,6 +2940,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = JL8K7LH7KS;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2978,6 +2973,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = JL8K7LH7KS;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -3062,6 +3058,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JL8K7LH7KS;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3107,6 +3104,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JL8K7LH7KS;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

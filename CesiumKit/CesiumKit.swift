@@ -296,10 +296,10 @@ open class CesiumGlobe {
         self.sceneMode = options.sceneMode
         self.scene3DOnly = options.scene3DOnly
 
-        if self.sceneMode == SceneMode.scene2D {
+        if self.sceneMode == .scene2D {
             self.scene.morphTo2D(0)
         }
-        if self.sceneMode == SceneMode.columbusView {
+        if self.sceneMode == .columbusView {
             self.scene.morphToColumbusView(0)
         }
         configureCanvasSize(Cartesian2(x: Double(view.drawableSize.width), y: Double(view.drawableSize.height)))

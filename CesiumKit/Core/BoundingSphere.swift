@@ -53,7 +53,7 @@ struct BoundingSphere: BoundingVolume {
 
         self.init()
 
-        if (points.count == 0) {
+        if points.count == 0 {
             return
         }
 
@@ -76,27 +76,27 @@ struct BoundingSphere: BoundingVolume {
             let z = currentPos.z
 
             // Store points containing the the smallest and largest components
-            if (x < xMin.x) {
+            if x < xMin.x {
                 xMin = currentPos
             }
 
-            if (x > xMax.x) {
+            if x > xMax.x {
                 xMax = currentPos
             }
 
-            if (y < yMin.y) {
+            if y < yMin.y {
                 yMin = currentPos
             }
 
-            if (y > yMax.y) {
+            if y > yMax.y {
                 yMax = currentPos
             }
 
-            if (z < zMin.z) {
+            if z < zMin.z {
                 zMin = currentPos
             }
 
-            if (z > zMax.z) {
+            if z > zMax.z {
                 zMax = currentPos
             }
         }
@@ -110,12 +110,12 @@ struct BoundingSphere: BoundingVolume {
         var diameter1 = xMin
         var diameter2 = xMax
         var maxSpan = xSpan
-        if (ySpan > maxSpan) {
+        if ySpan > maxSpan {
             maxSpan = ySpan
             diameter1 = yMin
             diameter2 = yMax
         }
-        if (zSpan > maxSpan) {
+        if zSpan > maxSpan {
             maxSpan = zSpan
             diameter1 = zMin
             diameter2 = zMax
@@ -144,13 +144,13 @@ struct BoundingSphere: BoundingVolume {
 
             // Find the furthest point from the naive center to calculate the naive radius.
             let r = currentPos.subtract(naiveCenter).magnitude
-            if (r > naiveRadius) {
+            if r > naiveRadius {
                 naiveRadius = r
             }
 
             // Make adjustments to the Ritter Sphere to include all points.
             let oldCenterToPointSquared = currentPos.subtract(ritterCenter).magnitudeSquared
-            if (oldCenterToPointSquared > radiusSquared) {
+            if oldCenterToPointSquared > radiusSquared {
                 let oldCenterToPoint = sqrt(oldCenterToPointSquared)
                 // Calculate new radius to include the point that lies outside
                 ritterRadius = (ritterRadius + oldCenterToPoint) * 0.5
@@ -194,11 +194,10 @@ struct BoundingSphere: BoundingVolume {
     * @param {BoundingSphere} [result] The object onto which to store the result.
     * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
     */
-    init (
-        fromRectangleWithHeights2D rectangle: Rectangle?,
-        projection: MapProjection = GeographicProjection(),
-        minimumHeight: Double = 0.0,
-        maximumHeight: Double = 0.0) {
+    init (fromRectangleWithHeights2D rectangle: Rectangle?,
+          projection: MapProjection = GeographicProjection(),
+          minimumHeight: Double = 0.0,
+          maximumHeight: Double = 0.0) {
 
             self.init()
 
@@ -287,7 +286,7 @@ struct BoundingSphere: BoundingVolume {
     static func fromVertices(_ positions: [Float], center: Cartesian3 = .zero, stride increment: Int = 3) -> BoundingSphere {
 
         var result = BoundingSphere()
-        if (positions.count == 0) {
+        if positions.count == 0 {
             return result
         }
 
@@ -314,27 +313,27 @@ struct BoundingSphere: BoundingVolume {
             currentPos.z = z
 
             // Store points containing the the smallest and largest components
-            if (x < xMin.x) {
+            if x < xMin.x {
                 xMin = currentPos
             }
 
-            if (x > xMax.x) {
+            if x > xMax.x {
                 xMax = currentPos
             }
 
-            if (y < yMin.y) {
+            if y < yMin.y {
                 yMin = currentPos
             }
 
-            if (y > yMax.y) {
+            if y > yMax.y {
                 yMax = currentPos
             }
 
-            if (z < zMin.z) {
+            if z < zMin.z {
                 zMin = currentPos
             }
 
-            if (z > zMax.z) {
+            if z > zMax.z {
                 zMax = currentPos
             }
         }
@@ -348,12 +347,12 @@ struct BoundingSphere: BoundingVolume {
         var diameter1 = xMin
         var diameter2 = xMax
         var maxSpan = xSpan
-        if (ySpan > maxSpan) {
+        if ySpan > maxSpan {
             maxSpan = ySpan
             diameter1 = yMin
             diameter2 = yMax
         }
-        if (zSpan > maxSpan) {
+        if zSpan > maxSpan {
             maxSpan = zSpan
             diameter1 = zMin
             diameter2 = zMax
@@ -392,13 +391,13 @@ struct BoundingSphere: BoundingVolume {
 
             // Find the furthest point from the naive center to calculate the naive radius.
             let r = currentPos.subtract(naiveCenter).magnitude
-            if (r > naiveRadius) {
+            if r > naiveRadius {
                 naiveRadius = r
             }
 
             // Make adjustments to the Ritter Sphere to include all points.
             let oldCenterToPointSquared = currentPos.subtract(ritterCenter).magnitudeSquared
-            if (oldCenterToPointSquared > radiusSquared) {
+            if oldCenterToPointSquared > radiusSquared {
                 let oldCenterToPoint = sqrt(oldCenterToPointSquared)
                 // Calculate new radius to include the point that lies outside
                 ritterRadius = (ritterRadius + oldCenterToPoint) * 0.5
@@ -410,7 +409,7 @@ struct BoundingSphere: BoundingVolume {
                 ritterCenter.z = (ritterRadius * ritterCenter.z + oldToNew * currentPos.z) / oldCenterToPoint
             }
         }
-        if (ritterRadius < naiveRadius) {
+        if ritterRadius < naiveRadius {
             result.center = ritterCenter
             result.radius = ritterRadius
         } else {
@@ -418,7 +417,6 @@ struct BoundingSphere: BoundingVolume {
             result.radius = naiveRadius
         }
         return result
-
     }
 /*
 /**

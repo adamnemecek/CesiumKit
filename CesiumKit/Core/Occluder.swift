@@ -157,12 +157,12 @@ class Occluder {
         let occludeePosition = occludee.center
         let occludeeRadius = occludee.radius
 
-        if (self.horizonDistance < Double.infinity) {
+        if self.horizonDistance < .infinity {
             var tempVec = occludeePosition.subtract(occluderPosition)
             var temp = occluderRadius - occludeeRadius;
             temp = tempVec.magnitudeSquared - (temp * temp)
-            if (occludeeRadius < occluderRadius) {
-                if (temp > 0.0) {
+            if occludeeRadius < occluderRadius {
+                if temp > 0.0 {
                     temp = sqrt(temp) + horizonDistance
                     tempVec = occludeePosition.subtract(cameraPosition)
                     return (temp * temp) + (occludeeRadius * occludeeRadius) > tempVec.magnitudeSquared
@@ -172,7 +172,7 @@ class Occluder {
 
             // Prevent against the case where the occludee radius is larger than the occluder's; since this is
             // an uncommon case, the following code should rarely execute.
-            if (temp > 0.0) {
+            if temp > 0.0 {
                 tempVec = occludeePosition.subtract(cameraPosition)
                 let tempVecMagnitudeSquared = tempVec.magnitudeSquared
                 let occluderRadiusSquared = occluderRadius * occluderRadius
@@ -218,7 +218,7 @@ class Occluder {
         let occludeePosition = occludeeBS.center
         let occludeeRadius = occludeeBS.radius
 
-        if (occludeeRadius > occluderRadius) {
+        if occludeeRadius > occluderRadius {
             return .full
         }
 
@@ -255,7 +255,7 @@ class Occluder {
             }
         }
         return .none
-    };
+    }
 
     /**
      * Computes a point that can be used as the occludee position to the visibility functions.

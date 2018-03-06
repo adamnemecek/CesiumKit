@@ -131,7 +131,7 @@ struct FrameState {
     *   // take some action, raise an event, etc.
     * });
     */
-    var afterRender: Array<() -> ()> = Array<() -> ()>()
+    var afterRender: [() -> ()] = []
 
 
     /**

@@ -1198,7 +1198,7 @@ open class Camera: DRU {
     */
     open func move (_ direction: Cartesian3, amount: Double) {
         position = position.add(direction.multiplyBy(scalar: amount))
-        if _mode == SceneMode.scene2D {
+        if _mode == .scene2D {
             assertionFailure("unimplemented")
             //clampMove2D(this, cameraPosition);
         }
@@ -1622,8 +1622,8 @@ open class Camera: DRU {
             return position.magnitude
         } else if _mode == .columbusView {
             return abs(position.z)
-        } else if _mode == SceneMode.scene2D {
-            return  max(frustum.right - frustum.left, frustum.top - frustum.bottom)
+        } else if _mode == .scene2D {
+            return max(frustum.right - frustum.left, frustum.top - frustum.bottom)
         }
         return 0.0
     }

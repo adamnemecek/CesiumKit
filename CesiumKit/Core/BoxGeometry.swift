@@ -240,7 +240,7 @@ struct BoxGeometry {
 
         if vertexFormat.position &&
             (vertexFormat.st || vertexFormat.normal || vertexFormat.binormal || vertexFormat.tangent) {
-                if (vertexFormat.position) {
+                if vertexFormat.position {
                     // 8 corner points.  Duplicated 3 times each for each incident edge/face.
 
                     positions = [

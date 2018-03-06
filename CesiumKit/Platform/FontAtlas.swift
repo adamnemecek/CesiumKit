@@ -260,7 +260,7 @@ final class FontAtlas: JSONEncodable {
             var boundingRect = CGRect()
             CTFontGetBoundingRectsForGlyphs(parentFont, .horizontal, [glyph], &boundingRect, 1)
 
-            if (origin.x + boundingRect.maxX + glyphMargin > fWidth) {
+            if origin.x + boundingRect.maxX + glyphMargin > fWidth {
                 origin.x = 0
                 origin.y = maxYCoordForLine + glyphMargin + fontDescent
                 maxYCoordForLine = -1
@@ -373,7 +373,7 @@ final class FontAtlas: JSONEncodable {
                     let nearest = nearestpt(x, y)
                     setDistance(x, y, distance: hypot(Float(x - nearest.x), Float(y - nearest.y)))
                 }
-                if (distance(x - 1, y) + distUnit < distance(x, y)) {
+                if distance(x - 1, y) + distUnit < distance(x, y) {
                     setNearestpt(x, y, point: nearestpt(x - 1, y))
                     let nearest = nearestpt(x, y)
                     setDistance(x, y, distance: hypot(Float(x - nearest.x), Float(y - nearest.y)))
@@ -399,7 +399,7 @@ final class FontAtlas: JSONEncodable {
                     let nearest = nearestpt(x, y)
                     setDistance(x, y, distance: hypot(Float(x - nearest.x), Float(y - nearest.y)))
                 }
-                if (distance(x + 1, y + 1) + distDiag < distance(x, y)) {
+                if (istance(x + 1, y + 1) + distDiag < distance(x, y) {
                     setNearestpt(x, y, point: nearestpt(x + 1, y + 1))
                     let nearest = nearestpt(x, y)
                     setDistance(x, y, distance: hypot(Float(x - nearest.x), Float(y - nearest.y)))
