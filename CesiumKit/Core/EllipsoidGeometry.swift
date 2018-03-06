@@ -52,7 +52,7 @@ struct EllipsoidGeometry {
         radii: Cartesian3 = defaultRadii,
         stackPartitions: Int = 64,
         slicePartitions: Int = 64,
-        vertexFormat: VertexFormat = VertexFormat.Default()
+        vertexFormat: VertexFormat = .Default()
         ) {
 
             assert(slicePartitions >= 3, "slicePartitions cannot be less than three.")
@@ -333,8 +333,8 @@ extension EllipsoidGeometry: Packable {
         index += 1
         let slicePartitions = array[index]
 
-        _stackPartitions = stackPartitions == Double.nan ? 64 : Int(stackPartitions)
-        _slicePartitions = slicePartitions == Double.nan ? 64 : Int(slicePartitions)
+        _stackPartitions = stackPartitions.isNaN ? 64 : Int(stackPartitions)
+        _slicePartitions = slicePartitions.isNaN ? 64 : Int(slicePartitions)
     }
 
 }

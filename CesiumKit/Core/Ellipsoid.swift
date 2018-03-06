@@ -47,7 +47,7 @@ public struct Ellipsoid: Equatable {
     init(x: Double = 0.0, y: Double = 0.0, z: Double = 0.0) {
         assert(x >= 0.0 && y >= 0.0 && z >= 0.0, "All radii components must be greater than or equal to zero.")
 
-        radii = Cartesian3(x: x, y: y, z: z);
+        radii = Cartesian3(x: x, y: y, z: z)
         radiiSquared = radii.multiplyComponents(radii)
         radiiToTheFourth = radiiSquared.multiplyComponents(radiiSquared)
         oneOverRadii = Cartesian3(
@@ -274,7 +274,7 @@ public struct Ellipsoid: Equatable {
 
         // Use the gradient at the intersection point in place of the true unit normal.
         // The difference in magnitude will be absorbed in the multiplier.
-        var gradient = Cartesian3();
+        var gradient = Cartesian3()
         gradient.x = intersection.x * oneOverRadiiSquaredX * 2.0
         gradient.y = intersection.y * oneOverRadiiSquaredY * 2.0
         gradient.z = intersection.z * oneOverRadiiSquaredZ * 2.0

@@ -72,15 +72,17 @@ public struct Credit: Equatable {
             _nextCreditId += 1
         }
     }
-}
-/**
-* Returns true if the credits are equal
-*
-* @param {Credit} left The first credit
-* @param {Credit} left The second credit
-* @returns {Boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
-*/
 
-public func == (left: Credit, right: Credit) -> Bool {
-    return left.id == right.id
+    /**
+     * Returns true if the credits are equal
+     *
+     * @param {Credit} left The first credit
+     * @param {Credit} left The second credit
+     * @returns {Boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+     */
+
+    public static func == (left: Credit, right: Credit) -> Bool {
+        return left.id == right.id
+    }
 }
+

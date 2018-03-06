@@ -75,7 +75,7 @@ class GeometryAttribute {
     */
     var componentsPerAttribute: Int {
         didSet {
-            assert(componentsPerAttribute >= 1 && componentsPerAttribute <= 4,"options.componentsPerAttribute must be between 1 and 4")
+            assert((1...4) ~= componentsPerAttribute,"options.componentsPerAttribute must be between 1 and 4")
         }
     }
 
@@ -130,17 +130,11 @@ class GeometryAttribute {
     var name: String
 
     var vertexCount: Int {
-        if values == nil {
-            return 0
-        }
-        return values!.count / componentsPerAttribute
+        return (values?.count ?? 0) / componentsPerAttribute
     }
 
     var vertexArraySize: Int {
-        if values == nil {
-            return 0
-        }
-        return values!.length
+        return (values?.length ?? 0)
     }
 
     /**
@@ -153,7 +147,8 @@ class GeometryAttribute {
     }
 
     init(componentDatatype: ComponentDatatype, componentsPerAttribute: Int, normalize: Bool = false, values: Buffer? = nil) {
-        assert(componentsPerAttribute >= 1 && componentsPerAttribute <= 4,"options.componentsPerAttribute must be between 1 and 4")
+
+        assert((1...4) ~= componentsPerAttribute,"options.componentsPerAttribute must be between 1 and 4")
         self.componentDatatype = componentDatatype
         self.componentsPerAttribute = componentsPerAttribute
         self.normalize = normalize

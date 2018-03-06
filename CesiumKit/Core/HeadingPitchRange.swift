@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Test Toast. All rights reserved.
 //
 
-import Foundation
-
 /**
  * Defines a heading angle, pitch angle an range in a local frame.
  * Heading is the rotation from the local north direction where a positive angle is increasing eastward.
@@ -55,13 +53,13 @@ extension HeadingPitchRange: Offset {
         let pitch = Math.clamp(self.pitch, min: -.pi/2, max: .pi/2)
         let heading = Math.zeroToTwoPi(self.heading) - .pi/2
 
-        let pitchQuat = Quaternion(axis: Cartesian3.unitY, angle: -pitch)
-        let headingQuat = Quaternion(axis: Cartesian3.unitZ, angle: -heading)
+        let pitchQuat = Quaternion(axis: .unitY, angle: -pitch)
+        let headingQuat = Quaternion(axis: .unitZ, angle: -heading)
         let rotQuat = headingQuat.multiply(pitchQuat)
         let rotMatrix = Matrix3(quaternion: rotQuat)
 
         let offset = rotMatrix
-            .multiplyByVector(Cartesian3.unitX)
+            .multiplyByVector(.unitX)
             .negate()
             .multiplyBy(scalar: range)
         return offset

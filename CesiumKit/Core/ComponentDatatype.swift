@@ -94,7 +94,7 @@ enum ComponentDatatype {
     * var size = Cesium.ComponentDatatype.getSizeInBytes(Cesium.ComponentDatatype.BYTE);
     */
     var elementSize: Int {
-        switch (self) {
+        switch self {
         case .byte:
             return MemoryLayout<Int8>.size
         case .unsignedByte:
@@ -115,7 +115,7 @@ enum ComponentDatatype {
     func toVertexType (_ attributeCount: Int) -> VertexType {
         var metalIndex: UInt = 0
         let attributeCount: UInt = UInt(attributeCount)
-        switch (self) {
+        switch self {
         case .byte:
             metalIndex = VertexType.char2.rawValue + attributeCount > 2 ? UInt(attributeCount-2) : 0
         case .unsignedByte:
@@ -135,7 +135,7 @@ enum ComponentDatatype {
     }
 
     func toMTLIndexType () -> MTLIndexType {
-        switch (self) {
+        switch self {
         case .unsignedShort:
             return .uint16
         case .unsignedInt:
