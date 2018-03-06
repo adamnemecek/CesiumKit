@@ -225,11 +225,11 @@ class Context {
     /**
     * Creates a compiled MTLSamplerState from a MTLSamplerDescriptor. These should generally be cached.
     */
-    func createSamplerState (_ descriptor: MTLSamplerDescriptor) -> MTLSamplerState {
+    func createSamplerState(_ descriptor: MTLSamplerDescriptor) -> MTLSamplerState {
         return device.makeSamplerState(descriptor: descriptor)
     }
 
-    func updateDrawable () -> Bool {
+    func updateDrawable() -> Bool {
         // Allow the renderer to preflight 3 frames on the CPU (using a semaphore as a guard) and commit them to the GPU.
         // This semaphore will get signaled once the GPU completes a frame's work via addCompletedHandler callback below,
         // signifying the CPU can go ahead and prepare another frame.
@@ -283,7 +283,7 @@ class Context {
         return _commandBuffer.makeBlitCommandEncoder()
     }
 
-    func completeBlitPass (_ encoder: MTLBlitCommandEncoder) {
+    func completeBlitPass(_ encoder: MTLBlitCommandEncoder) {
         encoder.endEncoding()
     }
 
@@ -297,7 +297,7 @@ class Context {
         return _frustumUniformBufferProviderPool.removeLast()
     }
 
-    func returnFrustumUniformBufferProvider (_ provider: UniformBufferProvider) {
+    func returnFrustumUniformBufferProvider(_ provider: UniformBufferProvider) {
     }
 
     func clear(_ clearCommand: ClearCommand, passState: PassState? = nil) {
@@ -439,7 +439,7 @@ class Context {
         }
     }
 
-    func endFrame () {
+    func endFrame() {
         _commandBuffer.present(_drawable)
         _commandBuffer.commit()
 
@@ -547,7 +547,7 @@ class Context {
         return vertexArray
     }
 
-    func createViewportQuadCommand (fragmentShaderSource fss: ShaderSource, overrides: ViewportQuadOverrides? = nil, depthStencil: Bool = true, blendingState: BlendingState? = nil) -> DrawCommand
+    func createViewportQuadCommand(fragmentShaderSource fss: ShaderSource, overrides: ViewportQuadOverrides? = nil, depthStencil: Bool = true, blendingState: BlendingState? = nil) -> DrawCommand
     {
 
         let vertexArray = getViewportQuadVertexArray()

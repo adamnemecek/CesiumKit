@@ -59,7 +59,7 @@ class Framebuffer {
         updateRenderPassDescriptor()
     }
 
-    func updateFromDrawable (context: Context, drawable: CAMetalDrawable, depthStencil: MTLTexture?) {
+    func updateFromDrawable(context: Context, drawable: CAMetalDrawable, depthStencil: MTLTexture?) {
 
         colorTextures = [Texture(context: context, metalTexture: drawable.texture)]
         depthTexture = depthStencil == nil ? nil : Texture(context: context, metalTexture: depthStencil!)
@@ -68,14 +68,14 @@ class Framebuffer {
         updateRenderPassDescriptor()
     }
 
-    func update (colorTextures: [Texture]?, depthTexture: Texture?, stencilTexture: Texture?) {
+    func update(colorTextures: [Texture]?, depthTexture: Texture?, stencilTexture: Texture?) {
         self.colorTextures = colorTextures
         self.depthTexture = depthTexture
         self.stencilTexture = stencilTexture
         updateRenderPassDescriptor()
     }
 
-    fileprivate func updateRenderPassDescriptor () {
+    fileprivate func updateRenderPassDescriptor() {
         if let colorTextures = self.colorTextures {
             for (i, colorTexture) in colorTextures.enumerated() {
                 _rpd.colorAttachments[i].texture = colorTexture.metalTexture
@@ -93,7 +93,7 @@ class Framebuffer {
         _rpd.stencilAttachment.texture = self.stencilTexture?.metalTexture
     }
 
-    func clearDrawable () {
+    func clearDrawable() {
         colorTextures = nil
         _rpd.colorAttachments[0].texture = nil
         _rpd.colorAttachments[0].loadAction = .load

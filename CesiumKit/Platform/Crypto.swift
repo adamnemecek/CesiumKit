@@ -25,22 +25,16 @@ public struct HMAC {
             switch algo {
             case .md5:
                 CC_MD5(pointer, UInt32(input.count), &hash)
-                break
             case .sha1:
                 CC_SHA1(pointer, UInt32(input.count), &hash)
-                break
             case .sha224:
                 CC_SHA224(pointer, UInt32(input.count), &hash)
-                break
             case .sha256:
                 CC_SHA256(pointer, UInt32(input.count), &hash)
-                break
             case .sha384:
                 CC_SHA384(pointer, UInt32(input.count), &hash)
-                break
             case .sha512:
                 CC_SHA512(pointer, UInt32(input.count), &hash)
-                break
             }
         }
         return hash

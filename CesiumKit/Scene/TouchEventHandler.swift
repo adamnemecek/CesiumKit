@@ -94,7 +94,7 @@ class TouchEventHandler: NSObject, UIGestureRecognizerDelegate {
         addRecognizers()
     }
 
-    func addRecognizers () {
+    func addRecognizers() {
         _view.isUserInteractionEnabled = true
         _view.isMultipleTouchEnabled = true
 
@@ -186,7 +186,7 @@ class TouchEventHandler: NSObject, UIGestureRecognizerDelegate {
 
     // MARK: Zoom
 
-    func zoomToPosition (_ position: Cartesian2, scale: Double) {
+    func zoomToPosition(_ position: Cartesian2, scale: Double) {
 
         let ray = _scene.camera.getPickRay(position)
 
@@ -249,7 +249,7 @@ class TouchEventHandler: NSObject, UIGestureRecognizerDelegate {
         //_events.append(event)
     }
 
-    func reset () {
+    func reset() {
         //_events.removeAll()
     }
 

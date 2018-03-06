@@ -158,14 +158,14 @@ public struct BoundingRectangle: Equatable {
 
         if width > result.width {
             result.width = width
-        } else if (width < 0) {
+        } else if width < 0 {
             result.width -= width
             result.x = point.x
         }
 
         if height > result.height {
             result.height = height
-        } else if (height < 0) {
+        } else if height < 0 {
             result.height -= height
             result.y = point.y
         }

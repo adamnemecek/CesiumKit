@@ -11,7 +11,6 @@ import Metal
 
 class ComputeEngine {
 
-
     /**
     * @private
     */
@@ -44,16 +43,15 @@ class ComputeEngine {
                 normalize: false)
         ]
 
-        return RenderPipeline.fromCache(
-            context: context,
-            vertexShaderSource: ShaderSource(sources: [Shaders["ViewportQuadVS"]!]),
-            fragmentShaderSource: fragmentShaderSource,
-            vertexDescriptor: VertexDescriptor(attributes: attributes),
-            colorMask: nil,
-            depthStencil: false)
+        return RenderPipeline.fromCache(context: context,
+                                        vertexShaderSource: ShaderSource(sources: [Shaders["ViewportQuadVS"]!]),
+                                        fragmentShaderSource: fragmentShaderSource,
+                                        vertexDescriptor: VertexDescriptor(attributes: attributes),
+                                        colorMask: nil,
+                                        depthStencil: false)
     }
 
-    func execute (_ computeCommand: ComputeCommand) {
+    func execute(_ computeCommand: ComputeCommand) {
 
         // This may modify the command's resources, so do error checking afterwards
         if let preExecute = computeCommand.preExecute {

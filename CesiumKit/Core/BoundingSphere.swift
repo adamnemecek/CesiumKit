@@ -194,10 +194,10 @@ struct BoundingSphere: BoundingVolume {
     * @param {BoundingSphere} [result] The object onto which to store the result.
     * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
     */
-    init (fromRectangleWithHeights2D rectangle: Rectangle?,
-          projection: MapProjection = GeographicProjection(),
-          minimumHeight: Double = 0.0,
-          maximumHeight: Double = 0.0) {
+    init(fromRectangleWithHeights2D rectangle: Rectangle?,
+         projection: MapProjection = GeographicProjection(),
+         minimumHeight: Double = 0.0,
+         maximumHeight: Double = 0.0) {
 
             self.init()
 
@@ -686,12 +686,12 @@ BoundingSphere.expand = function(sphere, point, result) {
 
         if distanceToPlane < -radius {
             // The center point is negative side of the plane normal
-            return Intersect.outside
+            return .outside
         } else if distanceToPlane < radius {
             // The center point is positive side of the plane, but radius extends beyond it; partial overlap
-            return Intersect.intersecting
+            return .intersecting
         }
-        return Intersect.inside
+        return .inside
     }
 /*
 /**
@@ -948,7 +948,7 @@ BoundingSphere.prototype.intersect = function(plane) {
     * @param {Occluder} occluder The occluder.
     * @returns {Boolean} <code>true</code> if the sphere is not visible; otherwise <code>false</code>.
     */
-    func isOccluded (_ occluder: Occluder) -> Bool {
+    func isOccluded(_ occluder: Occluder) -> Bool {
         return !occluder.isBoundingSphereVisible(self)
     }
     /*

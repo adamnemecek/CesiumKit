@@ -23,7 +23,7 @@ extension Date {
 
      - parameter date: UTC date to calculate offset for.
     */
-    static func taiOffsetForDate (_ date: Date? = nil) -> TimeInterval {
+    static func taiOffsetForDate(_ date: Date? = nil) -> TimeInterval {
 
         let taiDate = date ?? Date()
 
@@ -103,7 +103,7 @@ extension Date {
 
      - returns: An NSDate object from the provided string or nil if the conversion failed.
      */
-    static func fromUTCISO8601String (_ isoDate: String) -> Date? {
+    static func fromUTCISO8601String(_ isoDate: String) -> Date? {
         return _iso8601Formatter.date(from: isoDate)
     }
 

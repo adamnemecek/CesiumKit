@@ -285,7 +285,7 @@ class EllipsoidGeodesic {
      * @param {Number} fraction The portion of the distance between the initial and final points.
      * @returns {Cartographic} The location of the point along the geodesic.
      */
-    func interpolate (fraction: Double) -> Cartographic {
+    func interpolate(fraction: Double) -> Cartographic {
         assert(fraction >= 0.0 && fraction <= 1.0, "fraction out of bounds")
         assert(_distance != nil, "start and end must be set before calling funciton interpolateUsingSurfaceDistance")
         return interpolate(surfaceDistance: _distance! * fraction)
@@ -299,7 +299,7 @@ class EllipsoidGeodesic {
      *
      * @exception {DeveloperError} start and end must be set before calling funciton interpolateUsingSurfaceDistance
      */
-    func interpolate (surfaceDistance distance: Double) -> Cartographic {
+    func interpolate(surfaceDistance distance: Double) -> Cartographic {
         assert(_distance != nil, "start and end must be set before calling funciton interpolateUsingSurfaceDistance")
 
         let constants = _constants

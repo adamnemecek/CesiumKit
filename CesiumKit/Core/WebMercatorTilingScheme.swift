@@ -61,29 +61,29 @@ class WebMercatorTilingScheme: TilingScheme {
     var rectangleNortheastInMeters: Cartesian3
 
     init(ellipsoid: Ellipsoid = .wgs84,
-        numberOfLevelZeroTilesX: Int = 1,
-        numberOfLevelZeroTilesY: Int = 1,
-        rectangleSouthwestInMeters: Cartesian3? = nil,
-        rectangleNortheastInMeters: Cartesian3? = nil) {
+         numberOfLevelZeroTilesX: Int = 1,
+         numberOfLevelZeroTilesY: Int = 1,
+         rectangleSouthwestInMeters: Cartesian3? = nil,
+         rectangleNortheastInMeters: Cartesian3? = nil) {
 
-            self.ellipsoid = ellipsoid
-            self.projection = WebMercatorProjection(ellipsoid: ellipsoid)
-            self.numberOfLevelZeroTilesX = numberOfLevelZeroTilesX
-            self.numberOfLevelZeroTilesY = numberOfLevelZeroTilesY
+        self.ellipsoid = ellipsoid
+        self.projection = WebMercatorProjection(ellipsoid: ellipsoid)
+        self.numberOfLevelZeroTilesX = numberOfLevelZeroTilesX
+        self.numberOfLevelZeroTilesY = numberOfLevelZeroTilesY
 
-            if (rectangleSouthwestInMeters != nil && rectangleNortheastInMeters != nil) {
-                self.rectangleSouthwestInMeters = rectangleSouthwestInMeters!
-                self.rectangleNortheastInMeters = rectangleNortheastInMeters!
-            }
-            else {
-                let semimajorAxisTimesPi = self.ellipsoid.maximumRadius * .pi;
-                self.rectangleSouthwestInMeters = Cartesian3(x: -semimajorAxisTimesPi, y: -semimajorAxisTimesPi, z: 0.0)
-                self.rectangleNortheastInMeters = Cartesian3(x: semimajorAxisTimesPi, y: semimajorAxisTimesPi, z: 0.0)
-            }
-            let southwest = self.projection.unproject(self.rectangleSouthwestInMeters)
-            let northeast = self.projection.unproject(self.rectangleNortheastInMeters)
-            self.rectangle = Rectangle(west: southwest.longitude, south: southwest.latitude,
-                east: northeast.longitude, north: northeast.latitude)
+        if rectangleSouthwestInMeters != nil && rectangleNortheastInMeters != nil {
+            self.rectangleSouthwestInMeters = rectangleSouthwestInMeters!
+            self.rectangleNortheastInMeters = rectangleNortheastInMeters!
+        }
+        else {
+            let semimajorAxisTimesPi = self.ellipsoid.maximumRadius * .pi;
+            self.rectangleSouthwestInMeters = Cartesian3(x: -semimajorAxisTimesPi, y: -semimajorAxisTimesPi, z: 0.0)
+            self.rectangleNortheastInMeters = Cartesian3(x: semimajorAxisTimesPi, y: semimajorAxisTimesPi, z: 0.0)
+        }
+        let southwest = self.projection.unproject(self.rectangleSouthwestInMeters)
+        let northeast = self.projection.unproject(self.rectangleNortheastInMeters)
+        self.rectangle = Rectangle(west: southwest.longitude, south: southwest.latitude,
+                                   east: northeast.longitude, north: northeast.latitude)
     }
 
 
@@ -190,8 +190,8 @@ class WebMercatorTilingScheme: TilingScheme {
     func positionToTileXY(position: Cartographic, level: Int) -> (x: Int, y: Int)? {
 
         if !rectangle.contains(position) {
-                // outside the bounds of the tiling scheme
-                return nil
+            // outside the bounds of the tiling scheme
+            return nil
         }
 
         let xTiles = numberOfXTilesAt(level: level)
@@ -207,11 +207,11 @@ class WebMercatorTilingScheme: TilingScheme {
         let distanceFromNorth = rectangleNortheastInMeters.y - webMercatorPosition.y
 
         var xTileCoordinate = Int(distanceFromWest / xTileWidth) | 0
-        if (xTileCoordinate >= xTiles) {
+        if xTileCoordinate >= xTiles {
             xTileCoordinate = xTiles - 1
         }
         var yTileCoordinate = Int(distanceFromNorth / yTileHeight) | 0
-        if (yTileCoordinate >= yTiles) {
+        if yTileCoordinate >= yTiles {
             yTileCoordinate = yTiles - 1
         }
 

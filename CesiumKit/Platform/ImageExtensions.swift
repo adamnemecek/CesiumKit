@@ -30,7 +30,7 @@ import Foundation
 #endif
 
 extension CGImage {
-    class func loadFromURL (_ url: String, completionBlock: @escaping (CGImage?, NSError?) -> ()) {
+    class func loadFromURL(_ url: String, completionBlock: @escaping (CGImage?, NSError?) -> ()) {
 
         let imageOperation = NetworkOperation(url: url)
         imageOperation.completionBlock = {
@@ -52,7 +52,7 @@ extension CGImage {
         #endif
     }
 
-    func renderToPixelArray (colorSpace cs: CGColorSpace, premultiplyAlpha: Bool, flipY: Bool) -> (array: [UInt8], bytesPerRow: Int)? {
+    func renderToPixelArray(colorSpace cs: CGColorSpace, premultiplyAlpha: Bool, flipY: Bool) -> (array: [UInt8], bytesPerRow: Int)? {
 
         let width = self.width
         let height = self.height

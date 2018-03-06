@@ -602,8 +602,8 @@ open class ScreenSpaceCameraController {
         let ray = camera.getPickRay(mousePosition)
         let rayIntersection = _globe!.pick(ray, scene: _scene)
 
-        let pickDistance = depthIntersection?.distance(camera.positionWC) ?? Double.infinity
-        let rayDistance = rayIntersection?.distance(camera.positionWC) ?? Double.infinity
+        let pickDistance = depthIntersection?.distance(camera.positionWC) ?? .infinity
+        let rayDistance = rayIntersection?.distance(camera.positionWC) ?? .infinity
 
         if pickDistance < rayDistance {
             return depthIntersection
