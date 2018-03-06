@@ -47,13 +47,13 @@ class GlobeSurfaceShaderSet {
         let positionMode: String
 
         switch sceneMode {
-        case SceneMode.scene3D:
+        case .scene3D:
             positionMode = getPosition3DMode
-        case SceneMode.scene2D:
+        case .scene2D:
             positionMode = getPosition2DMode
-        case SceneMode.columbusView:
+        case .columbusView:
             positionMode = getPositionColumbusViewMode
-        case SceneMode.morphing:
+        case .morphing:
             positionMode = getPositionMorphingMode
         }
 

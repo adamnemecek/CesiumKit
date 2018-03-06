@@ -199,13 +199,13 @@ struct TileBoundingBox {
         }
 
         let cameraHeight: Double
-        if frameState.mode == SceneMode.scene3D {
+        if frameState.mode == .scene3D {
             cameraHeight = cameraCartographicPosition.height
         } else {
             cameraHeight = cameraCartesianPosition.x
         }
 
-        let maximumHeight = frameState.mode == SceneMode.scene3D ? self.maximumHeight : 0.0
+        let maximumHeight = frameState.mode == .scene3D ? self.maximumHeight : 0.0
         let distanceFromTop = cameraHeight - maximumHeight
         if distanceFromTop > 0.0 {
             result += distanceFromTop * distanceFromTop

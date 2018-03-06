@@ -989,7 +989,7 @@ open class Camera: DRU {
 
         if _mode == .scene3D {
             setView3D(destination.cartesian!, heading: heading, pitch: pitch, roll: roll)
-        } else if _mode == SceneMode.scene2D {
+        } else if _mode == .scene2D {
             setView2D(destination.cartesian!, convert: convert)
         } else {
             setViewCV(destination.cartesian!, heading: heading, pitch: pitch, roll: roll, convert: convert)

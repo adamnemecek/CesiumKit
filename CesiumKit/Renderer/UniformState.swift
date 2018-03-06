@@ -958,14 +958,14 @@ class UniformState {
     }
 
     func cleanViewProjection() {
-        if (_viewProjectionDirty) {
+        if _viewProjectionDirty {
             _viewProjectionDirty = false
             _viewProjection = _projection.multiply(_view)
         }
     }
 
     func cleanInverseViewProjection() {
-        if (_inverseViewProjectionDirty) {
+        if _inverseViewProjectionDirty {
             _inverseViewProjectionDirty = false
             _inverseViewProjection = viewProjection.inverse
         }
@@ -1028,7 +1028,7 @@ class UniformState {
     }
     */
     func cleanNormal() {
-        if (_normalDirty) {
+        if _normalDirty {
             _normalDirty = false
             _normal = inverseModelView.rotation.transpose
         }

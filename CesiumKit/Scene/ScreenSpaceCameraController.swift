@@ -474,7 +474,7 @@ open class ScreenSpaceCameraController {
         var zoomOnVector = mode == .columbusView
 
         if !sameStartPosition || rotatingZoom {
-            if mode == SceneMode.scene2D {
+            if mode == .scene2D {
                 let worldPosition = _zoomWorldPosition
                 let endPosition = camera.position
                 // FIXME: Object
@@ -1046,7 +1046,7 @@ open class ScreenSpaceCameraController {
         }
 
         direction = mouseStartPosition.subtract(intersection)
-        if _scene.mode == SceneMode.columbusView {
+        if _scene.mode == .columbusView {
             direction = Cartesian3(x: direction.y, y: direction.z, z: direction.x)
         }
         camera.position = camera.position.add(direction)
@@ -1648,7 +1648,7 @@ open class ScreenSpaceCameraController {
         }
 
         var cartographic: Cartographic
-        if mode == SceneMode.scene3D {
+        if mode == .scene3D {
             cartographic = ellipsoid.cartesianToCartographic(camera.position)!
         } else {
             cartographic = projection.unproject(camera.position)
@@ -1689,7 +1689,7 @@ open class ScreenSpaceCameraController {
     * @private
     */
     func update () {
-        if _scene.camera.transform != Matrix4.identity {
+        if _scene.camera.transform != .identity {
             _globe = nil
             _ellipsoid = Ellipsoid.unitSphere()
         } else {

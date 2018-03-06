@@ -158,7 +158,7 @@ class DepthPlane {
     }
 
     func execute (_ context: Context, renderPass: RenderPass, frustumUniformBuffer: Buffer? = nil) {
-        if _mode == SceneMode.scene3D {
+        if _mode == .scene3D {
             _command?.execute(context, renderPass: renderPass, frustumUniformBuffer: frustumUniformBuffer)
         }
     }

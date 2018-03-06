@@ -47,7 +47,7 @@ public struct CesiumOptions {
         lighting: Bool = false,
         skyBox: Bool = true,
         fog: Bool = true,
-        sceneMode: SceneMode = SceneMode.scene3D,
+        sceneMode: SceneMode = .scene3D,
         scene3DOnly: Bool = false,
         mapProjection: MapProjection = GeographicProjection(),
         showRenderLoopErrors: Bool = true)

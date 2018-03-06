@@ -784,7 +784,7 @@ open class Scene {
     func getOccluder() -> Occluder? {
         // TODO: The occluder is the top-level globe. When we add
         //       support for multiple central bodies, this should be the closest one.
-        if mode == SceneMode.scene3D {//&& globe != nil {
+        if mode == .scene3D {//&& globe != nil {
             return Occluder(occluderBoundingSphere: BoundingSphere(radius: globe.ellipsoid.minimumRadius), cameraPosition: camera.positionWC)
         }
         return nil
@@ -1432,7 +1432,7 @@ var scratchOrthographicFrustum = new OrthographicFrustum();
         let camera = frameState.camera
         let mode = frameState.mode
 
-        if _useWebVR && mode != SceneMode.scene3D {
+        if _useWebVR && mode != .scene3D {
             /*updatePrimitives(scene);
             createPotentiallyVisibleSet(scene);
             updateAndClearFramebuffers(scene, passState, backgroundColor, picking);
@@ -1473,7 +1473,7 @@ var scratchOrthographicFrustum = new OrthographicFrustum();
         } else {
             passState.viewport = Cartesian4(x: 0, y: 0, width: Double(context.width), height: Double(context.height))
 
-            if mode != SceneMode.scene2D {
+            if mode != .scene2D {
                 executeCommandsInViewport(true, passState: passState, backgroundColor: backgroundColor, picking: picking)
             } else {
                 execute2DViewportCommands(passState, backgroundColor: backgroundColor, picking: picking)
@@ -1624,7 +1624,7 @@ var scratchOrthographicFrustum = new OrthographicFrustum();
     }
 
     func updateAndClearFramebuffers(_ passState: PassState, clearColor: Cartesian4, picking: Bool = false) {
-        let useWebVR = _useWebVR && mode != SceneMode.scene2D
+        let useWebVR = _useWebVR && mode != .scene2D
 
         // Preserve the reference to the original framebuffer.
         _environmentState.originalFramebuffer = passState.framebuffer ?? context.defaultFramebuffer

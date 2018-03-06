@@ -92,7 +92,7 @@ class SkyBox {
             return nil
         }
 
-        if frameState.mode != .scene3D && frameState.mode != SceneMode.morphing {
+        if frameState.mode != .scene3D && frameState.mode != .morphing {
             return nil
         }
 

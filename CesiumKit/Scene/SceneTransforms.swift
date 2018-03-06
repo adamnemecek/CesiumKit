@@ -167,7 +167,7 @@ struct SceneTransforms {
                 }
             }
         }
-        if frameState.mode != SceneMode.scene3D || cameraCentered {
+        if frameState.mode != .scene3D || cameraCentered {
             // View-projection matrix to transform from world coordinates to clip coordinates
             positionCC = worldToClip(actualPosition, eyeOffset: eyeOffset, camera: camera)
             if positionCC.z < 0 && frameState.mode != .scene2D {
