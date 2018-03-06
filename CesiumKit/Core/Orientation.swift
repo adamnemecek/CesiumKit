@@ -6,10 +6,8 @@
 //  Copyright © 2016 Test Toast. All rights reserved.
 //
 
-import Foundation
 
 public enum Orientation {
-    case headingPitchRoll (heading: Double, pitch: Double, roll: Double)
-
-    case directionUp (direction: Cartesian3, up: Cartesian3)
+    case headingPitchRoll(heading: Double, pitch: Double, roll: Double)
+    case directionUp(direction: Cartesian3, up: Cartesian3)
 }

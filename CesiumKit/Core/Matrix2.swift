@@ -483,7 +483,7 @@ public struct Matrix2 {
     * @returns {Boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
     */
     func equalsEpsilon(_ other: Matrix2, epsilon: Double) -> Bool {
-        return matrix_almost_equal_elements(simdType.cmatrix, other.simdType.cmatrix, epsilon)
+        return simd_almost_equal_elements(simdType.cmatrix, other.simdType.cmatrix, epsilon)
     }
 /*
 

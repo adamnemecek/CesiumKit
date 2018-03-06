@@ -43,21 +43,21 @@ import Foundation
 open class Clock {
 
     /**
-    * The start time of the clock.
-    * @type {JulianDate}
-    */
+     * The start time of the clock.
+     * @type {JulianDate}
+     */
     var startTime: JulianDate
 
     /**
-    * The stop time of the clock.
-    * @type {JulianDate}
-    */
+     * The stop time of the clock.
+     * @type {JulianDate}
+     */
     var stopTime: JulianDate
 
     /**
-    * The current time.
-    * @type {JulianDate}
-    */
+     * The current time.
+     * @type {JulianDate}
+     */
     var currentTime: JulianDate
 
     /**
@@ -85,11 +85,11 @@ open class Clock {
     var multiplier: Double
 
     /**
-    * Indicates whether tick can advance time.  This could be false if data is being buffered,
-    * for example.  The clock will only tick when both <code>canAnimate</code> and <code>shouldAnimate</code> are true.
-    * @type {Boolean}
-    * @default true
-    */
+     * Indicates whether tick can advance time.  This could be false if data is being buffered,
+     * for example.  The clock will only tick when both <code>canAnimate</code> and <code>shouldAnimate</code> are true.
+     * @type {Boolean}
+     * @default true
+     */
     var canAnimate: Bool
 
     /**
@@ -101,9 +101,9 @@ open class Clock {
     var shouldAnimate: Bool
 
     /**
-    * An {@link Event} that is fired whenever <code>tick</code>.
-    * @type {Event}
-    */
+     * An {@link Event} that is fired whenever <code>tick</code>.
+     * @type {Event}
+     */
     var onTick = Event()
 
     /**
@@ -114,69 +114,68 @@ open class Clock {
 
     fileprivate var _lastSystemTime: Date
 
-    public init(
-        startTime: JulianDate? = nil,
-        currentTime: JulianDate? = nil,
-        stopTime: JulianDate? = nil,
-        clockRange: ClockRange = .unbounded,
-        clockStep: ClockStep = .systemClockMultiplier,
-        multiplier: Double = 1.0,
-        canAnimate: Bool = true,
-        shouldAnimate: Bool = true,
-        isUTC: Bool = false) {
-            var startTime: JulianDate? = startTime
-            let startTimeUndefined = startTime == nil
+    public init(startTime: JulianDate? = nil,
+                currentTime: JulianDate? = nil,
+                stopTime: JulianDate? = nil,
+                clockRange: ClockRange = .unbounded,
+                clockStep: ClockStep = .systemClockMultiplier,
+                multiplier: Double = 1.0,
+                canAnimate: Bool = true,
+                shouldAnimate: Bool = true,
+                isUTC: Bool = false) {
+        var startTime: JulianDate? = startTime
+        let startTimeUndefined = startTime == nil
 
-            var stopTime: JulianDate? = stopTime
-            let stopTimeUndefined = stopTime == nil
+        var stopTime: JulianDate? = stopTime
+        let stopTimeUndefined = stopTime == nil
 
-            var currentTime: JulianDate? = currentTime
-            let currentTimeUndefined = currentTime == nil
+        var currentTime: JulianDate? = currentTime
+        let currentTimeUndefined = currentTime == nil
 
-            if startTimeUndefined && stopTimeUndefined && currentTimeUndefined {
-                currentTime = JulianDate.now()
-                startTime = currentTime!
-                stopTime = startTime!.addDays(1.0)
-            } else if startTimeUndefined && stopTimeUndefined {
-                startTime = currentTime!
-                stopTime = currentTime?.addDays(1.0)
-                startTime = stopTime!.addDays(-1.0)
-                currentTime = startTime!
-            } else if currentTimeUndefined && stopTimeUndefined {
-                currentTime = startTime!
-                stopTime = startTime!.addDays(1.0)
-            } else if currentTimeUndefined {
-                currentTime = startTime!
-            } else if stopTimeUndefined {
-                stopTime = currentTime!.addDays(1.0)
-            } else if startTimeUndefined {
-                startTime = currentTime!
-            }
+        if startTimeUndefined && stopTimeUndefined && currentTimeUndefined {
+            currentTime = JulianDate.now()
+            startTime = currentTime!
+            stopTime = startTime!.addDays(1.0)
+        } else if startTimeUndefined && stopTimeUndefined {
+            startTime = currentTime!
+            stopTime = currentTime?.addDays(1.0)
+            startTime = stopTime!.addDays(-1.0)
+            currentTime = startTime!
+        } else if currentTimeUndefined && stopTimeUndefined {
+            currentTime = startTime!
+            stopTime = startTime!.addDays(1.0)
+        } else if currentTimeUndefined {
+            currentTime = startTime!
+        } else if stopTimeUndefined {
+            stopTime = currentTime!.addDays(1.0)
+        } else if startTimeUndefined {
+            startTime = currentTime!
+        }
 
-            assert(startTime!.lessThanOrEquals(stopTime!), "startTime must come before stopTime.")
+        assert(startTime!.lessThanOrEquals(stopTime!), "startTime must come before stopTime.")
 
-            self.startTime = startTime!
-            self.stopTime = stopTime!
-            self.currentTime = currentTime!
+        self.startTime = startTime!
+        self.stopTime = stopTime!
+        self.currentTime = currentTime!
 
-            self.multiplier = multiplier
+        self.multiplier = multiplier
 
-            self.clockStep = clockStep
+        self.clockStep = clockStep
 
-            self.clockRange = clockRange
+        self.clockRange = clockRange
 
-            self.canAnimate = canAnimate
+        self.canAnimate = canAnimate
 
-            self.shouldAnimate = shouldAnimate
+        self.shouldAnimate = shouldAnimate
 
-            if isUTC {
-                _lastSystemTime = Date()
+        if isUTC {
+            _lastSystemTime = Date()
 
-            } else {
-                _lastSystemTime = Date.taiDate()
-            }
+        } else {
+            _lastSystemTime = Date.taiDate()
+        }
 
-            self.isUTC = isUTC
+        self.isUTC = isUTC
     }
 
     /**

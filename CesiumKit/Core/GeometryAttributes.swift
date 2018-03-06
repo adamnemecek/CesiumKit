@@ -142,13 +142,12 @@ class GeometryAttributes {
         }
     }
 
-    init(
-        position: GeometryAttribute? = nil,
-        normal: GeometryAttribute? = nil,
-        st: GeometryAttribute? = nil,
-        binormal: GeometryAttribute? = nil,
-        tangent: GeometryAttribute? = nil,
-        color: GeometryAttribute? = nil) {
+    init(position: GeometryAttribute? = nil,
+         normal: GeometryAttribute? = nil,
+         st: GeometryAttribute? = nil,
+         binormal: GeometryAttribute? = nil,
+         tangent: GeometryAttribute? = nil,
+         color: GeometryAttribute? = nil) {
             _attributes["position"] = position
             _attributes["normal"] = normal
             _attributes["st"] = st

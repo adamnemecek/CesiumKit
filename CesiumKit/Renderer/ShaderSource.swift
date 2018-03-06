@@ -32,7 +32,7 @@ private class DependencyNode: Equatable {
         self.evaluated = evaluated
     }
 
-    private static func == (left: DependencyNode, right: DependencyNode) -> Bool {
+    static func == (left: DependencyNode, right: DependencyNode) -> Bool {
         return left.name == right.name && left.glslSource == right.glslSource
     }
 }

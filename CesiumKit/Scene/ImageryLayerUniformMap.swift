@@ -28,10 +28,10 @@ class ImageryLayerUniformMap: NativeUniformMap {
     var viewportOrthographic: Matrix4 {
         get {
             return Matrix4(simd: double4x4([
-                vector_double(_uniformStruct.viewportOrthographic[0]),
-                vector_double(_uniformStruct.viewportOrthographic[1]),
-                vector_double(_uniformStruct.viewportOrthographic[2]),
-                vector_double(_uniformStruct.viewportOrthographic[3])
+                double4(_uniformStruct.viewportOrthographic[0]),
+                double4(_uniformStruct.viewportOrthographic[1]),
+                double4(_uniformStruct.viewportOrthographic[2]),
+                double4(_uniformStruct.viewportOrthographic[3])
             ]))
         }
         set {

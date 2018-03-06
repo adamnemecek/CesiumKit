@@ -148,7 +148,7 @@ final class FontAtlas: JSONEncodable {
         return json
     }
 
-    fileprivate func estimatedGlyphSizeForFont (_ font: CTFont) -> CGSize {
+    fileprivate func estimatedGlyphSizeForFont(_ font: CTFont) -> CGSize {
 
         let exemplarString = "{ǺOJMQYZa@jmqyw"
 
@@ -167,7 +167,7 @@ final class FontAtlas: JSONEncodable {
         return CGSize(width: averageGlyphWidth, height: maxGlyphHeight)
     }
 
-    fileprivate func estimatedLineWidthForFont (_ font: CTFont) -> Double {
+    fileprivate func estimatedLineWidthForFont(_ font: CTFont) -> Double {
 
         let attrString = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0)
         CFAttributedStringReplaceString(attrString, CFRangeMake(0, 0), "!" as CFString!)
@@ -181,7 +181,7 @@ final class FontAtlas: JSONEncodable {
         return ceil(Double(textSize.width))
     }
 
-    fileprivate func isLikelyToFitInAtlasRect (_ rect: CGRect, forFont font: CTFont, atSize size: Int) -> Bool {
+    fileprivate func isLikelyToFitInAtlasRect(_ rect: CGRect, forFont font: CTFont, atSize size: Int) -> Bool {
 
         let textureArea = Double(rect.size.width * rect.size.height)
         let trialFont = CTFontCreateCopyWithAttributes(parentFont, CGFloat(size), nil, nil)
@@ -192,7 +192,7 @@ final class FontAtlas: JSONEncodable {
         return estimatedGlyphTotalArea < textureArea
     }
 
-    fileprivate func pointSizeThatFits (forFont font: CTFont, inAtlasRect rect: CGRect) -> Int {
+    fileprivate func pointSizeThatFits(forFont font: CTFont, inAtlasRect rect: CGRect) -> Int {
 
         var fittedSize = Int(CTFontGetSize(font))
 
@@ -205,7 +205,7 @@ final class FontAtlas: JSONEncodable {
         return fittedSize
     }
 
-    fileprivate func createAtlasForFont (_ font: CTFont, width: Int, height: Int) -> [UInt8] {
+    fileprivate func createAtlasForFont(_ font: CTFont, width: Int, height: Int) -> [UInt8] {
 
         var imageData = [UInt8](repeating: 0, count: width * height)
 
@@ -215,12 +215,12 @@ final class FontAtlas: JSONEncodable {
         let bitmapInfo = CGBitmapInfo(rawValue: alphaInfo.rawValue)
 
         guard let context = CGContext(data: &imageData,
-                                width: width,
-                                height: height,
-                                bitsPerComponent: 8,
-                                bytesPerRow: width,
-                                space: colorSpace,
-                                bitmapInfo: bitmapInfo.rawValue) else { return [] }
+                                      width: width,
+                                      height: height,
+                                      bitsPerComponent: 8,
+                                      bytesPerRow: width,
+                                      space: colorSpace,
+                                      bitmapInfo: bitmapInfo.rawValue) else { return [] }
 
         // Turn off antialiasing so we only get fully-on or fully-off pixels.
         // This implicitly disables subpixel antialiasing and hinting.
@@ -399,7 +399,7 @@ final class FontAtlas: JSONEncodable {
                     let nearest = nearestpt(x, y)
                     setDistance(x, y, distance: hypot(Float(x - nearest.x), Float(y - nearest.y)))
                 }
-                if (istance(x + 1, y + 1) + distDiag < distance(x, y) {
+                if distance(x + 1, y + 1) + distDiag < distance(x, y) {
                     setNearestpt(x, y, point: nearestpt(x + 1, y + 1))
                     let nearest = nearestpt(x, y)
                     setDistance(x, y, distance: hypot(Float(x - nearest.x), Float(y - nearest.y)))
@@ -418,7 +418,7 @@ final class FontAtlas: JSONEncodable {
         return distanceMap
     }
 
-    fileprivate func createResampledData (distanceField inData: [Float], width: Int, height: Int, scaleFactor: Int) -> [Float] {
+    fileprivate func createResampledData(distanceField inData: [Float], width: Int, height: Int, scaleFactor: Int) -> [Float] {
 
         assert(width % scaleFactor == 0 && height % scaleFactor == 0, "Scale factor does not evenly divide width and height of source distance field")
 
@@ -465,7 +465,7 @@ final class FontAtlas: JSONEncodable {
         return outData
     }
 
-    fileprivate func createTextureData () {
+    fileprivate func createTextureData() {
         assert(MBEFontAtlasSize >= _textureSize, "Requested font atlas texture size (\(MBEFontAtlasSize)) must be smaller than intermediate texture size (\(_textureSize))")
 
         assert(MBEFontAtlasSize % _textureSize == 0, "Requested font atlas texture size (\(MBEFontAtlasSize)) does not evenly divide intermediate texture size (\(_textureSize))")
@@ -501,20 +501,18 @@ final class FontAtlas: JSONEncodable {
         )
     }
 
-    func createTexture (_ context: Context) {
-        let imageBuffer = Imagebuffer(
-            array: _textureData,
-            width: _textureSize,
-            height: _textureSize,
-            bytesPerPixel: 1)
+    func createTexture(_ context: Context) {
+        let imageBuffer = Imagebuffer(array: _textureData,
+                                      width: _textureSize,
+                                      height: _textureSize,
+                                      bytesPerPixel: 1)
         let source: TextureSource = .buffer(imageBuffer)
         let sampler = Sampler(context: context, wrapS: .clampToZero, wrapT: .clampToZero, mipMagFilter: .linear)
-        let options = TextureOptions(
-            source: source,
-            pixelFormat: .r8Unorm,
-            usage: TextureUsage.ShaderRead,
-            mipmapped: true,
-            sampler: sampler)
+        let options = TextureOptions(source: source,
+                                     pixelFormat: .r8Unorm,
+                                     usage: .ShaderRead,
+                                     mipmapped: true,
+                                     sampler: sampler)
         _texture = Texture(context: context, options: options)
         _waitingForMipmaps = true
     }
@@ -552,7 +550,7 @@ final class FontAtlas: JSONEncodable {
         return atlas
     }
 
-    class func writeToFile (_ atlas: FontAtlas) {
+    class func writeToFile(_ atlas: FontAtlas) {
         do {
             let atlasFolderURL = LocalStorage.sharedInstance
                 .getAppSupportURL()
@@ -583,7 +581,7 @@ final class FontAtlas: JSONEncodable {
         }
     }
 
-    class func generateMipmapsIfRequired (_ context: Context) {
+    class func generateMipmapsIfRequired(_ context: Context) {
         for atlas in _cache.values {
             if atlas._waitingForMipmaps {
                 atlas._waitingForMipmaps = false
