@@ -17,7 +17,7 @@ public func deleteDuplicates<S:RangeReplaceableCollection>(_ seq:S)-> S where S.
 
 extension Array {
     var sizeInBytes: Int {
-        return count == 0 ? 0 : count * MemoryLayout.stride(ofValue: self[0])
+        return count * MemoryLayout<Element>.size
     }
 
     /**

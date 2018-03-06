@@ -207,7 +207,7 @@ open class ImageryLayer {
     var isBaseLayer = false
 
     init(imageryProvider: ImageryProvider,
-         rectangle: Rectangle = Rectangle.maxValue(),
+         rectangle: Rectangle = .max,
          alpha: @escaping (() -> Float) = { return 1.0 },
          brightness: @escaping (() -> Float) = { return 1.0 },
          contrast: @escaping (() -> Float) = { return 1.0 },

@@ -465,10 +465,7 @@ public struct Rectangle {
     * @type {Rectangle}
     * @constant
     */
-    static func maxValue() -> Rectangle {
-        return Rectangle(west: -.pi, south: -.pi/2, east: .pi, north: .pi/2)
-    }
-
+    static let max = Rectangle(west: -.pi, south: -.pi/2, east: .pi, north: .pi/2)
 }
 
 extension Rectangle: Packable {

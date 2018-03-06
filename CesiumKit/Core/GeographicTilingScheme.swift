@@ -52,7 +52,7 @@ class GeographicTilingScheme: TilingScheme {
     var numberOfLevelZeroTilesY: Int
 
     init(ellipsoid: Ellipsoid = .wgs84,
-         rectangle: Rectangle = Rectangle.maxValue(),
+         rectangle: Rectangle = .max,
          numberOfLevelZeroTilesX: Int = 2,
          numberOfLevelZeroTilesY: Int = 1) {
 
