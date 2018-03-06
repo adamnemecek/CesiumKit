@@ -307,14 +307,14 @@ open class TextRenderer: Primitive {
             indexBuffer = Buffer(
                 device: context.device,
                 array: indicesShort,
-                componentDatatype: ComponentDatatype.unsignedShort,
+                componentDatatype: .unsignedShort,
                 sizeInBytes: indicesShort.sizeInBytes)
         } else {
             let indicesInt = indices.map({ UInt32($0) })
             indexBuffer = Buffer(
                 device: context.device,
                 array: indicesInt,
-                componentDatatype: ComponentDatatype.unsignedInt,
+                componentDatatype: .unsignedInt,
                 sizeInBytes: indicesInt.sizeInBytes)
         }
         indexBuffer.metalBuffer.label = "Text Mesh Indices"

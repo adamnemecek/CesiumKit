@@ -77,7 +77,7 @@ public struct Cartographic {
         let lon = Math.toRadians(longitude)
         let lat = Math.toRadians(latitude)
 
-        return Cartographic.fromRadians(lon, latitude: lat, height: height);
+        return Cartographic.fromRadians(lon, latitude: lat, height: height)
     }
 
     /*

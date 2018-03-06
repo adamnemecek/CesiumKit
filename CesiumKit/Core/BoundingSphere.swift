@@ -138,7 +138,7 @@ struct BoundingSphere: BoundingVolume {
         let naiveCenter = minBoxPt.add(maxBoxPt).multiplyBy(scalar: 0.5)
 
         // Begin 2nd pass to find naive radius and modify the ritter sphere.
-        var naiveRadius = 0.0;
+        var naiveRadius = 0.0
         for i in 0..<points.count {
             currentPos = points[i]
 
@@ -360,7 +360,7 @@ struct BoundingSphere: BoundingVolume {
         }
 
         // Calculate the center of the initial sphere found by Ritter's algorithm
-        var ritterCenter = Cartesian3();
+        var ritterCenter = Cartesian3()
         ritterCenter.x = (diameter1.x + diameter2.x) * 0.5
         ritterCenter.y = (diameter1.y + diameter2.y) * 0.5
         ritterCenter.z = (diameter1.z + diameter2.z) * 0.5

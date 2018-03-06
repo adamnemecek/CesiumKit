@@ -96,7 +96,7 @@ class TileTerrain {
             } else {
                 // Initially assume failure.  handleError may retry, in which case the state will
                 // change to RECEIVING or UNLOADED.
-                self.state = TerrainState.failed
+                self.state = .failed
 
                 let message = "Failed to obtain terrain tile X: \(x) Y: \(y) Level: \(level) - terrain data request failed"
                 logPrint(.error, message)
@@ -191,7 +191,7 @@ class TileTerrain {
         var terrainMesh = self.mesh!
 
         QueueManager.sharedInstance.resourceLoadQueue.async(execute: {
-            let datatype = ComponentDatatype.float32
+            let datatype = .float32
             let meshBufferSize = terrainMesh.vertices.sizeInBytes
 
             let stride: Int
@@ -213,14 +213,14 @@ class TileTerrain {
                     indexBuffer = Buffer(
                         device: context.device,
                         array: indicesShort,
-                        componentDatatype: ComponentDatatype.unsignedShort,
+                        componentDatatype: .unsignedShort,
                         sizeInBytes: indicesShort.sizeInBytes)
                 } else {
                     let indicesInt = indices.map({ UInt32($0) })
                     indexBuffer = Buffer(
                         device: context.device,
                         array: indicesInt,
-                        componentDatatype: ComponentDatatype.unsignedInt,
+                        componentDatatype: .unsignedInt,
                         sizeInBytes: indicesInt.sizeInBytes)
                 }
                 terrainMesh.indexBuffer = indexBuffer!

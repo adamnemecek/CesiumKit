@@ -131,10 +131,10 @@ public struct BoundingRectangle: Equatable {
     */
     func union(_ other: BoundingRectangle) -> BoundingRectangle {
 
-        let lowerLeftX = min(x, other.x);
-        let lowerLeftY = min(y, other.y);
-        let upperRightX = max(x + width, other.x + other.width);
-        let upperRightY = max(y + height, other.y + other.height);
+        let lowerLeftX = min(x, other.x)
+        let lowerLeftY = min(y, other.y)
+        let upperRightX = max(x + width, other.x + other.width)
+        let upperRightY = max(y + height, other.y + other.height)
 
         return BoundingRectangle(
             x: lowerLeftX,
@@ -159,14 +159,14 @@ public struct BoundingRectangle: Equatable {
         if (width > result.width) {
             result.width = width
         } else if (width < 0) {
-            result.width -= width;
+            result.width -= width
             result.x = point.x
         }
 
         if (height > result.height) {
             result.height = height
         } else if (height < 0) {
-            result.height -= height;
+            result.height -= height
             result.y = point.y
         }
         return result
@@ -184,9 +184,9 @@ public struct BoundingRectangle: Equatable {
             x + width < other.x ||
             y + height < other.y ||
             y > other.y + other.height) {
-                return Intersect.intersecting
+                return .intersecting
         }
-        return Intersect.outside;
+        return .outside
     }
 
 }

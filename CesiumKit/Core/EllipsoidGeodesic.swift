@@ -177,7 +177,7 @@ class EllipsoidGeodesic {
 
             lambdaDot = lambda
 
-            cosineTwiceSigmaMidpoint = cosineSigma - 2.0 * ss / cosineSquaredAlpha;
+            cosineTwiceSigmaMidpoint = cosineSigma - 2.0 * ss / cosineSquaredAlpha
 
             if cosineTwiceSigmaMidpoint.isNaN {
                 cosineTwiceSigmaMidpoint = 0.0
@@ -191,10 +191,10 @@ class EllipsoidGeodesic {
         let A = 1.0 + uSquared * (4096.0 + uSquared * (uSquared * (320.0 - 175.0 * uSquared) - 768.0)) / 16384.0
         let B = uSquared * (256.0 + uSquared * (uSquared * (74.0 - 47.0 * uSquared) - 128.0)) / 1024.0
 
-        let cosineSquaredTwiceSigmaMidpoint = cosineTwiceSigmaMidpoint * cosineTwiceSigmaMidpoint;
+        let cosineSquaredTwiceSigmaMidpoint = cosineTwiceSigmaMidpoint * cosineTwiceSigmaMidpoint
         let deltaSigma = B * sineSigma * (cosineTwiceSigmaMidpoint + B * (cosineSigma *
             (2.0 * cosineSquaredTwiceSigmaMidpoint - 1.0) - B * cosineTwiceSigmaMidpoint *
-            (4.0 * sineSigma * sineSigma - 3.0) * (4.0 * cosineSquaredTwiceSigmaMidpoint - 3.0) / 6.0) / 4.0);
+            (4.0 * sineSigma * sineSigma - 3.0) * (4.0 * cosineSquaredTwiceSigmaMidpoint - 3.0) / 6.0) / 4.0)
 
         _distance = minor * A * (sigma - deltaSigma)
 
@@ -314,8 +314,8 @@ class EllipsoidGeodesic {
         let sine6S = sin(6.0 * s)
         let sine8S = sin(8.0 * s)
 
-        let s2 = s * s;
-        let s3 = s * s2;
+        let s2 = s * s
+        let s3 = s * s2
 
         let u8Over256 = constants.u8Over256
         let u2Over4 = constants.u2Over4
@@ -330,7 +330,7 @@ class EllipsoidGeodesic {
             (5.0 * u4Over16 / 16.0 - 5.0 * u6Over64 / 4.0 + 383.0 * u8Over256 / 96.0) * sine4S -
             s2 * ((u6Over64 - 11.0 * u8Over256 / 2.0) * sine2S + 5.0 * u8Over256 * sine4S / 2.0) +
             (29.0 * u6Over64 / 96.0 - 29.0 * u8Over256 / 16.0) * sine6S +
-            539.0 * u8Over256 * sine8S / 1536.0;
+            539.0 * u8Over256 * sine8S / 1536.0
 
         let theta = asin(sin(sigma) * constants.cosineAlpha)
         let latitude = atan(constants.a / constants.b * tan(theta))
@@ -343,8 +343,8 @@ class EllipsoidGeodesic {
         let sineSigma = sin(sigma)
         let cosineSigma = cos(sigma)
 
-        let cc = constants.cosineU * cosineSigma;
-        let ss = constants.sineU * sineSigma;
+        let cc = constants.cosineU * cosineSigma
+        let ss = constants.sineU * sineSigma
 
         let lambda = atan2(sineSigma * constants.sineHeading, cc - ss * constants.cosineHeading)
 

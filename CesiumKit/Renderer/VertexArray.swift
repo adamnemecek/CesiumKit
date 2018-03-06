@@ -159,8 +159,8 @@ class VertexArray {
             var vaCount = 0
             for geometryAttribute in geometry.attributes {
 
-                if (geometryAttribute.componentDatatype == ComponentDatatype.float64) {
-                    geometryAttribute.componentDatatype = ComponentDatatype.float32
+                if (geometryAttribute.componentDatatype == .float64) {
+                    geometryAttribute.componentDatatype = .float32
                     if let values = geometryAttribute.values {
 
                         var doubleArray = [Double](repeating: 0.0, count: values.count)
@@ -201,14 +201,14 @@ class VertexArray {
                 indexBuffer = Buffer(
                     device: context.device,
                     array: indicesShort,
-                    componentDatatype: ComponentDatatype.unsignedShort,
+                    componentDatatype: .unsignedShort,
                     sizeInBytes: indicesShort.sizeInBytes)
             } else {
                 let indicesInt = indices.map({ UInt32($0) })
                 indexBuffer = Buffer(
                     device: context.device,
                     array: indicesInt,
-                    componentDatatype: ComponentDatatype.unsignedInt,
+                    componentDatatype: .unsignedInt,
                     sizeInBytes: indicesInt.sizeInBytes)
             }
         } else {
@@ -238,8 +238,8 @@ class VertexArray {
                 // Attribute needs to have per-vertex values; not a constant value for all vertices.
                 attributeNames.append(geometryAttribute.name)
 
-                if (geometryAttribute.componentDatatype == ComponentDatatype.float64) {
-                    geometryAttribute.componentDatatype = ComponentDatatype.float32
+                if (geometryAttribute.componentDatatype == .float64) {
+                    geometryAttribute.componentDatatype = .float32
                     var doubleArray = [Double](repeating: 0.0, count: geometryAttribute.vertexCount)
                     let geometryArraySize = geometryAttribute.vertexArraySize
                     doubleArray.withUnsafeMutableBufferPointer({ (pointer: inout UnsafeMutableBufferPointer<Double>) in

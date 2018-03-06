@@ -253,7 +253,7 @@ struct BoxGeometry {
                     ]
 
                     attributes.position = GeometryAttribute(
-                        componentDatatype : ComponentDatatype.float64,
+                        componentDatatype : .float64,
                         componentsPerAttribute : 3,
                         values : Buffer(device: context.device, array: positions, componentDatatype: .float64, sizeInBytes: positions.sizeInBytes)
                     )

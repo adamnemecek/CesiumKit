@@ -152,7 +152,7 @@ final class FontAtlas: JSONEncodable {
 
         let exemplarString = "{ǺOJMQYZa@jmqyw"
 
-        let attrString = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0);
+        let attrString = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0)
         CFAttributedStringReplaceString(attrString, CFRangeMake(0, 0), exemplarString as CFString!)
 
         CFAttributedStringSetAttribute(attrString, CFRangeMake(0, CFAttributedStringGetLength(attrString)), kCTFontAttributeName, font)
@@ -169,7 +169,7 @@ final class FontAtlas: JSONEncodable {
 
     fileprivate func estimatedLineWidthForFont (_ font: CTFont) -> Double {
 
-        let attrString = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0);
+        let attrString = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0)
         CFAttributedStringReplaceString(attrString, CFRangeMake(0, 0), "!" as CFString!)
 
         CFAttributedStringSetAttribute(attrString, CFRangeMake(0, CFAttributedStringGetLength(attrString)), kCTFontAttributeName, font)

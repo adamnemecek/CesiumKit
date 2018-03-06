@@ -48,71 +48,67 @@ struct EllipsoidGeometry {
 
     let _vertexFormat: VertexFormat
 
-    init (
-        radii: Cartesian3 = defaultRadii,
-        stackPartitions: Int = 64,
-        slicePartitions: Int = 64,
-        vertexFormat: VertexFormat = .Default()
+    init(radii: Cartesian3 = defaultRadii,
+         stackPartitions: Int = 64,
+         slicePartitions: Int = 64,
+         vertexFormat: VertexFormat = .Default()
         ) {
 
-            assert(slicePartitions >= 3, "slicePartitions cannot be less than three.")
-            assert(slicePartitions >= 3, "stackPartitions cannot be less than three.")
+        assert(slicePartitions >= 3, "slicePartitions cannot be less than three.")
+        assert(slicePartitions >= 3, "stackPartitions cannot be less than three.")
 
-
-            _radii = radii
-            _stackPartitions = stackPartitions;
-            _slicePartitions = slicePartitions;
-            _vertexFormat = vertexFormat
+        _radii = radii
+        _stackPartitions = stackPartitions
+        _slicePartitions = slicePartitions
+        _vertexFormat = vertexFormat
     }
 
-
-
     /**
-    * Stores the provided instance into the provided array.
-    * @function
-    *
-    * @param {EllipsoidGeometry} value The value to pack.
-    * @param {Number[]} array The array to pack into.
-    * @param {Number} [startingIndex=0] The index into the array at which to start packing the elements.
-    */
+     * Stores the provided instance into the provided array.
+     * @function
+     *
+     * @param {EllipsoidGeometry} value The value to pack.
+     * @param {Number[]} array The array to pack into.
+     * @param {Number} [startingIndex=0] The index into the array at which to start packing the elements.
+     */
     func pack (_ array: inout [Float], startingIndex: Int = 0) {
-    /*
-    startingIndex = defaultValue(startingIndex, 0);
+        /*
+         startingIndex = defaultValue(startingIndex, 0);
 
-    Cartesian3.pack(value._radii, array, startingIndex);
-    startingIndex += Cartesian3.packedLength;
+         Cartesian3.pack(value._radii, array, startingIndex);
+         startingIndex += Cartesian3.packedLength;
 
-    VertexFormat.pack(value._vertexFormat, array, startingIndex);
-    startingIndex += VertexFormat.packedLength;
+         VertexFormat.pack(value._vertexFormat, array, startingIndex);
+         startingIndex += VertexFormat.packedLength;
 
-    array[startingIndex++] = value._stackPartitions;
-    array[startingIndex]   = value._slicePartitions;*/
+         array[startingIndex++] = value._stackPartitions;
+         array[startingIndex]   = value._slicePartitions;*/
     }
 
     /*var scratchRadii = new Cartesian3();
-    var scratchVertexFormat = new VertexFormat();
-    var scratchOptions = {
-    radii : scratchRadii,
-    vertexFormat : scratchVertexFormat,
-    stackPartitions : undefined,
-    slicePartitions : undefined
-    };*/
+     var scratchVertexFormat = new VertexFormat();
+     var scratchOptions = {
+     radii : scratchRadii,
+     vertexFormat : scratchVertexFormat,
+     stackPartitions : undefined,
+     slicePartitions : undefined
+     };*/
 
 
 
     /**
-    * Computes the geometric representation of an ellipsoid, including its vertices, indices, and a bounding sphere.
-    *
-    * @param {EllipsoidGeometry} ellipsoidGeometry A description of the ellipsoid.
-    * @returns {Geometry} The computed vertices and indices.
-    */
+     * Computes the geometric representation of an ellipsoid, including its vertices, indices, and a bounding sphere.
+     *
+     * @param {EllipsoidGeometry} ellipsoidGeometry A description of the ellipsoid.
+     * @returns {Geometry} The computed vertices and indices.
+     */
     func createGeometry (_ context: Context) -> Geometry {
 
         let ellipsoid = Ellipsoid(radii: _radii)
 
         /*if ((radii.x <= 0) || (radii.y <= 0) || (radii.z <= 0)) {
-            return;
-        }*/
+         return;
+         }*/
 
         // The extra slice and stack are for duplicating points at the x axis and poles.
         // We need the texture coordinates to interpolate from (2 * pi - delta) to 2 * pi instead of
@@ -210,27 +206,27 @@ struct EllipsoidGeometry {
                     normals!.append(Float(normal.z))
                 }
 
-            if _vertexFormat.tangent || _vertexFormat.binormal {
-                let tangent: Cartesian3
-                if i < slicePartitions || i > vertexCount - slicePartitions - 1 {
-                    tangent = Cartesian3.unitX.cross(normal).normalize()
-                } else {
-                    tangent = Cartesian3.unitZ.cross(normal).normalize()
-                }
+                if _vertexFormat.tangent || _vertexFormat.binormal {
+                    let tangent: Cartesian3
+                    if i < slicePartitions || i > vertexCount - slicePartitions - 1 {
+                        tangent = Cartesian3.unitX.cross(normal).normalize()
+                    } else {
+                        tangent = Cartesian3.unitZ.cross(normal).normalize()
+                    }
 
-                if _vertexFormat.tangent {
-                    tangents!.append(Float(tangent.x))
-                    tangents!.append(Float(tangent.y))
-                    tangents!.append(Float(tangent.z))
-                }
+                    if _vertexFormat.tangent {
+                        tangents!.append(Float(tangent.x))
+                        tangents!.append(Float(tangent.y))
+                        tangents!.append(Float(tangent.z))
+                    }
 
-                if _vertexFormat.binormal {
-                    let binormal = normal.cross(tangent).normalize()
+                    if _vertexFormat.binormal {
+                        let binormal = normal.cross(tangent).normalize()
 
-                    binormals!.append(Float(binormal.x))
-                    binormals!.append(Float(binormal.y))
-                    binormals!.append(Float(binormal.z))
-                }
+                        binormals!.append(Float(binormal.x))
+                        binormals!.append(Float(binormal.y))
+                        binormals!.append(Float(binormal.z))
+                    }
                 }
             }
 
@@ -252,7 +248,7 @@ struct EllipsoidGeometry {
 
             if _vertexFormat.tangent {
                 attributes.tangent = GeometryAttribute(
-                    componentDatatype: ComponentDatatype.float32,
+                    componentDatatype: .float32,
                     componentsPerAttribute: 3,
                     values: Buffer(device: context.device, array: tangents!, componentDatatype: .float64, sizeInBytes: tangents!.sizeInBytes)
                 )
@@ -260,7 +256,7 @@ struct EllipsoidGeometry {
 
             if _vertexFormat.binormal {
                 attributes.binormal = GeometryAttribute(
-                    componentDatatype : ComponentDatatype.float32,
+                    componentDatatype : .float32,
                     componentsPerAttribute : 3,
                     values : Buffer(device: context.device, array: binormals!, componentDatatype: .float64, sizeInBytes: binormals!.sizeInBytes)
                 )
