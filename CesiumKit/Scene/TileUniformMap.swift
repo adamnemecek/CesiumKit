@@ -227,18 +227,18 @@ class TileUniformMap: NativeUniformMap {
     init(maxTextureCount: Int) {
         self.maxTextureCount = maxTextureCount
 
-        dayTextures = [Texture]()
+        dayTextures = []
         dayTextures.reserveCapacity(maxTextureCount)
 
-        dayTextureAlpha = [Float]()
-        dayTextureBrightness = [Float]()
-        dayTextureContrast = [Float]()
-        dayTextureHue = [Float]()
-        dayTextureSaturation = [Float]()
-        dayTextureOneOverGamma = [Float]()
+        dayTextureAlpha = []
+        dayTextureBrightness = []
+        dayTextureContrast = []
+        dayTextureHue = []
+        dayTextureSaturation = []
+        dayTextureOneOverGamma = []
     }
 
-    func textureForUniform (_ uniform: UniformSampler) -> Texture? {
+    func textureForUniform(_ uniform: UniformSampler) -> Texture? {
         let dayTextureCount = dayTextures.count
         if uniform.textureUnitIndex == dayTextureCount {
             return waterMask

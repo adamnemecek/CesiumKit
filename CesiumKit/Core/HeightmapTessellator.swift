@@ -77,27 +77,23 @@ class HeightmapTessellator {
     *     }
     * });
     */
-    class func computeVertices (
-        heightmap: [UInt16],
-        height: Int,
-        width: Int,
-        skirtHeight: Double,
-        nativeRectangle: Rectangle,
-        rectangle: Rectangle?,
-        isGeographic: Bool = true,
-        ellipsoid: Ellipsoid = .wgs84,
-        structure: HeightmapStructure = HeightmapStructure(),
-        relativeToCenter: Cartesian3? = nil,
-        exaggeration: Double
-        ) -> (
-        vertices: [Float],
-        maximumHeight: Double,
-        minimumHeight: Double,
-        encoding: TerrainEncoding,
-        boundingSphere3D: BoundingSphere,
-        orientedBoundingBox: OrientedBoundingBox?,
-        occludeePointInScaledSpace: Cartesian3?
-        )
+    class func computeVertices(heightmap: [UInt16],
+                               height: Int,
+                               width: Int,
+                               skirtHeight: Double,
+                               nativeRectangle: Rectangle,
+                               rectangle: Rectangle?,
+                               isGeographic: Bool = true,
+                               ellipsoid: Ellipsoid = .wgs84,
+                               structure: HeightmapStructure = HeightmapStructure(),
+                               relativeToCenter: Cartesian3? = nil,
+                               exaggeration: Double) -> (vertices: [Float],
+                                                        maximumHeight: Double,
+                                                        minimumHeight: Double,
+                                                        encoding: TerrainEncoding,
+                                                        boundingSphere3D: BoundingSphere,
+                                                        orientedBoundingBox: OrientedBoundingBox?,
+                                                        occludeePointInScaledSpace: Cartesian3?)
     {
 
         // This function tends to be a performance hotspot for terrain rendering,

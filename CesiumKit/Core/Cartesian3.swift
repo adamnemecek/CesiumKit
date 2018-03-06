@@ -82,11 +82,9 @@ public struct Cartesian3 {
         let cone = spherical.cone
         let magnitude = spherical.magnitude
         let radial = magnitude * sin(cone)
-        self.init(
-            x: radial * cos(clock),
-            y: radial * sin(clock),
-            z: magnitude * cos(cone)
-        )
+        self.init(x: radial * cos(clock),
+                  y: radial * sin(clock),
+                  z: magnitude * cos(cone))
     }
 
     /**
@@ -588,8 +586,8 @@ extension Cartesian3: Equatable {
     * @param {Cartesian3} [right] The second Cartesian.
     * @returns {Boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
     */
-    public static func == (left: Cartesian3, right: Cartesian3) -> Bool {
-        return (left.x == right.x) && (left.y == right.y) && (left.z == right.z)
+    public static func == (lhs: Cartesian3, rhs: Cartesian3) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
     }
 }
 

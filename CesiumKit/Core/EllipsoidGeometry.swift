@@ -71,7 +71,7 @@ struct EllipsoidGeometry {
      * @param {Number[]} array The array to pack into.
      * @param {Number} [startingIndex=0] The index into the array at which to start packing the elements.
      */
-    func pack (_ array: inout [Float], startingIndex: Int = 0) {
+    func pack(_ array: inout [Float], startingIndex: Int = 0) {
         /*
          startingIndex = defaultValue(startingIndex, 0);
 
@@ -102,7 +102,7 @@ struct EllipsoidGeometry {
      * @param {EllipsoidGeometry} ellipsoidGeometry A description of the ellipsoid.
      * @returns {Geometry} The computed vertices and indices.
      */
-    func createGeometry (_ context: Context) -> Geometry {
+    func createGeometry(_ context: Context) -> Geometry {
 
         let ellipsoid = Ellipsoid(radii: _radii)
 
@@ -121,10 +121,10 @@ struct EllipsoidGeometry {
 
         var indices = [Int]()
 
-        var normals: [Float]? = _vertexFormat.normal ? [Float]() : nil
-        var tangents: [Float]? = _vertexFormat.tangent ? [Float]() : nil
-        var binormals: [Float]? = _vertexFormat.binormal ? [Float]() : nil
-        var st: [Float]? = _vertexFormat.st ? [Float]() : nil
+        var normals: [Float]? = _vertexFormat.normal ? [] : nil
+        var tangents: [Float]? = _vertexFormat.tangent ? [] : nil
+        var binormals: [Float]? = _vertexFormat.binormal ? [] : nil
+        var st: [Float]? = _vertexFormat.st ? [] : nil
 
         var cosTheta = [Double]()
         var sinTheta = [Double]()
@@ -294,7 +294,7 @@ struct EllipsoidGeometry {
             indices.append(topOffset + j)
         }
 
-        return  Geometry(
+        return Geometry(
             attributes: attributes,
             indices: indices,
             boundingSphere : BoundingSphere(ellipsoid: ellipsoid)
@@ -309,7 +309,7 @@ extension EllipsoidGeometry: Packable {
      * The number of elements used to pack the object into an array.
      * @type {Number}
      */
-    static func packedLength () -> Int {
+    static func packedLength() -> Int {
         return Cartesian3.packedLength() + VertexFormat.packedLength() + 2
     }
 
