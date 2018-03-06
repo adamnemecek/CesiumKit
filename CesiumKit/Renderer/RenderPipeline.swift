@@ -37,12 +37,12 @@ class RenderPipeline {
         }
     }
 
-    static func fromCache (context: Context, vertexShaderSource vss: ShaderSource, fragmentShaderSource fss: ShaderSource, vertexDescriptor vd: VertexDescriptor?, colorMask: ColorMask? = nil, depthStencil: Bool, blendingState: BlendingState? = nil, manualUniformStruct: String? = nil, uniformStructSize: Int? = nil) -> RenderPipeline {
+    static func fromCache(context: Context, vertexShaderSource vss: ShaderSource, fragmentShaderSource fss: ShaderSource, vertexDescriptor vd: VertexDescriptor?, colorMask: ColorMask? = nil, depthStencil: Bool, blendingState: BlendingState? = nil, manualUniformStruct: String? = nil, uniformStructSize: Int? = nil) -> RenderPipeline {
         //FIXME: remove nil for manualUniformStruct
         return context.pipelineCache.getRenderPipeline(vertexShaderSource: vss, fragmentShaderSource: fss, vertexDescriptor: vd, colorMask: colorMask, depthStencil: depthStencil, blendingState: blendingState, manualUniformStruct: manualUniformStruct, uniformStructSize: uniformStructSize)
     }
 
-    static func replaceCache (context: Context,  pipeline: RenderPipeline?, vertexShaderSource vss: ShaderSource, fragmentShaderSource fss: ShaderSource, vertexDescriptor vd: VertexDescriptor?, colorMask: ColorMask? = nil, depthStencil: Bool, blendingState: BlendingState? = nil) -> RenderPipeline? {
+    static func replaceCache(context: Context,  pipeline: RenderPipeline?, vertexShaderSource vss: ShaderSource, fragmentShaderSource fss: ShaderSource, vertexDescriptor vd: VertexDescriptor?, colorMask: ColorMask? = nil, depthStencil: Bool, blendingState: BlendingState? = nil) -> RenderPipeline? {
 
         return context.pipelineCache.replaceRenderPipeline(pipeline, vertexShaderSource: vss, fragmentShaderSource: fss, vertexDescriptor: vd, colorMask: colorMask, depthStencil: depthStencil, blendingState: blendingState)
     }

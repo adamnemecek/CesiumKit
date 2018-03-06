@@ -88,7 +88,7 @@ class ShaderProgram {
 
     //let nativeMetalUniforms: Bool
 
-    static func combineShaders (vertexShaderSource vss: ShaderSource, fragmentShaderSource fss: ShaderSource) -> (vst: String, fst: String, keyword: String) {
+    static func combineShaders(vertexShaderSource vss: ShaderSource, fragmentShaderSource fss: ShaderSource) -> (vst: String, fst: String, keyword: String) {
         let vst = vss.createCombinedVertexShader()
         let fst = fss.createCombinedFragmentShader()
         let keyword = vst + fst
@@ -116,7 +116,7 @@ class ShaderProgram {
         }
     }
 
-    init? (device: MTLDevice, shaderSourceName: String, compiledMetalVertexName vertex: String, compiledMetalFragmentName fragment: String, uniformStructSize: Int, keyword: String) {
+    init?(device: MTLDevice, shaderSourceName: String, compiledMetalVertexName vertex: String, compiledMetalFragmentName fragment: String, uniformStructSize: Int, keyword: String) {
 
         guard let bundle = Bundle(identifier: "com.testtoast.CesiumKit") else {
             logPrint(.error, "Could not find CesiumKit bundle in executable")
@@ -219,7 +219,7 @@ class ShaderProgram {
         }
     }
 
-    fileprivate func uniformType (_ desc: GLSLShaderVariableDescription) -> UniformType {
+    fileprivate func uniformType(_ desc: GLSLShaderVariableDescription) -> UniformType {
         if desc.name.hasPrefix("czm_a_") {
             return .automatic
         }
@@ -326,7 +326,7 @@ class ShaderProgram {
 
     //MARK:- Set uniforms
 
-    func setUniforms (_ command: DrawCommand, uniformState: UniformState) -> (fragmentOffset: Int, texturesValid: Bool, textures: [Texture])
+    func setUniforms(_ command: DrawCommand, uniformState: UniformState) -> (fragmentOffset: Int, texturesValid: Bool, textures: [Texture])
     {
         guard let map = command.uniformMap else {
             return (0, true, [Texture]())
@@ -343,7 +343,7 @@ class ShaderProgram {
         return (0, false, [])
     }
 
-    fileprivate func setNativeUniforms (_ map: NativeUniformMap, uniformState: UniformState) -> (fragmentOffset: Int, texturesValid: Bool, textures: [Texture])
+    fileprivate func setNativeUniforms(_ map: NativeUniformMap, uniformState: UniformState) -> (fragmentOffset: Int, texturesValid: Bool, textures: [Texture])
     {
         guard let buffer = map.uniformBufferProvider?.currentBuffer(uniformState.frameState.context.bufferSyncState) else {
             return (0, false, [])
@@ -354,7 +354,7 @@ class ShaderProgram {
         return (fragmentOffset: 0, texturesValid: true, textures: textures ?? [Texture]())
     }
 
-    func setLegacyUniforms (_ map: LegacyUniformMap, uniformState: UniformState) -> (fragmentOffset: Int, texturesValid: Bool, textures: [Texture]) {
+    func setLegacyUniforms(_ map: LegacyUniformMap, uniformState: UniformState) -> (fragmentOffset: Int, texturesValid: Bool, textures: [Texture]) {
 
         guard let buffer = map.uniformBufferProvider?.currentBuffer(uniformState.frameState.context.bufferSyncState) else {
             return (0, false, [])
@@ -386,7 +386,7 @@ class ShaderProgram {
 
     }
 
-    func setUniform (_ uniform: Uniform, buffer: Buffer, map: LegacyUniformMap, uniformState: UniformState) {
+    func setUniform(_ uniform: Uniform, buffer: Buffer, map: LegacyUniformMap, uniformState: UniformState) {
 
         // "...each column of a matrix has the alignment of its vector component." https://developer.apple.com/library/ios/documentation/Metal/Reference/MetalShadingLanguageGuide/data-types/data-types.html#//apple_ref/doc/uid/TP40014364-CH2-SW15
 
