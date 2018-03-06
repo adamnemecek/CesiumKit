@@ -342,34 +342,31 @@ public struct Cartesian4 {
      * @returns {Cartesian4} The most orthogonal axis.
      */
     func mostOrthogonalAxis() -> Cartesian4 {
-
         let f = normalize().absolute()
-        var result: Cartesian4
 
-        if (f.x <= f.y) {
-            if (f.x <= f.z) {
-                if (f.x <= f.w) {
-                    result = Cartesian4.unitX
+        if f.x <= f.y {
+            if f.x <= f.z {
+                if f.x <= f.w {
+                    return .unitX
                 } else {
-                    result = Cartesian4.unitW
+                    return .unitW
                 }
-            } else if (f.z <= f.w) {
-                result = Cartesian4.unitZ
+            } else if f.z <= f.w {
+                return .unitZ
             } else {
-                result = Cartesian4.unitW
+                return .unitW
             }
-        } else if (f.y <= f.z) {
-            if (f.y <= f.w) {
-                result = Cartesian4.unitY
+        } else if f.y <= f.z {
+            if f.y <= f.w {
+                return .unitY
             } else {
-                result = Cartesian4.unitW
+                return .unitW
             }
-        } else if (f.z <= f.w) {
-            result = Cartesian4.unitZ
+        } else if f.z <= f.w {
+            return .unitZ
         } else {
-            result = Cartesian4.unitW
+            return .unitW
         }
-        return result
     }
 
     func equalsArray (_ array: [Float], offset: Int) -> Bool {

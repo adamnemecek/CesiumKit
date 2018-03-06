@@ -21,24 +21,23 @@ private let nIndex = 6
 
 class QuantizedMeshTerrainGenerator {
 
-    class func computeMesh (
-        minimumHeight: Double,
-        maximumHeight: Double,
-        quantizedVertices: [UInt16],
-        octEncodedNormals: [UInt8]?,
-        indices: [Int],
-        westIndices: [Int],
-        southIndices: [Int],
-        eastIndices: [Int],
-        northIndices: [Int],
-        westSkirtHeight: Double,
-        southSkirtHeight: Double,
-        eastSkirtHeight: Double,
-        northSkirtHeight: Double,
-        rectangle: Rectangle,
-        relativeToCenter center: Cartesian3,
-        ellipsoid: Ellipsoid,
-        exaggeration: Double) -> (vertices: [Float], indices: [Int], vertexStride: Int, center: Cartesian3, minimumHeight: Double, maximumHeight: Double, boundingSphere: BoundingSphere?, orientedBoundingBox: OrientedBoundingBox?, occludeePointInScaledSpace: Cartesian3?, encoding: TerrainEncoding, skirtIndex: Int)
+    class func computeMesh(minimumHeight: Double,
+                           maximumHeight: Double,
+                           quantizedVertices: [UInt16],
+                           octEncodedNormals: [UInt8]?,
+                           indices: [Int],
+                           westIndices: [Int],
+                           southIndices: [Int],
+                           eastIndices: [Int],
+                           northIndices: [Int],
+                           westSkirtHeight: Double,
+                           southSkirtHeight: Double,
+                           eastSkirtHeight: Double,
+                           northSkirtHeight: Double,
+                           rectangle: Rectangle,
+                           relativeToCenter center: Cartesian3,
+                           ellipsoid: Ellipsoid,
+                           exaggeration: Double) -> (vertices: [Float], indices: [Int], vertexStride: Int, center: Cartesian3, minimumHeight: Double, maximumHeight: Double, boundingSphere: BoundingSphere?, orientedBoundingBox: OrientedBoundingBox?, occludeePointInScaledSpace: Cartesian3?, encoding: TerrainEncoding, skirtIndex: Int)
     {
         let quantizedVertexCount = quantizedVertices.count / 3
         let edgeVertexCount = westIndices.count + eastIndices.count + southIndices.count + northIndices.count

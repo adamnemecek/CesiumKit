@@ -1436,7 +1436,7 @@ Matrix4.abs = function(matrix, result) {
     var inverse: Matrix4 {
         // Special case for a zero scale matrix that can occur, for example,
         // when a model's node has a [0, 0, 0] scale.
-        if rotation.equalsEpsilon(Matrix3.zero, epsilon: Math.Epsilon7) && self[3] == Cartesian4.unitW {
+        if rotation.equalsEpsilon(.zero, epsilon: Math.Epsilon7) && self[3] == .unitW {
 
             return Matrix4(simd: double4x4([
                 double4(),

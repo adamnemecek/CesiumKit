@@ -124,7 +124,7 @@ class Occluder {
     * occluder.isPointVisible(point); //returns true
     */
     func isPointVisible(_ occludee: Cartesian3) -> Bool {
-        if horizonDistance < Double.infinity {
+        if horizonDistance < .infinity {
             var tempVec = occludee.subtract(occluderPosition)
             var temp = tempVec.magnitudeSquared - (occluderRadius * occluderRadius)
             if (temp > 0.0) {
