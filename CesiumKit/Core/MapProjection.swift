@@ -14,7 +14,7 @@ public protocol MapProjection {
     var semimajorAxis: Double { get }
     var oneOverSemimajorAxis: Double { get }
 
-    init (ellipsoid: Ellipsoid)
+    init(ellipsoid: Ellipsoid)
 
     /**
     * Converts geodetic ellipsoid coordinates, in radians, to the equivalent

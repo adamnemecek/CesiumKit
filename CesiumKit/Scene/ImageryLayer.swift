@@ -748,7 +748,7 @@ open class ImageryLayer {
         let indexBuffer: Buffer
         let indexCount: Int
 
-        init (vertexBuffer: Buffer, vertexAttributes: [VertexAttributes], pipeline: RenderPipeline, sampler: Sampler, indexBuffer: Buffer, indexCount: Int) {
+        init(vertexBuffer: Buffer, vertexAttributes: [VertexAttributes], pipeline: RenderPipeline, sampler: Sampler, indexBuffer: Buffer, indexCount: Int) {
             self.vertexBuffer = vertexBuffer
             self.vertexAttributes = vertexAttributes
             self.pipeline = pipeline

@@ -66,7 +66,7 @@ class CreditDisplay {
         textCredits: [Int: Credit]()
     )
 
-    init (delimiter: String = ". ") {
+    init(delimiter: String = ". ") {
         self.delimiter = delimiter
 
         _creditRenderer = TextRenderer(

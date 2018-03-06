@@ -10,7 +10,7 @@ class SceneTransitioner {
     // FIXME: SceneTransitioner
     weak var owner: Scene?
 
-    init (owner: Scene, projection: MapProjection) {
+    init(owner: Scene, projection: MapProjection) {
 
         self.owner = owner
     }

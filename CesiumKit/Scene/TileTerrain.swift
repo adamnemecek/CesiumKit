@@ -39,7 +39,7 @@ class TileTerrain {
 
     private var _pendingRequests = [NetworkOperation]()
 
-    init (upsampleDetails: (data: TerrainData, x: Int, y: Int, level: Int)? = nil) {
+    init(upsampleDetails: (data: TerrainData, x: Int, y: Int, level: Int)? = nil) {
         self.upsampleDetails = upsampleDetails
     }
 

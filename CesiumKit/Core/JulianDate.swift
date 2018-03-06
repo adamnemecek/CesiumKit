@@ -35,7 +35,7 @@ public struct JulianDate {
      */
     public fileprivate (set) var secondsOfDay: Double = .nan
 
-    public init (julianDayNumber: Double = 0.0, secondsOfDay: Double = 0.0, timeStandard: TimeStandard = .utc) {
+    public init(julianDayNumber: Double = 0.0, secondsOfDay: Double = 0.0, timeStandard: TimeStandard = .utc) {
 
         //If julianDayNumber is fractional, make it an integer and add the number of seconds the fraction represented.
         let wholeDays = julianDayNumber.wholeComponent
@@ -48,7 +48,7 @@ public struct JulianDate {
         }
     }
 
-    public init (fromNSDate date: Date) {
+    public init(fromNSDate date: Date) {
         let components = date.computeJulianDateComponents()
         self.init(julianDayNumber: Double(components.dayNumber), secondsOfDay: components.secondsOfDay, timeStandard: .utc)
     }

@@ -42,7 +42,7 @@ struct BoxGeometry {
 
     fileprivate var _vertexFormat: VertexFormat
 
-    init (minimum min: Cartesian3, maximum max: Cartesian3, vertexFormat vf: VertexFormat = .Default()) {
+    init(minimum min: Cartesian3, maximum max: Cartesian3, vertexFormat vf: VertexFormat = .Default()) {
         _minimum = min
         _maximum = max
         _vertexFormat = vf
@@ -67,7 +67,7 @@ struct BoxGeometry {
      * });
      * var geometry = Cesium.BoxGeometry.createGeometry(box);
      */
-    init (fromDimensions dimensions: Cartesian3, vertexFormat: VertexFormat = .Default()) {
+    init(fromDimensions dimensions: Cartesian3, vertexFormat: VertexFormat = .Default()) {
 
         assert(dimensions.x >= 0.0 || dimensions.y >= 0.0 || dimensions.z >= 0.0, "All dimensions components must be greater than or equal to zero")
 

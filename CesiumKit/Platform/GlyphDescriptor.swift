@@ -21,7 +21,7 @@ struct GlyphDescriptor: JSONEncodable {
 
     var bottomRightTexCoord: CGPoint
 
-    init (glyphIndex: CGGlyph, topLeftTexCoord: CGPoint, bottomRightTexCoord: CGPoint) {
+    init(glyphIndex: CGGlyph, topLeftTexCoord: CGPoint, bottomRightTexCoord: CGPoint) {
         self.glyphIndex = glyphIndex
         self.topLeftTexCoord = topLeftTexCoord
         self.bottomRightTexCoord = bottomRightTexCoord

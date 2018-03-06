@@ -78,7 +78,7 @@ final class FontAtlas: JSONEncodable {
 
     /// Create a signed-distance field based font atlas with the specified dimensions.
     /// The supplied font will be resized to fit all available glyphs in the texture.
-    fileprivate init (context: Context, fontName: String, pointSize: Int, textureSize: Int = MBEFontAtlasSize) {
+    fileprivate init(context: Context, fontName: String, pointSize: Int, textureSize: Int = MBEFontAtlasSize) {
         parentFont = CTFontCreateWithName(fontName as CFString?, CGFloat(pointSize), nil)
         _fontPointSize = Int(ceilf(Float(pointSize)))
         _textureSize = textureSize
@@ -91,7 +91,7 @@ final class FontAtlas: JSONEncodable {
         })
     }
 
-    internal convenience init (fromJSON json: JSON, context: Context) throws {
+    internal convenience init(fromJSON json: JSON, context: Context) throws {
         try self.init(fromJSON: json)
 
         QueueManager.sharedInstance.fontAtlasQueue.async(execute: {

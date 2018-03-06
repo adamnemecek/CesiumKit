@@ -99,7 +99,7 @@ class HeightmapTerrainData: TerrainData, Equatable {
 
     let childTileMask: Int
 
-    init (buffer: [UInt16],
+    init(buffer: [UInt16],
           width: Int,
           height: Int,
           childTileMask: Int = 15,

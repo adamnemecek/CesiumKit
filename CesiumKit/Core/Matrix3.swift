@@ -101,7 +101,7 @@ public struct Matrix3 {
         )
     }
 
-    init (fromMatrix4 matrix: Matrix4) {
+    init(fromMatrix4 matrix: Matrix4) {
         let m4col0 = matrix[0]
         let m4col1 = matrix[1]
         let m4col2 = matrix[2]
@@ -113,15 +113,15 @@ public struct Matrix3 {
         )
     }
 
-    public init (simd: double3x3) {
+    public init(simd: double3x3) {
         simdType = simd
     }
 
-    public init (_ scalar: Double = 0.0) {
+    public init(_ scalar: Double = 0.0) {
         simdType = double3x3(scalar)
     }
 
-    public init (diagonal: double3) {
+    public init(diagonal: double3) {
         simdType = double3x3(diagonal: diagonal)
     }
 
@@ -182,7 +182,7 @@ public struct Matrix3 {
     * //   [0.0, 0.0, 9.0]
     * var m = Cesium.Matrix3.fromScale(new Cesium.Cartesian3(7.0, 8.0, 9.0));
     */
-    init (scale: Cartesian3) {
+    init(scale: Cartesian3) {
         self.init(simd: double3x3(diagonal: scale.simdType))
     }
     /*
@@ -279,7 +279,7 @@ public struct Matrix3 {
     * var m = Cesium.Matrix3.fromRotationX(Cesium.Math.toRadians(45.0));
     * var rotated = Cesium.Matrix3.multiplyByVector(m, p);
     */
-    init (rotationX angle: Double) {
+    init(rotationX angle: Double) {
         let cosAngle = cos(angle)
         let sinAngle = sin(angle)
 
@@ -303,7 +303,7 @@ public struct Matrix3 {
     * var m = Cesium.Matrix3.fromRotationY(Cesium.Math.toRadians(45.0));
     * var rotated = Cesium.Matrix3.multiplyByVector(m, p);
     */
-    init (rotationY angle: Double) {
+    init(rotationY angle: Double) {
         let cosAngle = cos(angle)
         let sinAngle = sin(angle)
 
@@ -327,7 +327,7 @@ public struct Matrix3 {
     * var m = Cesium.Matrix3.fromRotationZ(Cesium.Math.toRadians(45.0));
     * var rotated = Cesium.Matrix3.multiplyByVector(m, p);
     */
-    init (rotationZ angle: Double) {
+    init(rotationZ angle: Double) {
         let cosAngle: Double = cos(angle)
         let sinAngle: Double = sin(angle)
 

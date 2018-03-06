@@ -262,7 +262,7 @@ open class Uniform {
 
     var mapIndex: UniformIndex? = nil
 
-    init (desc: GLSLShaderVariableDescription, type: UniformType, dataType: UniformDataType) {
+    init(desc: GLSLShaderVariableDescription, type: UniformType, dataType: UniformDataType) {
         _desc = desc
         self.type = type
         elementCount = Int(desc.elementCount())

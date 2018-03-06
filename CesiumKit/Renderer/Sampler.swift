@@ -11,7 +11,7 @@ import Metal
 class Sampler {
     let state: MTLSamplerState
 
-    init (context: Context, wrapS: TextureWrap = .clampToEdge, wrapT: TextureWrap  = .clampToEdge, minFilter: TextureMinMagFilter = .linear, magFilter: TextureMinMagFilter = .linear, mipMagFilter: TextureMipFilter = .notMipmapped, maximumAnisotropy: Int = 1) {
+    init(context: Context, wrapS: TextureWrap = .clampToEdge, wrapT: TextureWrap  = .clampToEdge, minFilter: TextureMinMagFilter = .linear, magFilter: TextureMinMagFilter = .linear, mipMagFilter: TextureMipFilter = .notMipmapped, maximumAnisotropy: Int = 1) {
 
         let descriptor = MTLSamplerDescriptor()
         descriptor.minFilter = minFilter.toMetal()

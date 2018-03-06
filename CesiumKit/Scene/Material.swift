@@ -662,7 +662,7 @@ open class Material {
         return cache
     }*/
 
-    init (fabric: MaterialType) {
+    init(fabric: MaterialType) {
 
 
         type = fabric
@@ -703,7 +703,7 @@ open class Material {
      *     color : new Cesium.Color(1.0, 0.0, 0.0, 1.0)
      * });
      */
-    public convenience init (fromType type: MaterialType, uniforms: [String: Uniform] = [:]) {
+    public convenience init(fromType type: MaterialType, uniforms: [String: Uniform] = [:]) {
 
         self.init(fabric: type)
         /*

@@ -55,7 +55,7 @@ class Fog {
 
     fileprivate let tableEndDensity: Double
 
-    init () {
+    init() {
         // Scale densities by 1e6 to bring lowest value to ~1. Prevents divide by zero.
         for i in 0..<densityTable.count {
             densityTable[i] *= 1.0e6

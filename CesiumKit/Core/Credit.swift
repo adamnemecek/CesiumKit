@@ -51,7 +51,7 @@ public struct Credit: Equatable {
     */
     let id: Int
 
-    init (text: String? = nil, imageUrl: String? = nil, link: String? = nil) {
+    init(text: String? = nil, imageUrl: String? = nil, link: String? = nil) {
         assert(text != nil || imageUrl != nil || link != nil, "text, imageUrl or link is required")
 
         if text == nil && imageUrl == nil {

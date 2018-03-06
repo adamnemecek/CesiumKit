@@ -58,7 +58,7 @@ public struct Cartesian3 {
         }
     }
 
-    public init (x: Double, y: Double, z: Double) {
+    public init(x: Double, y: Double, z: Double) {
         simdType = double3(x, y, z)
     }
 

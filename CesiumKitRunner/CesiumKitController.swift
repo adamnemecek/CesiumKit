@@ -21,7 +21,7 @@ class CesiumKitController: NSObject, MTKViewDelegate {
     fileprivate let _fontName = "HelveticaNeue"
     fileprivate let _fontSize: Float = 36
 
-    init (view: MTKView) {
+    init(view: MTKView) {
 
         _view = view
         _view.device = MTLCreateSystemDefaultDevice()

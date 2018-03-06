@@ -218,7 +218,7 @@ open class TileCoordinateImageryProvider: ImageryProvider {
     */
     open let hasAlphaChannel: Bool = true
 
-    public init (options: TileCoordinateImageryProvider.Options = TileCoordinateImageryProvider.Options()) {
+    public init(options: TileCoordinateImageryProvider.Options = TileCoordinateImageryProvider.Options()) {
 
         tilingScheme = options.tilingScheme
         tileWidth = options.tileWidth

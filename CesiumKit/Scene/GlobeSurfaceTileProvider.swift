@@ -141,7 +141,7 @@ class GlobeSurfaceTileProvider/*: QuadtreeTileProvider*/ {
 
     fileprivate var _firstPassInitialColor: Cartesian4
 
-    required init (terrainProvider: TerrainProvider, imageryLayers: ImageryLayerCollection, surfaceShaderSet: GlobeSurfaceShaderSet) {
+    required init(terrainProvider: TerrainProvider, imageryLayers: ImageryLayerCollection, surfaceShaderSet: GlobeSurfaceShaderSet) {
 
         self.terrainProvider = terrainProvider
         self.imageryLayers = imageryLayers

@@ -92,7 +92,7 @@ struct ClearCommand {
     *
     * @constant
     */
-    init (color: Cartesian4? = nil, depth: Double? = nil, stencil: UInt32? = nil, renderState: RenderState? = nil, framebuffer: Framebuffer? = nil, owner: AnyObject? = nil) {
+    init(color: Cartesian4? = nil, depth: Double? = nil, stencil: UInt32? = nil, renderState: RenderState? = nil, framebuffer: Framebuffer? = nil, owner: AnyObject? = nil) {
 
         self.color = color
         self.depth = depth

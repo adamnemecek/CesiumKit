@@ -15,16 +15,12 @@ class QueueManager {
     static let sharedInstance = QueueManager()
 
     let processorQueue: DispatchQueue
-
     let networkQueue: OperationQueue
-
     let upsampleQueue: DispatchQueue
-
     let resourceLoadQueue: DispatchQueue
-
     let fontAtlasQueue: DispatchQueue
 
-    init () {
+    init() {
         processorQueue = DispatchQueue(label: "com.testtoast.CesiumKit.processorQueue")
         upsampleQueue = DispatchQueue(label: "com.testtoast.CesiumKit.upsampleQueue")
         resourceLoadQueue = DispatchQueue(label: "com.testtoast.CesiumKit.textureLoadQueue")

@@ -27,7 +27,7 @@ class FXAA {
 
     fileprivate var _clearCommand: ClearCommand
 
-    init () {
+    init() {
         _clearCommand = ClearCommand(
             color : Cartesian4(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0),
             depth : 1.0

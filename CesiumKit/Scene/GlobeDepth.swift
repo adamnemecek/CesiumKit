@@ -22,7 +22,7 @@ class GlobeDepth {
     fileprivate var _copyColorCommand: ClearCommand? = nil
     fileprivate var _copyDepthCommand: ClearCommand? = nil
 
-    init () {
+    init() {
         _clearColorCommand = ClearCommand(
             color: Cartesian4(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0),
             stencil: 0

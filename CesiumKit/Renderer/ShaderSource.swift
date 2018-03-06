@@ -80,7 +80,7 @@ struct ShaderSource {
     fileprivate let _lineRegex = "\\n"
     fileprivate let _czmRegex = "\\bczm_[a-zA-Z0-9_]*"
 
-    init (sources: [String] = [String](), defines: [String] = [String](), pickColorQualifier: String? = nil, includeBuiltIns: Bool = true) {
+    init(sources: [String] = [String](), defines: [String] = [String](), pickColorQualifier: String? = nil, includeBuiltIns: Bool = true) {
 
         assert(pickColorQualifier == nil || pickColorQualifier == "uniform" || pickColorQualifier == "varying", "options.pickColorQualifier must be 'uniform' or 'varying'.")
 

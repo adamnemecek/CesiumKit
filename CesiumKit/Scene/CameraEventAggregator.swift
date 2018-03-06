@@ -57,7 +57,7 @@ class CameraEventAggregator {
     private var _view: NSView!
     #endif
 
-    init (/*view: UIView*/) {
+    init(/*view: UIView*/) {
 
         eventHandler = ScreenSpaceEventHandler(/*layer: layer,*/ true)
         // FIXME: eventaggregator view

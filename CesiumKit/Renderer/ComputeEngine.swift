@@ -17,7 +17,7 @@ class ComputeEngine {
     */
     let context: Context
 
-    init (context: Context) {
+    init(context: Context) {
         self.context = context
     }
 

@@ -51,7 +51,7 @@ public struct BoundingRectangle: Equatable {
 
     var projection: MapProjection = GeographicProjection()
 
-    public init (x: Double = 0.0, y: Double = 0.0, width: Double = 0.0, height: Double = 0.0, projection: MapProjection = GeographicProjection()) {
+    public init(x: Double = 0.0, y: Double = 0.0, width: Double = 0.0, height: Double = 0.0, projection: MapProjection = GeographicProjection()) {
         self.x = x
         self.y = y
         self.width = width

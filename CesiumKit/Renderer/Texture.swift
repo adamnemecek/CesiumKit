@@ -247,7 +247,7 @@ open class Texture {
         self.textureFilterAnisotropic = context.textureFilterAnisotropic
     }
 
-    init (context: Context, metalTexture: MTLTexture, sampler: Sampler? = nil) {
+    init(context: Context, metalTexture: MTLTexture, sampler: Sampler? = nil) {
         self.context = context
         self.metalTexture = metalTexture
         self.width = metalTexture.width

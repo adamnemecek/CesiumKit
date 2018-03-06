@@ -142,27 +142,25 @@ class QuantizedMeshTerrainData: TerrainData {
 
     var childTileMask: Int
 
-    init (
-        quantizedVertices: [UInt16],
-        indices: [Int],
-        encodedNormals: [UInt8]?,
-        minimumHeight: Double,
-        maximumHeight: Double,
-        boundingSphere: BoundingSphere,
-        orientedBoundingBox: OrientedBoundingBox?,
-        horizonOcclusionPoint: Cartesian3,
-        westIndices: [Int],
-        southIndices: [Int],
-        eastIndices: [Int],
-        northIndices: [Int],
-        westSkirtHeight: Double,
-        southSkirtHeight: Double,
-        eastSkirtHeight: Double,
-        northSkirtHeight: Double,
-        childTileMask: Int = 15,
-        waterMask: [UInt8]? = nil,
-        createdByUpsampling: Bool = false)
-    {
+    init(quantizedVertices: [UInt16],
+         indices: [Int],
+         encodedNormals: [UInt8]?,
+         minimumHeight: Double,
+         maximumHeight: Double,
+         boundingSphere: BoundingSphere,
+         orientedBoundingBox: OrientedBoundingBox?,
+         horizonOcclusionPoint: Cartesian3,
+         westIndices: [Int],
+         southIndices: [Int],
+         eastIndices: [Int],
+         northIndices: [Int],
+         westSkirtHeight: Double,
+         southSkirtHeight: Double,
+         eastSkirtHeight: Double,
+         northSkirtHeight: Double,
+         childTileMask: Int = 15,
+         waterMask: [UInt8]? = nil,
+         createdByUpsampling: Bool = false) {
         _quantizedVertices = quantizedVertices
         _encodedNormals = encodedNormals
         _indices = indices

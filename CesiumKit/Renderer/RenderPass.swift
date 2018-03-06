@@ -27,7 +27,7 @@ class RenderPass {
 
     let passState: PassState
 
-    init (context: Context, buffer: MTLCommandBuffer, passState: PassState, defaultFramebuffer: Framebuffer) {
+    init(context: Context, buffer: MTLCommandBuffer, passState: PassState, defaultFramebuffer: Framebuffer) {
         _context = context
         self.passState = passState
         let passDescriptor = passState.framebuffer?.renderPassDescriptor ?? defaultFramebuffer.renderPassDescriptor

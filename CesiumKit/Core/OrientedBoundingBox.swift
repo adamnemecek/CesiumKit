@@ -150,7 +150,7 @@ struct OrientedBoundingBox: BoundingVolume {
     * @param {OrientedBoundingBox} [result] The object onto which to store the result.
     * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if one was not provided.
     */
-    init (fromTangentPlaneExtents tangentPlane: EllipsoidTangentPlane, minimumX: Double, maximumX: Double, minimumY: Double, maximumY: Double, minimumZ: Double, maximumZ: Double) {
+    init(fromTangentPlaneExtents tangentPlane: EllipsoidTangentPlane, minimumX: Double, maximumX: Double, minimumY: Double, maximumY: Double, minimumZ: Double, maximumZ: Double) {
 
         var halfAxes = Matrix3()
         halfAxes = halfAxes.setColumn(0, cartesian: tangentPlane.xAxis)
@@ -182,7 +182,7 @@ struct OrientedBoundingBox: BoundingVolume {
     * @exception {DeveloperError} ellipsoid must be an ellipsoid of revolution (<code>radii.x == radii.y</code>)
     */
 
-    init (fromRectangle rectangle: Rectangle, minimumHeight: Double = 0.0, maximumHeight: Double = 0.0, ellipsoid: Ellipsoid = .wgs84) {
+    init(fromRectangle rectangle: Rectangle, minimumHeight: Double = 0.0, maximumHeight: Double = 0.0, ellipsoid: Ellipsoid = .wgs84) {
 
         if rectangle.width < 0.0 || rectangle.width > .pi {
             fatalError("Rectangle width must be between 0 and pi")

@@ -94,15 +94,15 @@ public struct Matrix4 {
         )
     }
 
-    public init (simd: double4x4) {
+    public init(simd: double4x4) {
         simdType = simd
     }
 
-    public init (_ scalar: Double = 0.0) {
+    public init(_ scalar: Double = 0.0) {
         simdType = double4x4(scalar)
     }
 
-    public init (diagonal: double4) {
+    public init(diagonal: double4) {
         simdType = double4x4(diagonal: diagonal)
     }
 
@@ -177,7 +177,7 @@ Matrix4.fromColumnMajorArray = function(values, result) {
 * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
 * @returns The modified result parameter, or a new Matrix4 instance if one was not provided.
 */
-    init (rotation: Matrix3, translation: Cartesian3 = .zero) {
+    init(rotation: Matrix3, translation: Cartesian3 = .zero) {
         self.init(
             rotation[0,0], rotation[1,0], rotation[2,0], translation.x,
             rotation[0,1], rotation[1,1], rotation[2,1], translation.y,
@@ -278,7 +278,7 @@ Matrix4.fromTranslationQuaternionRotationScale = function(translation, rotation,
 *
 * @see Matrix4.multiplyByTranslation
 */
-    init (translation: Cartesian3) {
+    init(translation: Cartesian3) {
         self.init(rotation: Matrix3.identity, translation: translation)
     }
 
@@ -297,7 +297,7 @@ Matrix4.fromTranslationQuaternionRotationScale = function(translation, rotation,
      * //   [0.0, 0.0, 0.0, 1.0]
      * var m = Cesium.Matrix4.fromScale(new Cartesian3(7.0, 8.0, 9.0));
      */
-    init (scale: Cartesian3) {
+    init(scale: Cartesian3) {
         let diagonal = double4([scale.simdType.x, scale.simdType.y, scale.simdType.z, 1.0])
         self.simdType = double4x4(diagonal: diagonal)
         /*Matrix4(

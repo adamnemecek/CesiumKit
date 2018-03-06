@@ -55,7 +55,7 @@ public struct Matrix2 {
         ])
     }
 
-    public init (fromSIMD simd: double2x2) {
+    public init(fromSIMD simd: double2x2) {
         simdType = simd
     }
 /*
@@ -614,7 +614,7 @@ extension Matrix2: Packable {
      * var v2 = [0.0, 0.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0];
      * var m2 = Cesium.Matrix3.fromArray(v2, 2);
      */
-    init (array: [Double], startingIndex: Int = 0) {
+    init(array: [Double], startingIndex: Int = 0) {
         self.init(
             array[startingIndex+0], array[startingIndex+2],
             array[startingIndex+1], array[startingIndex+3]

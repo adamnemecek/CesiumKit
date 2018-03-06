@@ -60,7 +60,7 @@ extension Date {
     /**
     Creates an NSDate from Julian date components
     */
-    init (julianDayNumber: Int, secondsOfDay: Double) {
+    init(julianDayNumber: Int, secondsOfDay: Double) {
         let timeInterval = Double(julianDayNumber) + secondsOfDay / TimeConstants.SecondsPerDay
         let macReferenceOffset = TimeConstants.JulianEpochToMacEpochDifference - timeInterval
         self.init(timeIntervalSinceReferenceDate: macReferenceOffset)

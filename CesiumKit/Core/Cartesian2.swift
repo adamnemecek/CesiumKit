@@ -48,7 +48,7 @@ public struct Cartesian2 {
         }
     }
 
-    public init (x: Double, y: Double) {
+    public init(x: Double, y: Double) {
         simdType = double2(x, y)
     }
 
@@ -73,7 +73,7 @@ public struct Cartesian2 {
     * @param {Cartesian2} [result] The object onto which to store the result.
     * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
     */
-    public init (cartesian3: Cartesian3) {
+    public init(cartesian3: Cartesian3) {
         self.init(x: cartesian3.x, y: cartesian3.y)
     }
 
@@ -86,7 +86,7 @@ public struct Cartesian2 {
     * @param {Cartesian2} [result] The object onto which to store the result.
     * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
     */
-    public init (cartesian4: Cartesian4) {
+    public init(cartesian4: Cartesian4) {
         self.init(x: cartesian4.x, y: cartesian4.y)
     }
 

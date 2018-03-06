@@ -103,7 +103,7 @@ class QuadtreePrimitive {
 
     fileprivate var _lastTileLoadQueueLength = 0
 
-    init (tileProvider: /*QuadtreeTileProvider*/GlobeSurfaceTileProvider, maximumScreenSpaceError: Double = 2.0, tileCacheSize: Int = 100) {
+    init(tileProvider: /*QuadtreeTileProvider*/GlobeSurfaceTileProvider, maximumScreenSpaceError: Double = 2.0, tileCacheSize: Int = 100) {
 
         self.maximumScreenSpaceError = maximumScreenSpaceError
         self.tileCacheSize = tileCacheSize
@@ -189,7 +189,7 @@ class QuadtreePrimitive {
         var callback: () -> ()
         var removeFunc: () -> () = {}
 
-        init (callback: @escaping () -> ()) {
+        init(callback: @escaping () -> ()) {
             self.callback = callback
         }
     }

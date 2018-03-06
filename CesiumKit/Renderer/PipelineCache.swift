@@ -25,7 +25,7 @@ class PipelineCache {
 
     var nextRenderPipelineId = 0
 
-    init (device: MTLDevice) {
+    init(device: MTLDevice) {
         self.device = device
         _optimizer = GLSLOptimizer(.metal)
     }

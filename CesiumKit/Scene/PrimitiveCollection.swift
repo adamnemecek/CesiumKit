@@ -37,7 +37,7 @@ open class PrimitiveCollection: Primitive {
 
     fileprivate var _primitives = [Primitive]()
 
-    override init () {
+    override init() {
         guid = UUID().uuidString
     }
     /*

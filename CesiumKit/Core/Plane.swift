@@ -67,7 +67,7 @@ struct Plane {
     * var normal = ellipsoid.geodeticSurfaceNormal(point);
     * var tangentPlane = Cesium.Plane.fromPointNormal(point, normal);
     */
-    init (fromPoint point: Cartesian3, normal: Cartesian3) {
+    init(fromPoint point: Cartesian3, normal: Cartesian3) {
         let distance = -normal.dot(point)
         self = Plane(normal: normal, distance: distance)
     }
@@ -79,7 +79,7 @@ struct Plane {
     * @param {Plane} [result] The object onto which to store the result.
     * @returns {Plane} A new plane instance or the modified result parameter.
     */
-    init (fromCartesian4 coefficients: Cartesian4) {
+    init(fromCartesian4 coefficients: Cartesian4) {
         normal = Cartesian3(cartesian4: coefficients)
         distance = coefficients.w
     }

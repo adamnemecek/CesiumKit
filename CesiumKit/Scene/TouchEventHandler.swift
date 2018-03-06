@@ -17,7 +17,7 @@ struct PanEvent: TouchEvent {
     let startPosition: Cartesian2
     let endPosition: Cartesian2
 
-    init (tapCount: Int, startPosition: Cartesian2, endPosition: Cartesian2) {
+    init(tapCount: Int, startPosition: Cartesian2, endPosition: Cartesian2) {
         self.tapCount = tapCount
         self.startPosition = startPosition
         self.endPosition = endPosition
@@ -87,7 +87,7 @@ class TouchEventHandler: NSObject, UIGestureRecognizerDelegate {
     private var _minimumZoomRate = 20.0
     private var _maximumZoomRate = 5906376272000.0  // distance from the Sun to Pluto in meters.
 
-    init (scene: Scene, view: MTKView) {
+    init(scene: Scene, view: MTKView) {
         _scene = scene
         _view = view
         super.init()

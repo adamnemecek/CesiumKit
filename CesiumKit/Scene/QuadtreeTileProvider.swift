@@ -84,7 +84,7 @@ protocol QuadtreeTileProvider {
 
     var errorEvent: Event { get }
 
-    init (terrainProvider: TerrainProvider, imageryLayers: ImageryLayerCollection, surfaceShaderSet: GlobeSurfaceShaderSet)
+    init(terrainProvider: TerrainProvider, imageryLayers: ImageryLayerCollection, surfaceShaderSet: GlobeSurfaceShaderSet)
 
     /**
     * Computes the default geometric error for level zero of the quadtree.

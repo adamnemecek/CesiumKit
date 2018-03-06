@@ -10,7 +10,7 @@ import Foundation
 
 class OIT {
 
-    init (context: Context) {
+    init(context: Context) {
     }
         /*
 

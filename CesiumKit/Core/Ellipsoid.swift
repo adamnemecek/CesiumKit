@@ -75,7 +75,7 @@ public struct Ellipsoid: Equatable {
     * @see Ellipsoid.WGS84
     * @see Ellipsoid.UNIT_SPHERE
     */
-    init (radii: Cartesian3) {
+    init(radii: Cartesian3) {
         self.init(x: radii.x, y: radii.y, z: radii.z)
     }
 

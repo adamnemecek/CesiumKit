@@ -26,7 +26,7 @@ class TileReplacementQueue {
 
     fileprivate var _tileProvider: GlobeSurfaceTileProvider
 
-    init (tileProvider: GlobeSurfaceTileProvider) {
+    init(tileProvider: GlobeSurfaceTileProvider) {
         _tileProvider = tileProvider
     }
 

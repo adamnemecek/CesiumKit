@@ -680,7 +680,7 @@ open class Scene {
     */
     let id: String
 
-    init (view: MTKView, globe: Globe, useOIT: Bool = true, scene3DOnly: Bool = false, projection: MapProjection = GeographicProjection()) {
+    init(view: MTKView, globe: Globe, useOIT: Bool = true, scene3DOnly: Bool = false, projection: MapProjection = GeographicProjection()) {
 
         context = Context(view: view)
 

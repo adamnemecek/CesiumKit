@@ -73,7 +73,7 @@ public struct Rectangle {
     * @example
     * var rectangle = Cesium.Rectangle.fromDegrees(0.0, 20.0, 10.0, 30.0);
     */
-    public init (fromDegreesWest west: Double, south: Double, east: Double, north: Double) {
+    public init(fromDegreesWest west: Double, south: Double, east: Double, north: Double) {
         self.west = Math.toRadians(west)
         self.south = Math.toRadians(south)
         self.east = Math.toRadians(east)

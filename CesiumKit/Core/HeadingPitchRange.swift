@@ -40,7 +40,7 @@ public struct HeadingPitchRange {
      */
     public var range: Double = 0.0
 
-    public init (heading: Double = 0.0, pitch: Double = 0.0, range: Double = 0.0) {
+    public init(heading: Double = 0.0, pitch: Double = 0.0, range: Double = 0.0) {
         self.heading = heading
         self.pitch = pitch
         self.range = range

@@ -85,7 +85,7 @@ struct TerrainEncoding {
 
     let vertexAttributes: [VertexAttributes]
 
-    init (axisAlignedBoundingBox: AxisAlignedBoundingBox, minimumHeight: Double, maximumHeight: Double, fromENU: Matrix4, hasVertexNormals: Bool) {
+    init(axisAlignedBoundingBox: AxisAlignedBoundingBox, minimumHeight: Double, maximumHeight: Double, fromENU: Matrix4, hasVertexNormals: Bool) {
 
         let minimum = axisAlignedBoundingBox.minimum
         let maximum = axisAlignedBoundingBox.maximum

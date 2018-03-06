@@ -159,7 +159,7 @@ class Context {
     */
     let defaultFramebuffer: Framebuffer
 
-    init (view: MTKView) {
+    init(view: MTKView) {
 
         self.view = view
 

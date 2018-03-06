@@ -90,11 +90,11 @@ public struct Cartesian4 {
         }
     }
 
-    public init (x: Double, y: Double, z: Double, w: Double) {
+    public init(x: Double, y: Double, z: Double, w: Double) {
         simdType = double4(x, y, z, w)
     }
 
-    public init (x: Double, y: Double, width: Double, height: Double) {
+    public init(x: Double, y: Double, width: Double, height: Double) {
         simdType = double4(x, y, width, height)
     }
 
@@ -110,11 +110,11 @@ public struct Cartesian4 {
      * @param {Cartesian4} [result] The object onto which to store the result.
      * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided.
      */
-    public init (red: Double, green: Double, blue: Double, alpha: Double) {
+    public init(red: Double, green: Double, blue: Double, alpha: Double) {
         self.init(x: red, y: green, z: blue, w: alpha)
     }
 
-    init (simd: double4) {
+    init(simd: double4) {
         simdType = simd
     }
 

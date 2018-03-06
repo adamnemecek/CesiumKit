@@ -25,7 +25,7 @@ class VertexDescriptor {
 
     let metalDescriptor: MTLVertexDescriptor
 
-    init (attributes: [VertexAttributes]) {
+    init(attributes: [VertexAttributes]) {
 
         metalDescriptor = MTLVertexDescriptor()
 

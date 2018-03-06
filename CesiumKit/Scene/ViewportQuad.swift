@@ -59,7 +59,7 @@ open class ViewportQuad: Primitive {
 
     fileprivate var _rs: RenderState! = nil
 
-    public init (rectangle: Cartesian4, material: Material = Material(fromType: ColorMaterialType(fabric: ColorFabricDescription(), source: nil))) {
+    public init(rectangle: Cartesian4, material: Material = Material(fromType: ColorMaterialType(fabric: ColorFabricDescription(), source: nil))) {
         self.rectangle = rectangle
         self.material = material
     }

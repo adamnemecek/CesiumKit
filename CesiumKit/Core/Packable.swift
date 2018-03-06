@@ -25,7 +25,7 @@ protocol Packable {
     */
     static func packedLength () -> Int
 
-    init (array: [Double], startingIndex: Int)
+    init(array: [Double], startingIndex: Int)
 
     /**
     * Stores the provided instance into the provided array.

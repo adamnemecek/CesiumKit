@@ -29,7 +29,7 @@ open class OffscreenQuadPrimitive: Primitive {
         color: Color(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
     )
 
-    init (context: Context, width: Int, height: Int) {
+    init(context: Context, width: Int, height: Int) {
         _context = context
         self.width = width
         self.height = height

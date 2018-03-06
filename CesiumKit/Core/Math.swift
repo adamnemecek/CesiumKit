@@ -754,7 +754,7 @@ public extension Double {
 }
 
 extension Int {
-    init (_ bool: Bool) {
+    init(_ bool: Bool) {
         if bool {
             self.init(1)
         } else {

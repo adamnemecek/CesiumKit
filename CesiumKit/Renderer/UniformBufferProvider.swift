@@ -17,7 +17,7 @@ open class UniformBufferProvider {
 
     let deallocationBlock: UniformMapDeallocBlock?
 
-    init (device: MTLDevice, bufferSize: Int, deallocationBlock: UniformMapDeallocBlock?) {
+    init(device: MTLDevice, bufferSize: Int, deallocationBlock: UniformMapDeallocBlock?) {
 
         self.bufferSize = bufferSize
         self.deallocationBlock = deallocationBlock

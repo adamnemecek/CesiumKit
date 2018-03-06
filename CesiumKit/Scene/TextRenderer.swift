@@ -142,7 +142,7 @@ open class TextRenderer: Primitive {
             normalize: false)
     ]
 
-    public init (string: String, fontName: String, color: Color, pointSize: Int, viewportRect: Cartesian4, offscreenTarget: Bool = false) {
+    public init(string: String, fontName: String, color: Color, pointSize: Int, viewportRect: Cartesian4, offscreenTarget: Bool = false) {
 
         self.string = string
         self.fontName = fontName

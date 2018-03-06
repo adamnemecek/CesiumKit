@@ -59,11 +59,11 @@ class SkyBox {
 
     fileprivate var _cubemap: Texture? = nil
 
-    convenience init (sources: [String]) {
+    convenience init(sources: [String]) {
         self.init(sources: CubeMap.loadImagesForSources(sources))
     }
 
-    init (sources: CubeMapSources) {
+    init(sources: CubeMapSources) {
         self.sources = sources
         _cubemap = nil
         _command = DrawCommand(

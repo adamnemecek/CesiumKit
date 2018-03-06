@@ -224,7 +224,7 @@ class TileUniformMap: NativeUniformMap {
         return textures
     }
 
-    init (maxTextureCount: Int) {
+    init(maxTextureCount: Int) {
         self.maxTextureCount = maxTextureCount
 
         dayTextures = [Texture]()

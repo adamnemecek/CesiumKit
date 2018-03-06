@@ -163,7 +163,7 @@ class CesiumTerrainProvider: TerrainProvider {
 
     fileprivate var _littleEndianExtensionSize = true
 
-    init (url: String, /*proxy: Proxy,*/ ellipsoid: Ellipsoid = .wgs84, tilingScheme: TilingScheme = GeographicTilingScheme(), requestVertexNormals: Bool = false, requestWaterMask: Bool = false) {
+    init(url: String, /*proxy: Proxy,*/ ellipsoid: Ellipsoid = .wgs84, tilingScheme: TilingScheme = GeographicTilingScheme(), requestVertexNormals: Bool = false, requestWaterMask: Bool = false) {
 
         self.url = url
         self.ellipsoid = ellipsoid

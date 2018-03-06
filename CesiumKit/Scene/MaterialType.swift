@@ -34,7 +34,7 @@ public struct ColorMaterialType: MaterialType {
         return (material.type.fabric as! ColorFabricDescription).color.alpha < 1.0
     }
 
-    public init (fabric: ColorFabricDescription = ColorFabricDescription(), source: String? = nil) {
+    public init(fabric: ColorFabricDescription = ColorFabricDescription(), source: String? = nil) {
         self.fabric = fabric
         self.source = source
     }
@@ -64,7 +64,7 @@ open class ColorFabricDescription: FabricDescription {
 
     fileprivate let _uniformMap = ColorFabricUniformMap()
 
-    public override init () {
+    public override init() {
 
     }
 }

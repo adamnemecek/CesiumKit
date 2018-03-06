@@ -110,7 +110,7 @@ class Simon1994PlanetaryPositions {
     fileprivate let _moonEarthMassRatio: Double
     fileprivate let _factor: Double
 
-    init () {
+    init() {
         // configure static variables
 
         epoch = JulianDate(julianDayNumber: 2451545, secondsOfDay: 0, timeStandard: .tai) //Actually TDB (not TAI)

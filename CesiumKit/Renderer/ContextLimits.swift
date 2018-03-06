@@ -309,7 +309,7 @@ class ContextLimits {
         return true
     }
 
-    init (device: MTLDevice) {
+    init(device: MTLDevice) {
 
         var highestSupportedFeatureSet: MTLFeatureSet
         #if os(OSX)

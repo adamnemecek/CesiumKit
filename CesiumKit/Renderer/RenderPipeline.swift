@@ -24,7 +24,7 @@ class RenderPipeline {
 
     fileprivate var _descriptor: MTLRenderPipelineDescriptor
 
-    init (device: MTLDevice, shaderProgram: ShaderProgram, descriptor: MTLRenderPipelineDescriptor) {
+    init(device: MTLDevice, shaderProgram: ShaderProgram, descriptor: MTLRenderPipelineDescriptor) {
 
         self.shaderProgram = shaderProgram
         _descriptor = descriptor
