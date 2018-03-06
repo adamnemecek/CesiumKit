@@ -353,7 +353,7 @@ open class ScreenSpaceCameraController {
 
                 // If value from the decreasing exponential function is close to zero,
                 // the end coordinates may be NaN.
-                if (movementState.endPosition.x == Double.nan || movementState.endPosition.y == Double.nan) || sameMousePosition(movementState) {
+                if (movementState.endPosition.x.isNaN || movementState.endPosition.y.isNaN) || sameMousePosition(movementState) {
                     movementState.active = false
                     return
                 }

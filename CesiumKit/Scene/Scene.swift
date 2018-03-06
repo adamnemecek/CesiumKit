@@ -595,7 +595,7 @@ open class Scene {
         get {
             return context.height
         }
-        set (newValue) {
+        set {
             context.height = newValue
         }
     }
@@ -610,7 +610,7 @@ open class Scene {
         get {
             return context.width
         }
-        set (newValue) {
+        set {
             context.width = newValue
         }
     }
@@ -667,8 +667,8 @@ open class Scene {
         get {
             return globe.terrainProvider
         }
-        set (newTerrainProvider) {
-            globe.terrainProvider = newTerrainProvider
+        set {
+            globe.terrainProvider = newValue
         }
     }
 
@@ -914,8 +914,8 @@ open class Scene {
         for frustumCommands in _frustumCommandsList {
             frustumCommands.removeAll()
         }
-        var near: Double = Double.infinity
-        var far: Double = -Double.infinity
+        var near: Double = .infinity
+        var far: Double = -.infinity
         var undefBV = false
 
         let occluder: Occluder?
@@ -979,7 +979,7 @@ open class Scene {
         // Exploit temporal coherence. If the frustums haven't changed much, use the frustums computed
         // last frame, else compute the new frustums and sort them by frustum again.
         let numFrustums = Int(ceil(log(far / near) / log(farToNearRatio)))
-        if near != Double.infinity &&
+        if near != .infinity &&
             (numFrustums != numberOfFrustums ||
                 (_frustumCommandsList.count != 0 &&
                     (near < (_frustumCommandsList.first! as FrustumCommands).near || far > (_frustumCommandsList.last! as FrustumCommands).far)

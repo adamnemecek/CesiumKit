@@ -153,13 +153,13 @@ struct FrameState {
         * @type {Number}
         * @default undefined
         */
-        Double.nan,
+        .nan,
         /**
         * A scalar used to modify the screen space error of geometry partially in fog.
         * @type {Number}
         * @default undefined
         */
-        Double.nan
+        .nan
     )
 
     /**

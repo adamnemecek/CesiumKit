@@ -170,11 +170,11 @@ open class Camera: DRU {
 
             let heading = getHeading(direction, up: up)
 
-            _setTransform(oldTransform);
+            _setTransform(oldTransform)
 
             return heading;
         }
-        return Double.nan
+        return .nan
     }
 
 
@@ -199,7 +199,7 @@ open class Camera: DRU {
             return pitch
         }
 
-        return Double.nan
+        return .nan
     }
 
 
@@ -223,7 +223,7 @@ open class Camera: DRU {
             return roll
         }
 
-        return Double.nan
+        return .nan
     }
 
 
@@ -2130,7 +2130,7 @@ open class Camera: DRU {
     */
     func getPickRay (_ windowPosition: Cartesian2) -> Ray {
 
-        if frustum.aspectRatio != Double.nan && frustum.fovy != Double.nan && frustum.near != Double.nan {
+        if frustum.aspectRatio != .nan && frustum.fovy != .nan && frustum.near != .nan {
             return getPickRayPerspective(windowPosition)
         }
         assertionFailure("unimplemented")
